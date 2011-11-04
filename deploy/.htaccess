@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9_-]{1,40})$ ./index.php?id=$1 [NC,L]

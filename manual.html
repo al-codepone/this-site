@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>this site Manual</title>
+        <meta name="description" content=""/>
+        <meta charset="utf-8"/>
+        <style>
+            ol#toc {
+                margin:0;
+                padding:0;
+                list-style:none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>this site Manual</h1><hr/>
+        <h2>Contents</h2>
+        <ol id="toc">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+        </ol>
+        <h2 id="introduction">Introduction</h2>
+        <p>this site is a PHP/MySQL web application and it is built on the cityphp web application framework. It's a fairly simple application - there's a list of section links on the left and freeform HTML content on the right. There is a CMS for adding new sections and editing existing sections. The CMS has fields for link title, URL ID, HTML title, HTML description, content, link order and display mode.</p>
+        <h2 id="installation">Installation</h2>
+        <p>First upload the cityphp framework directory to any location on your web server(you can always find the cityphp framework <a href="http://pinchpile.com/cityphp">here</a>). Next perform the following three tasks: create a MySQL database; create a username and password for the MySQL database; and note the MySQL database host. You typically create the database, the database username and the database password using the web control panel provided by your web hosting company. You don't create the database host but it should be listed somewhere within your web control panel.</p>
+        <p>The deploy directory contains all the remaining files you need to upload to your web server. Before you upload the deploy files to your server, you need to edit constants.php. In constants.php you must set these seven constants: CITY_PHP, THIS_SITE_PHP, ROOT, MYSQL_DATABASE_HOST, MYSQL_DATABASE_USERNAME, MYSQL_DATABASE_PASSWORD and MYSQL_DATABASE_NAME. CITY_PHP must be an absolute URI pointing to the cityphp framework directory. THIS_SITE_PHP must be an absolute URI pointing to the thissitephp application directory. The thissitephp application directory can reside anywhere on your web server. ROOT is the application root. ROOT is the directory where your instance of this site runs. For example if you use http://mysite.com/myapp/, then ROOT would be /myapp/. If you use http://mysite.com/, then ROOT would be /. Finally set the four MYSQL_DATABASE constants using the database values you setup in the previous steps.</p>
+        <p>This is important - disable magic quotes in the /cms/ directory. Also note the application is dependent on .htaccess. Okay the files are ready, so upload everything in the deploy directory to the application root on your web server. Using a web browser visit install.php in the application root. If you setup everything correctly you'll see a success message and a link to the CMS. From the CMS you should be able to find your way around. Delete install.php from the web server. Password protect the CMS directory.</p>
+    </body>
+</html>

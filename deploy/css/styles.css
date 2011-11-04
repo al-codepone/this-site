@@ -1,0 +1,66 @@
+body {
+    margin:58px 10px 10px 0px;
+    background-color:#ffffff;
+}
+
+body, input, textarea {
+    font-family:verdana, sans-serif;
+    font-size:12px;
+}
+
+img {
+    border:none;
+}
+
+.error {
+    color:#ff0000;
+    margin-bottom:12px;
+}
+
+.success {
+    color:#00af00;
+}
+
+.navigation {
+    width:200px;
+    float:left;
+    font-weight:bold;
+    margin-right:46px;
+}
+
+.navigation a {
+    font-weight:normal;
+}
+
+.navigation ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+    text-align:right;
+}
+
+.navigation ul li {
+    margin-bottom:7px;
+}
+
+#newsection {
+    margin-bottom:20px;
+}
+
+.view {
+    float:left;
+}
+
+.view form div {
+    margin-bottom:14px;
+}
+
+#xhtmldescription {
+    width:460px;
+    height:60px;
+}
+
+#xcontent {
+    width:460px;
+    height:120px;
+}
