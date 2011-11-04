@@ -25,7 +25,6 @@ img {
     width:200px;
     float:left;
     font-weight:bold;
-    margin-right:46px;
 }
 
 .navigation a {
@@ -48,7 +47,7 @@ img {
 }
 
 .view {
-    float:left;
+    margin-left:246px;
 }
 
 .view form div {
