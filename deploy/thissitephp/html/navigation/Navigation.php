@@ -16,16 +16,16 @@ abstract class Navigation implements IView {
 
     protected function getSectionLink(SectionData $sectionData) {
         $title = htmlspecialchars($sectionData->link_title);
-
-        if($this->isCurrent($sectionData)) {
-            return $title;
-        }
-
-        return sprintf('<a href="%s">%s</a>', $this->getSectionUrl($sectionData), $title);
+        $id = $this->getAnchorID($this->isCurrentSection($sectionData));
+        return sprintf('<a%s href="%s">%s</a>', $id, $this->getSectionUrl($sectionData), $title);
     }
 
-    protected function isCurrent(SectionData $sectionData) {
+    protected function isCurrentSection(SectionData $sectionData) {
         return $this->getCurrentSection()->section_id == $sectionData->section_id;
+    }
+
+    protected function getAnchorID($isCurrentAnchor) {
+        return $isCurrentAnchor ? ' id="currentlink"' : '';
     }
 
     protected function getSections() {

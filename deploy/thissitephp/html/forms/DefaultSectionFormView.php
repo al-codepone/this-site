@@ -19,7 +19,7 @@ abstract class DefaultSectionFormView extends SectionFormView {
     <div>HTML Description<br/><textarea name="xhtmldescription" id="xhtmldescription"><?php $this->shrink('html_description'); ?></textarea></div>
     <div>Content<br/><textarea name="xcontent" id="xcontent"><?php $this->shrink('content'); ?></textarea></div>
     <div>Link Order<br/><input type="text" name="xlinkorder" value="<?php $this->shrink('link_order'); ?>"/></div>
-    <div><?php echo $this->getDisplayModeRadio(); ?></div>
+    <div id="displaymoderadio"><?php echo $this->getDisplayModeRadio(); ?></div>
     <div><?php echo $this->getFormBottom(); ?></div>
 </form>
 <?php
@@ -34,12 +34,12 @@ abstract class DefaultSectionFormView extends SectionFormView {
     abstract protected function getFormBottom();
 
     protected function getDisplayModeRadio() {
-        $ob = 'Display Mode:';
+        $ob = '<div>Display Mode:</div>';
         $options = array('Show All', 'Hide Link', 'Hide All');
 
         for($i = 0; $i < count($options); ++$i) {
             $checked = ($this->getFormSectionData()->display_mode == $i + 1) ? ' checked' : '';
-            $ob .= sprintf('<input type="radio" name="xdisplaymode" id="radio%d" value="%d"%s/><label for="radio%d">%s</label>&nbsp;&nbsp;&nbsp;&nbsp;',
+            $ob .= sprintf('<div><input type="radio" name="xdisplaymode" id="radio%d" value="%d"%s/><label for="radio%d">%s</label></div>',
                 $i, $i + 1, $checked, $i, $options[$i]);
         }
 

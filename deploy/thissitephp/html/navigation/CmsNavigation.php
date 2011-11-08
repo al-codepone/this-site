@@ -14,11 +14,8 @@ abstract class CmsNavigation extends Navigation {
     }
 
     protected function getNewLink() {
-        if($this->isNewSection) {
-            return NEW_SECTION_TITLE;
-        }
-
-        return sprintf('<a href="%s">%s</a>', NEW_SECTION, NEW_SECTION_TITLE);
+        $id = $this->getAnchorID($this->isNewSection);
+        return sprintf('<a%s href="%s">%s</a>', $id, NEW_SECTION, NEW_SECTION_TITLE);
     }
 }
 

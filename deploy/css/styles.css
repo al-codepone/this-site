@@ -1,15 +1,16 @@
 body {
-    margin:58px 10px 10px 0px;
+    margin:46px 10px 10px 0px;
     background-color:#ffffff;
 }
 
 body, input, textarea {
-    font-family:verdana, sans-serif;
+    font-family:verdana, geneva, sans-serif;
     font-size:12px;
 }
 
 img {
     border:none;
+    max-width:100%;
 }
 
 .error {
@@ -22,13 +23,8 @@ img {
 }
 
 .navigation {
-    width:200px;
+    width:190px;
     float:left;
-    font-weight:bold;
-}
-
-.navigation a {
-    font-weight:normal;
 }
 
 .navigation ul {
@@ -47,7 +43,12 @@ img {
 }
 
 .view {
-    margin-left:246px;
+    margin-left:236px;
+}
+
+.view p {
+    width:356px;
+    line-height:17px;
 }
 
 .view form div {
@@ -62,4 +63,55 @@ img {
 #xcontent {
     width:460px;
     height:120px;
+}
+
+#currentlink {
+    text-decoration:none;
+    color:#000000;
+    font-weight:bold;
+}
+
+#displaymoderadio div {
+    margin-bottom:0px;
+}
+
+@media (max-width: 560px) {
+    body {
+        margin:10px;
+        font-size:14px;
+    }
+
+    .navigation {
+        width:100%;
+        float:none;
+        margin:0 8px;
+    }
+
+    .navigation ul {
+        text-align:left;
+    }
+
+    .navigation ul li {
+        float:left;
+        margin-right:10px;
+    }
+
+    #newsection, .navigation ul li {
+        margin-bottom:8px;
+    }
+
+    .view {
+        clear:left;
+        margin:0;
+    }
+
+    .view p {
+        width:100%;
+        line-height:19px;
+        padding-top:6px;
+    }
+
+    #xhtmldescription, #xcontent {
+        width:100%;
+    }
 }
