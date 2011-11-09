@@ -10,6 +10,13 @@
                 padding:0;
                 list-style:none;
             }
+
+            pre {
+                margin-top:24px;
+                margin-bottom:24px;
+                background-color:#e9e7d2;
+                padding:7px;
+            }
         </style>
     </head>
     <body>
@@ -18,12 +25,37 @@
         <ol id="toc">
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#installation">Installation</a></li>
+            <li><a href="#usage">Usage</a></li>
         </ol>
         <h2 id="introduction">Introduction</h2>
-        <p>this site is a PHP/MySQL web application and it is built on the cityphp web application framework. It's a fairly simple application - there's a list of section links on the left and freeform HTML content on the right. There is a CMS for adding new sections and editing existing sections. The CMS has fields for link title, URL ID, HTML title, HTML description, content, link order and display mode.</p>
+        <p>this site is a PHP/MySQL web application and it is built on the cityphp web application framework. It's a fairly simple application - there's a set of navigation links and freeform HTML content for each link. The application uses responsive web design so it should look good on cell phones. There is a CMS for adding new sections and editing existing sections. The CMS has fields for link title, URL ID, HTML title, HTML description, content, link order and display mode(see descriptions below).</p>
         <h2 id="installation">Installation</h2>
         <p>First upload the cityphp framework directory to any location on your web server(you can always find the cityphp framework <a href="http://pinchpile.com/cityphp">here</a>). Next perform the following three tasks: create a MySQL database; create a username and password for the MySQL database; and note the MySQL database host. You typically create the database, the database username and the database password using the web control panel provided by your web hosting company. You don't create the database host but it should be listed somewhere within your web control panel.</p>
         <p>The deploy directory contains all the remaining files you need to upload to your web server. Before you upload the deploy files to your server, you need to edit constants.php. In constants.php you must set these seven constants: CITY_PHP, THIS_SITE_PHP, ROOT, MYSQL_DATABASE_HOST, MYSQL_DATABASE_USERNAME, MYSQL_DATABASE_PASSWORD and MYSQL_DATABASE_NAME. CITY_PHP must be an absolute URI pointing to the cityphp framework directory. THIS_SITE_PHP must be an absolute URI pointing to the thissitephp application directory. The thissitephp application directory can reside anywhere on your web server. ROOT is the application root. ROOT is the directory where your instance of this site runs. For example if you use http://mysite.com/myapp/, then ROOT would be /myapp/. If you use http://mysite.com/, then ROOT would be /. Finally set the four MYSQL_DATABASE constants using the database values you setup in the previous steps.</p>
         <p>This is important - disable magic quotes in the /cms/ directory. Also note the application is dependent on .htaccess. Okay the files are ready, so upload everything in the deploy directory to the application root on your web server. Using a web browser visit install.php in the application root. If you setup everything correctly you'll see a success message and a link to the CMS. From the CMS you should be able to find your way around. Delete install.php from the web server. Password protect the CMS directory.</p>
+        <h2 id="usage">Usage</h2>
+        <p>Here is a description of each CMS field:</p>
+        <ul>
+            <li><b>Link Title</b> - This is the section navigation link title. It can contain any characters but must be 1-50 characters.</li>
+            <li><b>URL ID</b> - This is the section identifier used in the section URL. This must be unique for each section. This can either be empty or 1-40 characters with only letters, numbers, underscores and dashes.</li>
+            <li><b>HTML Title</b> - This is for the HTML head title tag. This title will appear at the top of the browser window and in search engine results. This can contain any characters and must be between 0-65 characters.</li>
+            <li><b>HTML Description</b> - This is for the HTML head meta description. This will appear in search engine results. This can be anything and there is no character length limit.</li>
+            <li><b>Content</b> - This is freeform HTML text which makes up the section page content. It must be at least 1 character; there are no other limitations. Newline characters will be converted to HTML br line break tags. Even though this is freeform HTML, it is recommended you use a usage pattern that limits the type of HTML text allowed(see below).</li>
+            <li><b>Link Order</b> - This number determines where the section navigation link appears in the navigation. The number can be negative, zero or positive. The links are sorted in ascending order top to bottom and left to right. If two links have the same link order then they will be sorted alphabetically.</li>
+            <li><b>Display Mode</b> - This controls whether or not the section navigation link and the section page are visible. There are three radio button options for display mode: show all, hide link and hide all. Show all will show the section navigation link and the section page will be visible. Hide link will hide the section navigation link but the section page will still be visible. Hide all will hide the section navigation link and the section page cannot be visited.</li>
+        </ul>
+        <p>Even though the content field allows for freeform HTML text, it is important that you limit this freeform HTML text so that your layout looks nice on both desktop and mobile devices. The default freeform HTML usage pattern is as follows. You can only use text and images for your freeform HTML. All your text should go in p tags and all your images should go outside of the p tags in img tags. You can have any number of p tags and img tags for each page content. You can set your p tag width in styles.css using the .view p selector. Here are some examples of this default usage pattern.</p>
+        <p>A paragraph of text with a single image below it:</p>
+        <pre>&lt;p&gt;text here..&lt;/p&gt;&lt;img src="mypic.jpg"/&gt;</pre>
+        <p>Three paragraphs with no images:</p>
+        <pre>&lt;p&gt;paragraph 1 text&lt;/p&gt;&lt;p&gt;paragraph 2 text&lt;/p&gt;&lt;p&gt;paragraph 3 text&lt;/p&gt;</pre>
+        <p>Three paragraphs with no images done a different way(since newlines are converted to br tags):</p>
+        <pre>&lt;p&gt;paragraph 1 text
+
+paragraph 2 text
+
+paragraph 3 text&lt;/p&gt;</pre>
+        <p>Two paragraphs and two images interleaved:</p>
+        <pre>&lt;p&gt;1st paragraph&lt;/p&gt;&lt;img src="mypic1.jpg"/&gt;&lt;p&gt;2nd paragraph&lt;/p&gt;&lt;img src="mypic2.jpg"/&gt;</pre>
     </body>
 </html>
