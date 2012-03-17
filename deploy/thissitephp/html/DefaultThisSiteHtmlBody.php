@@ -4,17 +4,17 @@ require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlBody.php');
 
 class DefaultThisSiteHtmlBody extends ThisSiteHtmlBody {
     public function draw() {
-        ob_start();
-        echo $this->getBodyTag();
+        return sprintf('<body><div class="navigation">%s</div>
+            <div class="view">%s</div>%s</body>',
+            $this->getNavigation()->draw(),
+            $this->getView()->draw(),
+            $this->getAutofocusScript());
+    }
 
-?>
-<div class="navigation"><?php echo $this->getNavigation()->draw(); ?></div>
-<div class="view"><?php echo $this->getView()->draw(); ?></div></body>
-<?php
-
-        $ob = ob_get_contents();
-        ob_end_clean();
-        return $ob;
+    protected function getAutofocusScript() {
+        return $this->getIsAutoFocus()
+            ? "<script>document.getElementById('xlinktitle').focus();</script>"
+            : '';
     }
 }
 

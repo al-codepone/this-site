@@ -3,7 +3,7 @@
 //
 require_once('../constants.php');
 require_once(CITY_PHP . 'html/HtmlDoc.php');
-require_once(THIS_SITE_PHP . 'database/ThisSiteDatabaseApiFactory.php');
+require_once(THIS_SITE_PHP . 'database/DatabaseApi.php');
 require_once(THIS_SITE_PHP . 'forms/EditSectionFormHandler.php');
 require_once(THIS_SITE_PHP . 'html/DefaultThisSiteHtmlBody.php');
 require_once(THIS_SITE_PHP . 'html/forms/EditDefaultSectionFormView.php');
@@ -13,7 +13,7 @@ require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlHead.php');
 
 //
 $sectionID = intval($_GET['sid']);
-$databaseApi = ThisSiteDatabaseApiFactory::getDatabaseApi();
+$databaseApi = new DatabaseApi();
 $currentSection = $databaseApi->getSectionWithSID($sectionID);
 $view = null;
 
@@ -61,7 +61,7 @@ $headTags = array('<title>Edit Section</title>',
 //
 $navigation = new DefaultCmsNavigation($databaseApi->getSections(), $currentSection, false);
 $htmlHead = new ThisSiteHtmlHead($headTags);
-$htmlBody = new DefaultThisSiteHtmlBody('<body>', $navigation, $view);
+$htmlBody = new DefaultThisSiteHtmlBody($navigation, $view);
 $htmlDoc = new HtmlDoc($htmlHead, $htmlBody);
 print $htmlDoc->draw();
 

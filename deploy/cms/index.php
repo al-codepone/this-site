@@ -3,8 +3,8 @@
 //
 require_once('../constants.php');
 require_once(CITY_PHP . 'html/HtmlDoc.php');
+require_once(THIS_SITE_PHP . 'database/DatabaseApi.php');
 require_once(THIS_SITE_PHP . 'database/SectionData.php');
-require_once(THIS_SITE_PHP . 'database/ThisSiteDatabaseApiFactory.php');
 require_once(THIS_SITE_PHP . 'forms/NewSectionFormHandler.php');
 require_once(THIS_SITE_PHP . 'html/DefaultThisSiteHtmlBody.php');
 require_once(THIS_SITE_PHP . 'html/forms/NewDefaultSectionFormView.php');
@@ -13,10 +13,10 @@ require_once(THIS_SITE_PHP . 'html/navigation/DefaultCmsNavigation.php');
 require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlHead.php');
 
 //
-$databaseApi = ThisSiteDatabaseApiFactory::getDatabaseApi();
+$databaseApi = new DatabaseApi();
 $formHandler = new NewSectionFormHandler();
 $view = null;
-$bodyTag = '<body>';
+$isAutofocus = false;
 
 if($formHandler->isReady()) {
     $errors = $formHandler->validate();
@@ -44,13 +44,13 @@ else {
     $formSectionData = new SectionData();
     $formSectionData->link_order = $databaseApi->getMaxLinkOrder() + 1;
     $view = new NewDefaultSectionFormView($formSectionData);
-    $bodyTag = '<body onLoad="document.getElementById(\'xlinktitle\').focus();">';
+    $isAutofocus = true;
 }
 
 
 $navigation = new DefaultCmsNavigation($databaseApi->getSections());
 $htmlHead = new ThisSiteHtmlHead(array('<title>Create New Section</title>'));
-$htmlBody = new DefaultThisSiteHtmlBody($bodyTag, $navigation, $view);
+$htmlBody = new DefaultThisSiteHtmlBody($navigation, $view, $isAutofocus);
 $htmlDoc = new HtmlDoc($htmlHead, $htmlBody);
 print $htmlDoc->draw();
 

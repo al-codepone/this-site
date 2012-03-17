@@ -1,9 +1,9 @@
 <?php
 
 require_once('./constants.php');
-require_once(THIS_SITE_PHP . 'database/ThisSiteDatabaseApiFactory.php');
+require_once(THIS_SITE_PHP . 'database/DatabaseApi.php');
 
-$databaseApi = ThisSiteDatabaseApiFactory::getDatabaseApi();
+$databaseApi = new DatabaseApi();
 $databaseApi->install();
 
 printf('Install successful. <a href="%s">Visit CMS</a>.', NEW_SECTION);

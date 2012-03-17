@@ -2,11 +2,13 @@
 
 require_once(CITY_PHP . 'database/MySqlDatabaseHandle.php');
 require_once(THIS_SITE_PHP . 'database/SectionData.php');
-require_once(THIS_SITE_PHP . 'database/ThisSiteDatabaseApi.php');
 
-class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
-    public function __construct(MySqlDatabaseHandle $databaseHandle) {
-        parent::__construct($databaseHandle);
+class DatabaseApi extends MySqlDatabaseHandle {
+    public function __construct() {
+        parent::__construct(DATABASE_HOST,
+            DATABASE_USERNAME,
+            DATABASE_PASSWORD,
+            DATABASE_NAME);
     }
 
     public function install() {
@@ -20,15 +22,16 @@ class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
             link_order MEDIUMINT SIGNED NOT NULL DEFAULT 1,
             display_mode ENUM("showall", "hidelink", "hideall") NOT NULL,
             PRIMARY KEY (section_id),
-            KEY (url_id))',
-            self::TABLE_SECTIONS);
+            KEY (url_id))
+            ENGINE = MYISAM',
+            TABLE_SECTIONS);
 
-        $this->writeQuery($query);
+        $this->query($query);
     }
 
     public function getMaxLinkOrder() {
-        $query = sprintf('SELECT MAX(link_order) AS max FROM %s', self::TABLE_SECTIONS);
-        $queryData = $this->readQuery($query);
+        $query = sprintf('SELECT MAX(link_order) AS max FROM %s', TABLE_SECTIONS);
+        $queryData = $this->fetchQuery($query);
         return intval($queryData[0]['max']);
     }
 
@@ -36,7 +39,7 @@ class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
         $query = sprintf('SELECT section_id, url_id, link_title, html_title,
             html_description, content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE section_id = %d',
-            self::TABLE_SECTIONS,
+            TABLE_SECTIONS,
             $sectionID);
 
         return $this->getSectionWithQuery($query);
@@ -46,7 +49,7 @@ class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
         $query = sprintf('SELECT section_id, url_id, link_title, html_title,
             html_description, content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE url_id = "%s"',
-            self::TABLE_SECTIONS,
+            TABLE_SECTIONS,
             $this->escapeString($urlID));
 
         return $this->getSectionWithQuery($query);
@@ -55,12 +58,13 @@ class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
     public function getSections() {
         $query = sprintf('SELECT section_id, url_id, link_title, display_mode + 0 AS display_mode
             FROM %s ORDER BY link_order, link_title',
-            self::TABLE_SECTIONS);
+            TABLE_SECTIONS);
 
-        $queryData = $this->readQuery($query);
+        $queryData = $this->fetchQuery($query);
         $sections = array();
         foreach($queryData as $data) {
-            $sections[] = new SectionData($data['section_id'], $data['url_id'], $data['link_title'], '', '', '', 1, $data['display_mode']);
+            $sections[] = new SectionData($data['section_id'], $data['url_id'], $data['link_title'],
+                '', '', '', 1, $data['display_mode']);
         }
 
         return $sections;
@@ -70,7 +74,7 @@ class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
         $query = sprintf('INSERT INTO %s
             (section_id, url_id, link_title, html_title, html_description, content, link_order, display_mode)
             VALUES(NULL, "%s", "%s", "%s", "%s", "%s", %d, %d)',
-            self::TABLE_SECTIONS,
+            TABLE_SECTIONS,
             $this->escapeString($sectionData->url_id),
             $this->escapeString($sectionData->link_title),
             $this->escapeString($sectionData->html_title),
@@ -79,14 +83,14 @@ class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
             $sectionData->link_order,
             $sectionData->display_mode);
 
-        $this->writeQuery($query);
+        $this->query($query);
         return $this->getConn()->insert_id;
     }
 
     public function editSection(SectionData $sectionData) {
         $query = sprintf('UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
             html_description = "%s", content = "%s", link_order = %d, display_mode = %d WHERE section_id = %d',
-            self::TABLE_SECTIONS,
+            TABLE_SECTIONS,
             $this->escapeString($sectionData->url_id),
             $this->escapeString($sectionData->link_title),
             $this->escapeString($sectionData->html_title),
@@ -96,15 +100,33 @@ class MySqlThisSiteDatabaseApi extends ThisSiteDatabaseApi {
             $sectionData->display_mode,
             $sectionData->section_id);
 
-        $this->writeQuery($query);
+        $this->query($query);
     }
 
     public function deleteSection($sectionID) {
         $query = sprintf('DELETE FROM %s WHERE section_id = %d',
-            self::TABLE_SECTIONS,
+            TABLE_SECTIONS,
             $sectionID);
 
-        $this->writeQuery($query);
+        $this->query($query);
+    }
+
+    private function getSectionWithQuery($query) {
+        $queryData = $this->fetchQuery($query);
+
+        if(count($queryData) == 1) {
+            $data = $queryData[0];
+            return new SectionData($data['section_id'],
+                $data['url_id'],
+                $data['link_title'],
+                $data['html_title'],
+                $data['html_description'],
+                $data['content'],
+                $data['link_order'],
+                $data['display_mode']);
+        }
+
+        return new SectionData();
     }
 }
 

@@ -1,17 +1,17 @@
 <?php
 
-require_once(CITY_PHP . 'html/HtmlBody.php');
 require_once(CITY_PHP . 'IView.php');
 require_once(THIS_SITE_PHP . 'html/navigation/Navigation.php');
 
-abstract class ThisSiteHtmlBody extends HtmlBody {
+abstract class ThisSiteHtmlBody implements IView {
     private $navigation;
     private $view;
+    private $isAutofocus;
 
-    public function __construct($bodyTag, Navigation $navigation, IView $view) {
-        parent::__construct($bodyTag);
+    public function __construct(Navigation $navigation, IView $view, $isAutofocus = false) {
         $this->navigation = $navigation;
         $this->view = $view;
+        $this->isAutofocus = false;
     }
 
     protected function getNavigation() {
@@ -20,6 +20,10 @@ abstract class ThisSiteHtmlBody extends HtmlBody {
 
     protected function getView() {
         return $this->view;
+    }
+
+    protected function getIsAutofocus() {
+        return $this->isAutofocus;
     }
 }
 
