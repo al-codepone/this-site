@@ -5,10 +5,10 @@ require_once('../constants.php');
 require_once(CITY_PHP . 'html/HtmlDoc.php');
 require_once(THIS_SITE_PHP . 'database/DatabaseApi.php');
 require_once(THIS_SITE_PHP . 'forms/EditSectionFormHandler.php');
-require_once(THIS_SITE_PHP . 'html/DefaultThisSiteHtmlBody.php');
-require_once(THIS_SITE_PHP . 'html/forms/EditDefaultSectionFormView.php');
-require_once(THIS_SITE_PHP . 'html/misc/Message.php');
-require_once(THIS_SITE_PHP . 'html/navigation/DefaultCmsNavigation.php');
+require_once(THIS_SITE_PHP . 'html/forms/EditSectionFormView.php');
+require_once(THIS_SITE_PHP . 'html/Message.php');
+require_once(THIS_SITE_PHP . 'html/navigation/CmsNavigation.php');
+require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlBody.php');
 require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlHead.php');
 
 //
@@ -30,13 +30,13 @@ if($currentSection->section_id != -1) {
             $view = new Message('<div class="success">Section deleted</div>');
         }
         else if(count($errors) > 0) {
-            $view = new EditDefaultSectionFormView($formSectionData, current($errors), $currentSection);
+            $view = new EditSectionFormView($formSectionData, current($errors), $currentSection);
         }
         else {
             $duplicateCheck = $databaseApi->getSectionWithUID($formSectionData->url_id);
 
             if($duplicateCheck->section_id != -1 && $duplicateCheck->section_id != $currentSection->section_id) {
-                $view = new EditDefaultSectionFormView($formSectionData, 'URL ID already in use', $currentSection);
+                $view = new EditSectionFormView($formSectionData, 'URL ID already in use', $currentSection);
             }
             else {
                 $formSectionData->section_id = $sectionID;
@@ -48,7 +48,7 @@ if($currentSection->section_id != -1) {
         }
     }
     else {
-        $view = new EditDefaultSectionFormView($currentSection, '', $currentSection);
+        $view = new EditSectionFormView($currentSection, '', $currentSection);
     }
 }
 else {
@@ -56,12 +56,12 @@ else {
 }
 
 $headTags = array('<title>Edit Section</title>',
-    '<script type="text/javascript" src="' . JAVASCRIPT . 'editSection.js"></script>');
+    '<script src="' . JAVASCRIPT . 'editSection.js"></script>');
 
 //
-$navigation = new DefaultCmsNavigation($databaseApi->getSections(), $currentSection, false);
+$navigation = new CmsNavigation($databaseApi->getSections(), $currentSection, false);
 $htmlHead = new ThisSiteHtmlHead($headTags);
-$htmlBody = new DefaultThisSiteHtmlBody($navigation, $view);
+$htmlBody = new ThisSiteHtmlBody($navigation, $view);
 $htmlDoc = new HtmlDoc($htmlHead, $htmlBody);
 print $htmlDoc->draw();
 

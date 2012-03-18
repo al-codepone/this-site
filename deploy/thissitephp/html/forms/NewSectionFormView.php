@@ -1,8 +1,8 @@
 <?php
 
-require_once(THIS_SITE_PHP . 'html/forms/DefaultSectionFormView.php');
+require_once(THIS_SITE_PHP . 'html/forms/SectionFormView.php');
 
-class NewDefaultSectionFormView extends DefaultSectionFormView {
+class NewSectionFormView extends SectionFormView {
     protected function getActionUrl() {
         return NEW_SECTION;
     }

@@ -3,7 +3,7 @@
 require_once(THIS_SITE_PHP . 'database/SectionData.php');
 require_once(THIS_SITE_PHP . 'html/navigation/Navigation.php');
 
-class DefaultNavigation extends Navigation {
+class SiteNavigation extends Navigation {
     public function draw() {
         $ob = '<ul>';
 

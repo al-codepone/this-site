@@ -6,10 +6,10 @@ require_once(CITY_PHP . 'html/HtmlDoc.php');
 require_once(THIS_SITE_PHP . 'database/DatabaseApi.php');
 require_once(THIS_SITE_PHP . 'database/SectionData.php');
 require_once(THIS_SITE_PHP . 'forms/NewSectionFormHandler.php');
-require_once(THIS_SITE_PHP . 'html/DefaultThisSiteHtmlBody.php');
-require_once(THIS_SITE_PHP . 'html/forms/NewDefaultSectionFormView.php');
-require_once(THIS_SITE_PHP . 'html/misc/Message.php');
-require_once(THIS_SITE_PHP . 'html/navigation/DefaultCmsNavigation.php');
+require_once(THIS_SITE_PHP . 'html/forms/NewSectionFormView.php');
+require_once(THIS_SITE_PHP . 'html/Message.php');
+require_once(THIS_SITE_PHP . 'html/navigation/CmsNavigation.php');
+require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlBody.php');
 require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlHead.php');
 
 //
@@ -23,13 +23,13 @@ if($formHandler->isReady()) {
     $formSectionData = $formHandler->getSectionData();
 
     if(count($errors) > 0) {
-        $view = new NewDefaultSectionFormView($formSectionData, current($errors));
+        $view = new NewSectionFormView($formSectionData, current($errors));
     }
     else {
         $duplicateCheck = $databaseApi->getSectionWithUID($formSectionData->url_id);
 
         if($duplicateCheck->section_id != -1) {
-            $view = new NewDefaultSectionFormView($formSectionData, 'URL ID already in use');
+            $view = new NewSectionFormView($formSectionData, 'URL ID already in use');
         }
         else {
             $newSectionID = $databaseApi->addSection($formSectionData);
@@ -43,14 +43,14 @@ if($formHandler->isReady()) {
 else {
     $formSectionData = new SectionData();
     $formSectionData->link_order = $databaseApi->getMaxLinkOrder() + 1;
-    $view = new NewDefaultSectionFormView($formSectionData);
+    $view = new NewSectionFormView($formSectionData);
     $isAutofocus = true;
 }
 
 
-$navigation = new DefaultCmsNavigation($databaseApi->getSections());
+$navigation = new CmsNavigation($databaseApi->getSections());
 $htmlHead = new ThisSiteHtmlHead(array('<title>Create New Section</title>'));
-$htmlBody = new DefaultThisSiteHtmlBody($navigation, $view, $isAutofocus);
+$htmlBody = new ThisSiteHtmlBody($navigation, $view, $isAutofocus);
 $htmlDoc = new HtmlDoc($htmlHead, $htmlBody);
 print $htmlDoc->draw();
 

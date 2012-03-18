@@ -21,7 +21,7 @@ abstract class Navigation implements IView {
     }
 
     protected function isCurrentSection(SectionData $sectionData) {
-        return $this->getCurrentSection()->section_id == $sectionData->section_id;
+        return $this->currentSection->section_id == $sectionData->section_id;
     }
 
     protected function getAnchorID($isCurrentAnchor) {
@@ -30,10 +30,6 @@ abstract class Navigation implements IView {
 
     protected function getSections() {
         return $this->sections;
-    }
-
-    protected function getCurrentSection() {
-        return $this->currentSection;
     }
 }
 

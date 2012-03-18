@@ -10,10 +10,6 @@ class Message implements IView {
     }
 
     public function draw() {
-        return $this->getMessage();
-    }
-
-    protected function getMessage() {
         return $this->message;
     }
 }

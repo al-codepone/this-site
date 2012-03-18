@@ -27,7 +27,7 @@ class NewSectionFormHandler extends FormHandler {
     }
 
     protected function validate_xurlid($value) {
-        if($value == '' || preg_match("/^[a-zA-Z0-9_-]{1,40}$/", $value) == 1) {
+        if($value == '' || preg_match("/^[a-z0-9_-]{1,40}$/i", $value) == 1) {
             return '';
         }
 

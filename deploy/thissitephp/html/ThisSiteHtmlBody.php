@@ -3,7 +3,7 @@
 require_once(CITY_PHP . 'IView.php');
 require_once(THIS_SITE_PHP . 'html/navigation/Navigation.php');
 
-abstract class ThisSiteHtmlBody implements IView {
+class ThisSiteHtmlBody implements IView {
     private $navigation;
     private $view;
     private $isAutofocus;
@@ -11,19 +11,21 @@ abstract class ThisSiteHtmlBody implements IView {
     public function __construct(Navigation $navigation, IView $view, $isAutofocus = false) {
         $this->navigation = $navigation;
         $this->view = $view;
-        $this->isAutofocus = false;
+        $this->isAutofocus = $isAutofocus;
     }
 
-    protected function getNavigation() {
-        return $this->navigation;
+    public function draw() {
+        return sprintf('<body><div class="navigation">%s</div>
+            <div class="view">%s</div>%s</body>',
+            $this->navigation->draw(),
+            $this->view->draw(),
+            $this->getAutofocusScript());
     }
 
-    protected function getView() {
-        return $this->view;
-    }
-
-    protected function getIsAutofocus() {
-        return $this->isAutofocus;
+    protected function getAutofocusScript() {
+        return $this->isAutofocus
+            ? "<script>document.getElementById('xlinktitle').focus();</script>"
+            : '';
     }
 }
 
