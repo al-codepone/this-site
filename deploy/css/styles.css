@@ -8,6 +8,10 @@ body, input, textarea {
     font-size:12px;
 }
 
+a {
+    color:#0000ff;
+}
+
 img {
     border:none;
     max-width:100%;
@@ -35,11 +39,11 @@ img {
 }
 
 .navigation ul li {
-    margin-bottom:7px;
+    margin-bottom:9px;
 }
 
 #newsection {
-    margin-bottom:20px;
+    margin-bottom:21px;
 }
 
 .view {
@@ -48,7 +52,7 @@ img {
 
 .view p {
     width:356px;
-    line-height:17px;
+    line-height:18px;
 }
 
 .view form div {
@@ -84,7 +88,7 @@ img {
     .navigation {
         width:100%;
         float:none;
-        margin:0 8px;
+		margin:0 10px;
     }
 
     .navigation ul {
@@ -93,11 +97,11 @@ img {
 
     .navigation ul li {
         float:left;
-        margin-right:10px;
+        margin-right:14px;
     }
 
     #newsection, .navigation ul li {
-        margin-bottom:8px;
+        margin-bottom:12px;
     }
 
     .view {
@@ -107,8 +111,7 @@ img {
 
     .view p {
         width:100%;
-        line-height:19px;
-        padding-top:6px;
+        line-height:20px;
     }
 
     #xhtmldescription, #xcontent {
