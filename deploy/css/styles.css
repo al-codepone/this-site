@@ -81,14 +81,13 @@ img {
 
 @media (max-width: 560px) {
     body {
-        margin:10px;
+        margin:12px;
         font-size:14px;
     }
 
     .navigation {
         width:100%;
         float:none;
-		margin:0 10px;
     }
 
     .navigation ul {
@@ -102,6 +101,10 @@ img {
 
     #newsection, .navigation ul li {
         margin-bottom:12px;
+    }
+
+    .navigation ul li:last-child {
+        margin-bottom:22px;
     }
 
     .view {
