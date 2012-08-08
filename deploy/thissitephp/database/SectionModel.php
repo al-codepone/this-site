@@ -5,19 +5,18 @@ require_once(THIS_SITE_PHP . 'database/SectionData.php');
 
 class SectionModel extends DatabaseAdapter {
     public function install() {
-        $query = sprintf('CREATE TABLE %s (
+        $query = 'CREATE TABLE ' . TABLE_SECTIONS . ' (
             section_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-            url_id VARCHAR(64) NOT NULL DEFAULT "",
-            link_title VARCHAR(64) NOT NULL DEFAULT "",
-            html_title VARCHAR(128) NOT NULL DEFAULT "",
-            html_description TEXT NOT NULL DEFAULT "",
-            content TEXT NOT NULL DEFAULT "",
-            link_order MEDIUMINT SIGNED NOT NULL DEFAULT 1,
-            display_mode ENUM("showall", "hidelink", "hideall") NOT NULL,
+            url_id VARCHAR(64),
+            link_title VARCHAR(64),
+            html_title VARCHAR(128),
+            html_description TEXT,
+            content TEXT,
+            link_order MEDIUMINT SIGNED,
+            display_mode ENUM("showall", "hidelink", "hideall"),
             PRIMARY KEY (section_id),
             KEY (url_id))
-            ENGINE = MYISAM',
-            TABLE_SECTIONS);
+            ENGINE = MYISAM';
 
         $this->query($query);
     }
