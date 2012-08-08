@@ -1,18 +1,18 @@
 <?php
 
-define('CITY_PHP', '/somedir/cityphp/');
-define('THIS_SITE_PHP', '/somedir/thissitephp/');
+define('CITY_PHP', 'C:/wamp/www/framework/cityphp/');
+define('THIS_SITE_PHP', 'C:/wamp/www/thissite/deploy/thissitephp/');
 
-define('ROOT', '/somedir/');
+define('ROOT', '/thissite/deploy/');
 define('CSS', ROOT . 'css/');
 define('JAVASCRIPT', ROOT . 'javascript/');
 define('NEW_SECTION', ROOT . 'cms/');
 define('EDIT_SECTION', ROOT . 'cms/edit.php');
 
-define('DATABASE_HOST', 'host');
-define('DATABASE_USERNAME', 'username');
-define('DATABASE_PASSWORD', 'password');
-define('DATABASE_NAME', 'database');
+define('DATABASE_HOST', 'localhost');
+define('DATABASE_USERNAME', 'juanita');
+define('DATABASE_PASSWORD', 'pasta');
+define('DATABASE_NAME', 'ts_test');
 
 define('TABLE_SECTIONS', 'sections');
 
