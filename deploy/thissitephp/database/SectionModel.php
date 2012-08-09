@@ -42,7 +42,7 @@ class SectionModel extends DatabaseAdapter {
             html_description, content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE url_id = "%s"',
             TABLE_SECTIONS,
-            $this->escapeString($urlID));
+            $this->esc($urlID));
 
         return $this->getSectionWithQuery($query);
     }
@@ -67,11 +67,11 @@ class SectionModel extends DatabaseAdapter {
             (section_id, url_id, link_title, html_title, html_description, content, link_order, display_mode)
             VALUES(NULL, "%s", "%s", "%s", "%s", "%s", %d, %d)',
             TABLE_SECTIONS,
-            $this->escapeString($sectionData->url_id),
-            $this->escapeString($sectionData->link_title),
-            $this->escapeString($sectionData->html_title),
-            $this->escapeString($sectionData->html_description),
-            $this->escapeString($sectionData->content),
+            $this->esc($sectionData->url_id),
+            $this->esc($sectionData->link_title),
+            $this->esc($sectionData->html_title),
+            $this->esc($sectionData->html_description),
+            $this->esc($sectionData->content),
             $sectionData->link_order,
             $sectionData->display_mode);
 
@@ -83,11 +83,11 @@ class SectionModel extends DatabaseAdapter {
         $query = sprintf('UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
             html_description = "%s", content = "%s", link_order = %d, display_mode = %d WHERE section_id = %d',
             TABLE_SECTIONS,
-            $this->escapeString($sectionData->url_id),
-            $this->escapeString($sectionData->link_title),
-            $this->escapeString($sectionData->html_title),
-            $this->escapeString($sectionData->html_description),
-            $this->escapeString($sectionData->content),
+            $this->esc($sectionData->url_id),
+            $this->esc($sectionData->link_title),
+            $this->esc($sectionData->html_title),
+            $this->esc($sectionData->html_description),
+            $this->esc($sectionData->content),
             $sectionData->link_order,
             $sectionData->display_mode,
             $sectionData->section_id);

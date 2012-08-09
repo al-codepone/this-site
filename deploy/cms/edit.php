@@ -3,7 +3,7 @@
 //
 require_once('../constants.php');
 require_once(CITY_PHP . 'html/HtmlDoc.php');
-require_once(THIS_SITE_PHP . 'database/DatabaseApi.php');
+require_once(THIS_SITE_PHP . 'database/MyModelFactory.php');
 require_once(THIS_SITE_PHP . 'forms/EditSectionFormHandler.php');
 require_once(THIS_SITE_PHP . 'html/forms/EditSectionFormView.php');
 require_once(THIS_SITE_PHP . 'html/Message.php');
@@ -13,8 +13,8 @@ require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlHead.php');
 
 //
 $sectionID = intval($_GET['sid']);
-$databaseApi = new DatabaseApi();
-$currentSection = $databaseApi->getSectionWithSID($sectionID);
+$sectionModel = MyModelFactory::getModel('SectionModel');
+$currentSection = $sectionModel->getSectionWithSID($sectionID);
 $view = null;
 
 if($currentSection->section_id != -1) {
@@ -26,21 +26,21 @@ if($currentSection->section_id != -1) {
         $deleteFlag = intval($formHandler->getValue('x7n'));
 
         if($deleteFlag == 1459) {
-            $databaseApi->deleteSection($sectionID);
+            $sectionModel->deleteSection($sectionID);
             $view = new Message('<div class="success">Section deleted</div>');
         }
         else if(count($errors) > 0) {
             $view = new EditSectionFormView($formSectionData, current($errors), $currentSection);
         }
         else {
-            $duplicateCheck = $databaseApi->getSectionWithUID($formSectionData->url_id);
+            $duplicateCheck = $sectionModel->getSectionWithUID($formSectionData->url_id);
 
             if($duplicateCheck->section_id != -1 && $duplicateCheck->section_id != $currentSection->section_id) {
                 $view = new EditSectionFormView($formSectionData, 'URL ID already in use', $currentSection);
             }
             else {
                 $formSectionData->section_id = $sectionID;
-                $databaseApi->editSection($formSectionData);
+                $sectionModel->editSection($formSectionData);
                 $view = new Message('<div class="success">Section updated</div>'
                     . sprintf('<ul><li><a href="%s%s">View Section</a></li>', ROOT, $formSectionData->url_id)
                     . sprintf('<li><a href="%s?sid=%d">Edit Section</a></li></ul>', EDIT_SECTION, $sectionID));
@@ -59,7 +59,7 @@ $headTags = array('<title>Edit Section</title>',
     '<script src="' . JAVASCRIPT . 'editSection.js"></script>');
 
 //
-$navigation = new CmsNavigation($databaseApi->getSections(), $currentSection, false);
+$navigation = new CmsNavigation($sectionModel->getSections(), $currentSection, false);
 $htmlHead = new ThisSiteHtmlHead($headTags);
 $htmlBody = new ThisSiteHtmlBody($navigation, $view);
 $htmlDoc = new HtmlDoc($htmlHead, $htmlBody);
