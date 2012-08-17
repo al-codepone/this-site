@@ -1,15 +1,27 @@
 body {
-    margin:46px 10px 10px 0px;
-    background-color:#ffffff;
+    margin:48px 10px 64px 0px;
+    background:#fcfcfb;
 }
 
-body, input, textarea {
-    font-family:verdana, geneva, sans-serif;
-    font-size:12px;
+body {
+    font:0.75em verdana, geneva, sans-serif;
+    color:#111213;
+}
+
+input, textarea {
+    padding:0.25em;
+    font:1em verdana, geneva, sans-serif;
+    color:#111213;
+}
+
+input[type="submit"], input[type="button"] {
+    padding:0.3em;
+    font:1.25em verdana, geneva, sans-serif;
+    color:#000000;
 }
 
 a {
-    color:#0000ff;
+    color:#0000ee;
 }
 
 img {
@@ -17,66 +29,71 @@ img {
     max-width:100%;
 }
 
+label {
+    display:block;
+}
+
 .error {
     color:#ff0000;
-    margin-bottom:12px;
+    margin-bottom:1.5em;
 }
 
 .success {
     color:#00af00;
 }
 
-.navigation {
-    width:190px;
+#nav {
     float:left;
-}
-
-.navigation ul {
+    width:190px;
     padding:0;
     margin:0;
     list-style-type:none;
     text-align:right;
 }
 
-.navigation ul li {
-    margin-bottom:9px;
+#nav li {
+    margin-bottom:0.75em;
 }
 
-#newsection {
-    margin-bottom:21px;
+#nav #new_section {
+    margin-bottom:1.75em;
 }
 
-.view {
+#content_c {
     margin-left:236px;
 }
 
-.view p {
+#content_c p {
     width:356px;
-    line-height:18px;
+    line-height:1.5em;
 }
 
-.view form div {
-    margin-bottom:14px;
+#content_c form div {
+    margin-bottom:1.25em;
 }
 
-#xhtmldescription {
+#content_c #display_mode div {
+    margin-bottom:0;
+}
+
+#content_c #display_mode div label {
+    display:inline;
+}
+
+#html_description {
     width:460px;
     height:60px;
 }
 
-#xcontent {
+#content {
     width:460px;
     height:120px;
 }
 
 #currentlink {
     text-decoration:none;
-    color:#000000;
+    color:#111213;
     font-weight:bold;
-}
-
-#displaymoderadio div {
-    margin-bottom:0px;
 }
 
 @media (max-width: 560px) {
@@ -85,34 +102,34 @@ img {
         font-size:14px;
     }
 
-    .navigation {
+    .nav {
         width:100%;
         float:none;
     }
 
-    .navigation ul {
+    .nav ul {
         text-align:left;
     }
 
-    .navigation ul li {
+    .nav ul li {
         float:left;
         margin-right:14px;
     }
 
-    #newsection, .navigation ul li {
+    #newsection, .nav ul li {
         margin-bottom:12px;
     }
 
-    .navigation ul li:last-child {
+    .nav ul li:last-child {
         margin-bottom:18px;
     }
 
-    .view {
+    #content_c {
         clear:left;
         margin:0;
     }
 
-    .view p {
+    #content_c p {
         width:100%;
         line-height:20px;
     }

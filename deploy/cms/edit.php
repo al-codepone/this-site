@@ -1,68 +1,54 @@
 <?php
 
-//
 require_once('../constants.php');
-require_once(CITY_PHP . 'html/HtmlDoc.php');
 require_once(THIS_SITE_PHP . 'database/MyModelFactory.php');
 require_once(THIS_SITE_PHP . 'forms/EditSectionFormHandler.php');
-require_once(THIS_SITE_PHP . 'html/forms/EditSectionFormView.php');
-require_once(THIS_SITE_PHP . 'html/Message.php');
-require_once(THIS_SITE_PHP . 'html/navigation/CmsNavigation.php');
-require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlBody.php');
-require_once(THIS_SITE_PHP . 'html/ThisSiteHtmlHead.php');
+require_once(THIS_SITE_PHP . 'html/cmsNavItems.php');
+require_once(THIS_SITE_PHP . 'html/editSection.php');
 
-//
-$sectionID = intval($_GET['sid']);
+$sectionID = $_GET['sid'];
 $sectionModel = MyModelFactory::getModel('SectionModel');
-$currentSection = $sectionModel->getSectionWithSID($sectionID);
-$view = null;
+$section = $sectionModel->getSectionWithSID($sectionID);
+$head = '<script src="' . JAVASCRIPT . 'edit_section.js"></script>';
 
-if($currentSection->section_id != -1) {
+if($section) {
     $formHandler = new EditSectionFormHandler();
 
     if($formHandler->isReady()) {
         $errors = $formHandler->validate();
-        $formSectionData = $formHandler->getSectionData();
-        $deleteFlag = intval($formHandler->getValue('x7n'));
+        $formData = $formHandler->getValues();
 
-        if($deleteFlag == 1459) {
+        if($formData['delete_flag']) {
             $sectionModel->deleteSection($sectionID);
-            $view = new Message('<div class="success">Section deleted</div>');
+            $content = '<div class="success">Section deleted</div>';
         }
         else if(count($errors) > 0) {
-            $view = new EditSectionFormView($formSectionData, current($errors), $currentSection);
+            $content = editSection($formData, $section, current($errors));
         }
         else {
-            $duplicateCheck = $sectionModel->getSectionWithUID($formSectionData->url_id);
+            $duplicateCheck = $sectionModel->getSectionWithUID($formData['url_id']);
 
-            if($duplicateCheck->section_id != -1 && $duplicateCheck->section_id != $currentSection->section_id) {
-                $view = new EditSectionFormView($formSectionData, 'URL ID already in use', $currentSection);
+            if($duplicateCheck && $duplicateCheck['section_id'] != $section['section_id']) {
+                $content = editSection($formData, $section, 'URL ID already in use');
             }
             else {
-                $formSectionData->section_id = $sectionID;
-                $sectionModel->editSection($formSectionData);
-                $view = new Message('<div class="success">Section updated</div>'
-                    . sprintf('<ul><li><a href="%s%s">View Section</a></li>', ROOT, $formSectionData->url_id)
-                    . sprintf('<li><a href="%s?sid=%d">Edit Section</a></li></ul>', EDIT_SECTION, $sectionID));
+                $sectionModel->editSection($sectionID, $formData);
+                $content = sprintf('<div class="success">Section updated</div>'
+                    . '<ul><li><a href="%s%s">View Section</a></li>'
+                    . '<li><a href="%s?sid=%d">Edit Section</a></li></ul>',
+                    ROOT, $formData['url_id'], EDIT_SECTION, $sectionID);
             }
         }
     }
     else {
-        $view = new EditSectionFormView($currentSection, '', $currentSection);
+        $content = editSection($section, $section);
     }
 }
 else {
-   $view = new Message('This section is invalid.');
+   $content = 'This section is invalid.';
 }
 
-$headTags = array('<title>Edit Section</title>',
-    '<script src="' . JAVASCRIPT . 'editSection.js"></script>');
-
-//
-$navigation = new CmsNavigation($sectionModel->getSections(), $currentSection, false);
-$htmlHead = new ThisSiteHtmlHead($headTags);
-$htmlBody = new ThisSiteHtmlBody($navigation, $view);
-$htmlDoc = new HtmlDoc($htmlHead, $htmlBody);
-print $htmlDoc->draw();
+$navItems = cmsNavItems($sectionModel->getSections());
+include(THIS_SITE_PHP . 'html/template.php');
 
 ?>

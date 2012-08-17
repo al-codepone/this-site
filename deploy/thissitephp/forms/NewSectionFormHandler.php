@@ -1,32 +1,21 @@
 <?php
 
 require_once(CITY_PHP . 'forms/FormHandler.php');
-require_once(THIS_SITE_PHP . 'database/SectionData.php');
 
 class NewSectionFormHandler extends FormHandler {
     public function __construct() {
-        $elementValues = array('xurlid' => '',
-            'xlinktitle' => '',
-            'xhtmltitle' => '',
-            'xhtmldescription' => '',
-            'xcontent' => '',
-            'xlinkorder' => 1,
-            'xdisplaymode' => 1);
+        $elementValues = array('url_id' => '',
+            'link_title' => '',
+            'html_title' => '',
+            'html_description' => '',
+            'content' => '',
+            'link_order' => 1,
+            'display_mode' => 1);
+
         parent::__construct($elementValues);
     }
 
-    public function getSectionData() {
-        return new SectionData(-1,
-            $this->getValue('xurlid'),
-            $this->getValue('xlinktitle'),
-            $this->getValue('xhtmltitle'),
-            $this->getValue('xhtmldescription'),
-            $this->getValue('xcontent'),
-            intval($this->getValue('xlinkorder')),
-            intval($this->getValue('xdisplaymode')));
-    }
-
-    protected function validate_xurlid($value) {
+    protected function validate_url_id($value) {
         if($value == '' || preg_match("/^[a-z0-9_-]{1,40}$/i", $value) == 1) {
             return '';
         }
@@ -34,7 +23,7 @@ class NewSectionFormHandler extends FormHandler {
         return 'Invalid URL ID';
     }
 
-    protected function validate_xlinktitle($value) {
+    protected function validate_link_title($value) {
         if(preg_match("/^.{1,50}$/", trim($value)) == 1) {
             return '';
         }
@@ -42,7 +31,7 @@ class NewSectionFormHandler extends FormHandler {
         return 'Invalid link title';
     }
 
-    protected function validate_xhtmltitle($value) {
+    protected function validate_html_title($value) {
         if(trim($value) == '' || preg_match("/^.{1,65}$/", trim($value)) == 1) {
             return '';
         }
@@ -50,7 +39,7 @@ class NewSectionFormHandler extends FormHandler {
         return 'Invalid HTML title';
     }
 
-    protected function validate_xcontent($value) {
+    protected function validate_content($value) {
         if(trim($value) != '') {
             return '';
         }

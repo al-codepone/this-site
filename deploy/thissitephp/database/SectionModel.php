@@ -1,7 +1,6 @@
 <?php
 
 require_once(CITY_PHP . 'database/DatabaseAdapter.php');
-require_once(THIS_SITE_PHP . 'database/SectionData.php');
 
 class SectionModel extends DatabaseAdapter {
     public function install() {
@@ -22,7 +21,7 @@ class SectionModel extends DatabaseAdapter {
     }
 
     public function getMaxLinkOrder() {
-        $query = sprintf('SELECT MAX(link_order) AS max FROM %s', TABLE_SECTIONS);
+        $query = 'SELECT MAX(link_order) AS max FROM ' . TABLE_SECTIONS;
         $queryData = $this->fetchQuery($query);
         return intval($queryData[0]['max']);
     }
@@ -34,7 +33,8 @@ class SectionModel extends DatabaseAdapter {
             TABLE_SECTIONS,
             $sectionID);
 
-        return $this->getSectionWithQuery($query);
+        $queryData = $this->fetchQuery($query);
+        return $queryData[0];
     }
 
     public function getSectionWithUID($urlID) {
@@ -44,7 +44,8 @@ class SectionModel extends DatabaseAdapter {
             TABLE_SECTIONS,
             $this->esc($urlID));
 
-        return $this->getSectionWithQuery($query);
+        $queryData = $this->fetchQuery($query);
+        return $queryData[0];
     }
 
     public function getSections() {
@@ -52,45 +53,38 @@ class SectionModel extends DatabaseAdapter {
             FROM %s ORDER BY link_order, link_title',
             TABLE_SECTIONS);
 
-        $queryData = $this->fetchQuery($query);
-        $sections = array();
-        foreach($queryData as $data) {
-            $sections[] = new SectionData($data['section_id'], $data['url_id'], $data['link_title'],
-                '', '', '', 1, $data['display_mode']);
-        }
-
-        return $sections;
+        return $this->fetchQuery($query);
     }
 
-    public function addSection(SectionData $sectionData) {
+    public function addSection(array $data) {
         $query = sprintf('INSERT INTO %s
             (section_id, url_id, link_title, html_title, html_description, content, link_order, display_mode)
             VALUES(NULL, "%s", "%s", "%s", "%s", "%s", %d, %d)',
             TABLE_SECTIONS,
-            $this->esc($sectionData->url_id),
-            $this->esc($sectionData->link_title),
-            $this->esc($sectionData->html_title),
-            $this->esc($sectionData->html_description),
-            $this->esc($sectionData->content),
-            $sectionData->link_order,
-            $sectionData->display_mode);
+            $this->esc($data['url_id']),
+            $this->esc($data['link_title']),
+            $this->esc($data['html_title']),
+            $this->esc($data['html_description']),
+            $this->esc($data['content']),
+            $data['link_order'],
+            $data['display_mode']);
 
         $this->query($query);
         return $this->getConn()->insert_id;
     }
 
-    public function editSection(SectionData $sectionData) {
+    public function editSection($sectionID, array $data) {
         $query = sprintf('UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
             html_description = "%s", content = "%s", link_order = %d, display_mode = %d WHERE section_id = %d',
             TABLE_SECTIONS,
-            $this->esc($sectionData->url_id),
-            $this->esc($sectionData->link_title),
-            $this->esc($sectionData->html_title),
-            $this->esc($sectionData->html_description),
-            $this->esc($sectionData->content),
-            $sectionData->link_order,
-            $sectionData->display_mode,
-            $sectionData->section_id);
+            $this->esc($data['url_id']),
+            $this->esc($data['link_title']),
+            $this->esc($data['html_title']),
+            $this->esc($data['html_description']),
+            $this->esc($data['content']),
+            $data['link_order'],
+            $data['display_mode'],
+            $sectionID);
 
         $this->query($query);
     }
@@ -101,24 +95,6 @@ class SectionModel extends DatabaseAdapter {
             $sectionID);
 
         $this->query($query);
-    }
-
-    private function getSectionWithQuery($query) {
-        $queryData = $this->fetchQuery($query);
-
-        if(count($queryData) == 1) {
-            $data = $queryData[0];
-            return new SectionData($data['section_id'],
-                $data['url_id'],
-                $data['link_title'],
-                $data['html_title'],
-                $data['html_description'],
-                $data['content'],
-                $data['link_order'],
-                $data['display_mode']);
-        }
-
-        return new SectionData();
     }
 }
 

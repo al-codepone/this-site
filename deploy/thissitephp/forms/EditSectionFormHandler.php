@@ -5,7 +5,7 @@ require_once(THIS_SITE_PHP . 'forms/NewSectionFormHandler.php');
 class EditSectionFormHandler extends NewSectionFormHandler {
     public function __construct() {
         parent::__construct();
-        $this->addElement('x7n', 0);
+        $this->addElement('delete_flag', 0);
     }
 }
 
