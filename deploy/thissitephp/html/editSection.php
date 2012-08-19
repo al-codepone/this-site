@@ -7,7 +7,7 @@ function editSection($formData, $currentSection, $error = '') {
     ob_start(); 
     print error($error); ?>
 
-<form action="<?=EDIT_SECTION?>?sid=<?=$currentSection['section_id']?>" method="post" id="section_form">
+<form action="<?=EDIT_SECTION.$currentSection['section_id']?>" method="post" id="section_form">
     <input type="hidden" name="delete_flag" value="0"/><?=sectionInputs($formData)?>
     <div><input type="submit" value="Save"/> <input type="button" value="Delete" onClick="deleteSection();"/></div>
     <div><a href="<?=ROOT.$currentSection['url_id']?>">View Section</a></div>

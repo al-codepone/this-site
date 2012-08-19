@@ -1,15 +1,11 @@
 <?php
 
-require_once('../constants.php');
-require_once(THIS_SITE_PHP . 'database/MyModelFactory.php');
 require_once(THIS_SITE_PHP . 'forms/EditSectionFormHandler.php');
-require_once(THIS_SITE_PHP . 'html/cmsNavItems.php');
 require_once(THIS_SITE_PHP . 'html/editSection.php');
 
-$sectionID = $_GET['sid'];
-$sectionModel = MyModelFactory::getModel('SectionModel');
+$sectionID = $_GET['id'];
 $section = $sectionModel->getSectionWithSID($sectionID);
-$head = '<script src="' . JAVASCRIPT . 'edit_section.js"></script>';
+$head .= '<script src="' . JAVASCRIPT . 'edit_section.js"></script>';
 
 if($section) {
     $formHandler = new EditSectionFormHandler();
@@ -35,7 +31,7 @@ if($section) {
                 $sectionModel->editSection($sectionID, $formData);
                 $content = sprintf('<div class="success">Section updated</div>'
                     . '<ul><li><a href="%s%s">View Section</a></li>'
-                    . '<li><a href="%s?sid=%d">Edit Section</a></li></ul>',
+                    . '<li><a href="%s%d">Edit Section</a></li></ul>',
                     ROOT, $formData['url_id'], EDIT_SECTION, $sectionID);
             }
         }
@@ -47,8 +43,5 @@ if($section) {
 else {
    $content = 'This section is invalid.';
 }
-
-$navItems = cmsNavItems($sectionModel->getSections());
-include(THIS_SITE_PHP . 'html/template.php');
 
 ?>

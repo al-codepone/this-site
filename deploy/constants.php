@@ -7,7 +7,7 @@ define('ROOT', '/thissite/deploy/');
 define('CSS', ROOT . 'css/');
 define('JAVASCRIPT', ROOT . 'javascript/');
 define('NEW_SECTION', ROOT . 'cms/');
-define('EDIT_SECTION', ROOT . 'cms/edit.php');
+define('EDIT_SECTION', ROOT . 'cms/edit/');
 
 define('DATABASE_HOST', 'localhost');
 define('DATABASE_USERNAME', 'juanita');

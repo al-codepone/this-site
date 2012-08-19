@@ -7,7 +7,7 @@ function cmsNavItems($sections) {
         NEW_SECTION, NEW_SECTION_TITLE);    
 
     foreach($sections as $section) {
-        printf('<li><a href="%s?sid=%s">%s</a></li>',
+        printf('<li><a href="%s%d">%s</a></li>',
             EDIT_SECTION, $section['section_id'], $section['link_title']);
     }
 
