@@ -2,12 +2,12 @@
 
 require_once('../constants.php');
 require_once(THIS_SITE_PHP . 'database/MyModelFactory.php');
-require_once(THIS_SITE_PHP . 'forms/NewSectionFormHandler.php');
+require_once(THIS_SITE_PHP . 'forms/SectionFormHandler.php');
 require_once(THIS_SITE_PHP . 'html/cmsNavItems.php');
 require_once(THIS_SITE_PHP . 'html/newSection.php');
 
 $sectionModel = MyModelFactory::getModel('SectionModel');
-$formHandler = new NewSectionFormHandler();
+$formHandler = new SectionFormHandler();
 
 if($formHandler->isReady()) {
     $errors = $formHandler->validate();
