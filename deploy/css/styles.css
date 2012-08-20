@@ -1,22 +1,22 @@
-body {
-    margin:48px 10px 64px 0px;
-    background:#fcfcfb;
+body, input, textarea {
+    font-family:verdana, geneva, sans-serif;
+    color:#131415;
 }
 
 body {
-    font:0.75em verdana, geneva, sans-serif;
-    color:#111213;
+    margin:48px 10px 64px 0px;
+    font-size:0.75em;
+    background:#fcfcfb;
 }
 
 input, textarea {
     padding:0.25em;
-    font:1em verdana, geneva, sans-serif;
-    color:#111213;
+    font-size:1em;
 }
 
 input[type="submit"], input[type="button"] {
     padding:0.3em;
-    font:1.25em verdana, geneva, sans-serif;
+    font-size:1.25em;
     color:#000000;
 }
 
@@ -92,36 +92,33 @@ label {
 
 #current_link {
     text-decoration:none;
-    color:#555555;
+    color:#131415;
     font-weight:bold;
 }
 
 @media (max-width: 560px) {
     body {
         margin:12px;
-        font-size:14px;
+        font-size:1em;
     }
 
-    .nav {
+    #nav {
         width:100%;
         float:none;
+		text-align:left;
     }
 
-    .nav ul {
-        text-align:left;
-    }
-
-    .nav ul li {
+    #nav li {
         float:left;
-        margin-right:14px;
+        margin-right:1em;
     }
 
-    #newsection, .nav ul li {
-        margin-bottom:12px;
+    #nav #new_section, #nav li {
+        margin-bottom:0.75em;
     }
 
-    .nav ul li:last-child {
-        margin-bottom:18px;
+    #nav li:last-child {
+        margin-bottom:1em;
     }
 
     #content_c {
@@ -131,10 +128,10 @@ label {
 
     #content_c p {
         width:100%;
-        line-height:20px;
+        line-height:1.75em;
     }
 
-    #xhtmldescription, #xcontent {
+    #html_description, #content {
         width:100%;
     }
 }
