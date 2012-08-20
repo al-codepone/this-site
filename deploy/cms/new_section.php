@@ -4,6 +4,7 @@ require_once(THIS_SITE_PHP . 'forms/SectionFormHandler.php');
 require_once(THIS_SITE_PHP . 'html/newSection.php');
 
 $formHandler = new SectionFormHandler();
+$isNewSection = true;
 
 if($formHandler->isReady()) {
     $errors = $formHandler->validate();

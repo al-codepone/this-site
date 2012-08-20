@@ -90,9 +90,9 @@ label {
     height:120px;
 }
 
-#currentlink {
+#current_link {
     text-decoration:none;
-    color:#111213;
+    color:#555555;
     font-weight:bold;
 }
 

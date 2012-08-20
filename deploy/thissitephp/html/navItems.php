@@ -1,11 +1,16 @@
 <?php
 
-function navItems($sections) {
+require_once(THIS_SITE_PHP . 'html/currentLink.php');
+
+function navItems($sections, $currentSectionID, $baseURL, $key, $forceShow = false) {
     ob_start();    
 
     foreach($sections as $section) {
-        printf('<li><a href="%s%s">%s</a></li>',
-            ROOT, $section['url_id'], $section['link_title']);
+        if($forceShow || $section['display_mode'] == 1) {
+            printf('<li><a %shref="%s%s">%s</a></li>',
+                currentLink($section['section_id'] == $currentSectionID),
+                $baseURL, $section[$key], $section['link_title']);
+        }
     }
 
     return ob_get_clean();

@@ -1,17 +1,18 @@
 <?php
 
-function cmsNavItems($sections) {
-    ob_start();
+require_once(THIS_SITE_PHP . 'html/currentLink.php');
+require_once(THIS_SITE_PHP . 'html/navItems.php');
 
-    printf('<li id="new_section"><a href="%s">%s</a></li>',
-        NEW_SECTION, NEW_SECTION_TITLE);    
-
-    foreach($sections as $section) {
-        printf('<li><a href="%s%d">%s</a></li>',
-            EDIT_SECTION, $section['section_id'], $section['link_title']);
-    }
-
-    return ob_get_clean();
+function cmsNavItems($sections, $currentSectionID, $isNewSection) {
+    return sprintf('<li id="new_section"><a %shref="%s">%s</a></li>%s',
+        currentLink($isNewSection),
+        NEW_SECTION,
+        NEW_SECTION_TITLE,
+        navItems($sections,
+            $currentSectionID,
+            EDIT_SECTION,
+            'section_id',
+            true));
 }
 
 ?>

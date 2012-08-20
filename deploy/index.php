@@ -11,7 +11,9 @@ $head = sprintf('<title>%s</title>'
     htmlspecialchars($section['html_title']),
     htmlspecialchars($section['html_description']));
 
-$navItems = navItems($sectionModel->getSections());
+$navItems = navItems($sectionModel->getSections(),
+    $section['section_id'], ROOT, 'url_id');
+
 $content = ($section && $section['display_mode'] != 3)
     ? str_replace("\r\n", '<br/>', $section['content'])
     : 'This section is invalid.';
