@@ -9,5 +9,6 @@
     <body>
         <ul id="nav"><?=$navItems?></ul>
         <div id="content_c"><?=$content?></div>
+        <?=$autoFocus?>
     </body>
 </html>
