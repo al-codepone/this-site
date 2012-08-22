@@ -9,7 +9,7 @@ class SectionFormHandler extends FormHandler {
             'link_title' => '',
             'html_title' => '',
             'html_description' => '',
-            'content' => '',
+            'page_content' => '',
             'link_order' => 1,
             'display_mode' => 1));
     }
@@ -32,9 +32,9 @@ class SectionFormHandler extends FormHandler {
         }
     }
 
-    protected function validate_content($value) {
+    protected function validate_page_content($value) {
         if(trim($value) == '') {
-            return 'Invalid content';
+            return 'Invalid page content';
         }
     }
 }

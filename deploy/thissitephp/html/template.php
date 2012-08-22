@@ -8,7 +8,7 @@
     </head>
     <body>
         <ul id="nav"><?=$navItems?></ul>
-        <div id="content_c"><?=$content?></div>
+        <div id="content"><?=$content?></div>
         <?=$autoFocus?>
     </body>
 </html>

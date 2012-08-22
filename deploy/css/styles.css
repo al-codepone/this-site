@@ -49,24 +49,24 @@ input[type="submit"], input[type="button"] {
     margin-bottom:1.3em;
 }
 
-#content_c {
+#content {
     margin-left:15em;
 }
 
-#content_c p {
+#content p {
     width:27em;
     line-height:1.45em;
 }
 
-#content_c form div {
+#content form div {
     margin-bottom:1.2em;
 }
 
-#content_c #display_mode div {
+#content #display_mode div {
     margin-bottom:0;
 }
 
-#content_c #display_mode div label {
+#content #display_mode div label {
     display:inline;
 }
 
@@ -75,7 +75,7 @@ input[type="submit"], input[type="button"] {
     height:4em;
 }
 
-#content {
+#page_content {
     width:31em;
     height:8em;
 }
@@ -109,16 +109,16 @@ input[type="submit"], input[type="button"] {
         margin-bottom:1em;
     }
 
-    #content_c {
+    #content {
         clear:left;
         margin:0;
     }
 
-    #content_c p {
+    #content p {
         width:100%;
     }
 
-    #html_description, #content {
+    #html_description, #page_content {
         width:100%;
     }
 }

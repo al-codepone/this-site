@@ -15,7 +15,7 @@ $navItems = navItems($sectionModel->getSections(),
     $section['section_id'], ROOT, 'url_id');
 
 $content = ($section && $section['display_mode'] != 3)
-    ? str_replace("\r\n", '<br/>', $section['content'])
+    ? str_replace("\r\n", '<br/>', $section['page_content'])
     : 'This section is invalid.';
 
 include(THIS_SITE_PHP . 'html/template.php');
