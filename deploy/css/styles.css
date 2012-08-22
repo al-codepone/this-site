@@ -1,23 +1,8 @@
-body, input, textarea {
-    font-family:verdana, geneva, sans-serif;
-    color:#131415;
-}
-
 body {
-    margin:48px 10px 64px 0px;
-    font-size:0.75em;
+    font-family:arial;
+    margin:3em 1em 4em 0;
     background:#fcfcfb;
-}
-
-input, textarea {
-    padding:0.25em;
-    font-size:1em;
-}
-
-input[type="submit"], input[type="button"] {
-    padding:0.3em;
-    font-size:1.25em;
-    color:#000000;
+    color:#161718;
 }
 
 a {
@@ -33,9 +18,14 @@ label {
     display:block;
 }
 
+input[type="submit"], input[type="button"] {
+    padding:0.3em;
+    font-size:1em;
+}
+
 .error {
-    color:#ff0000;
-    margin-bottom:1.5em;
+    color:#ee0000;
+    margin-bottom:1.2em;
 }
 
 .success {
@@ -44,7 +34,7 @@ label {
 
 #nav {
     float:left;
-    width:190px;
+    width:12em;
     padding:0;
     margin:0;
     list-style-type:none;
@@ -52,24 +42,24 @@ label {
 }
 
 #nav li {
-    margin-bottom:0.75em;
+    margin-bottom:0.5em;
 }
 
 #nav #new_section {
-    margin-bottom:1.75em;
+    margin-bottom:1.3em;
 }
 
 #content_c {
-    margin-left:236px;
+    margin-left:15em;
 }
 
 #content_c p {
-    width:356px;
-    line-height:1.5em;
+    width:27em;
+    line-height:1.45em;
 }
 
 #content_c form div {
-    margin-bottom:1.25em;
+    margin-bottom:1.2em;
 }
 
 #content_c #display_mode div {
@@ -81,25 +71,23 @@ label {
 }
 
 #html_description {
-    width:460px;
-    height:60px;
+    width:31em;
+    height:4em;
 }
 
 #content {
-    width:460px;
-    height:120px;
+    width:31em;
+    height:8em;
 }
 
 #current_link {
     text-decoration:none;
-    color:#131415;
-    font-weight:bold;
+    color:#000000;
 }
 
 @media (max-width: 560px) {
     body {
-        margin:12px;
-        font-size:1em;
+        margin:1em;
     }
 
     #nav {
@@ -128,7 +116,6 @@ label {
 
     #content_c p {
         width:100%;
-        line-height:1.75em;
     }
 
     #html_description, #content {
