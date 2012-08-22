@@ -12,7 +12,7 @@ class SectionModel extends DatabaseAdapter {
             html_description TEXT,
             page_content TEXT,
             link_order MEDIUMINT SIGNED,
-            display_mode ENUM("showall", "hidelink", "hideall"),
+            display_mode ENUM("show_all", "hide_link", "hide_all"),
             PRIMARY KEY (section_id),
             KEY (url_id))
             ENGINE = MYISAM';
