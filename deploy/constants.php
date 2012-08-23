@@ -1,9 +1,9 @@
 <?php
 
 define('CITY_PHP', 'C:/wamp/www/framework/cityphp/');
-define('THIS_SITE_PHP', 'C:/wamp/www/thissite/deploy/this_site_php/');
+define('THIS_SITE_PHP', 'C:/wamp/www/this_site/deploy/this_site_php/');
 
-define('ROOT', '/thissite/deploy/');
+define('ROOT', '/this_site/deploy/');
 define('CSS', ROOT . 'css/');
 define('JAVASCRIPT', ROOT . 'javascript/');
 define('NEW_SECTION', ROOT . 'cms/');
