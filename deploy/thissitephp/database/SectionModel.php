@@ -13,8 +13,8 @@ class SectionModel extends DatabaseAdapter {
             page_content TEXT,
             link_order MEDIUMINT SIGNED,
             display_mode ENUM("show_all", "hide_link", "hide_all"),
-            PRIMARY KEY (section_id),
-            KEY (url_id))
+            PRIMARY KEY(section_id),
+            KEY(url_id))
             ENGINE = MYISAM';
 
         $this->query($query);
