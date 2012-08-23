@@ -34,7 +34,7 @@ else {
     $formData = $formHandler->getValues();
     $formData['link_order'] = $sectionModel->getMaxLinkOrder() + 1;
     $content = newSection($formData);
-    $autoFocus = '<script>document.getElementById("link_title").focus();</script>';
+    $autofocus = '<script>document.getElementById("link_title").focus();</script>';
 }
 
 ?>
