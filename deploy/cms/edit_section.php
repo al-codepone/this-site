@@ -5,7 +5,7 @@ require_once(THIS_SITE_PHP . 'html/editSection.php');
 
 $sectionID = $_GET['id'];
 $section = $sectionModel->getSectionWithSID($sectionID);
-$head .= '<script src="' . JAVASCRIPT . 'edit_section.js"></script>';
+$head = '<script src="' . JAVASCRIPT . 'edit_section.js"></script>';
 
 if($section) {
     $formHandler = new EditSectionFormHandler();
