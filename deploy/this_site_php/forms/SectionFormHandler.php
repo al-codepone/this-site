@@ -16,25 +16,26 @@ class SectionFormHandler extends FormHandler {
 
     protected function validate_url_id($value) {
         if(!preg_match('/^[a-z0-9_-]{0,48}$/i', $value)) {
-            return 'Invalid URL ID';
+            return 'URL ID must be 0-48 characters and use '
+                . 'numbers, letters, underscores and dashes only';
         }
     }
 
     protected function validate_link_title($value) {
         if(!preg_match('/^.{1,48}$/', trim($value))) {
-            return 'Invalid link title';
+            return 'Link title must be 1-48 characters';
         }
     }
 
     protected function validate_html_title($value) {
         if(!preg_match('/^.{0,96}$/', $value)) {
-            return 'Invalid HTML title';
+            return 'HTML title must be 0-96 characters';
         }
     }
 
     protected function validate_page_content($value) {
         if(trim($value) == '') {
-            return 'Invalid page content';
+            return 'Page content must be at least 1 character';
         }
     }
 }

@@ -17,7 +17,7 @@ if($formHandler->isReady()) {
         $duplicateCheck = $sectionModel->getSectionWithUID($formData['url_id']);
 
         if($duplicateCheck) {
-            $content = newSection($formData, 'URL ID already in use');
+            $content = newSection($formData, urlDupError($formData['url_id']));
         }
         else {
             $newSectionID = $sectionModel->addSection($formData);

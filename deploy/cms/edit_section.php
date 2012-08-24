@@ -25,7 +25,7 @@ if($section) {
             $duplicateCheck = $sectionModel->getSectionWithUID($formData['url_id']);
 
             if($duplicateCheck && $duplicateCheck['section_id'] != $section['section_id']) {
-                $content = editSection($formData, $section, 'URL ID already in use');
+                $content = editSection($formData, $section, urlDupError($formData['url_id']));
             }
             else {
                 $sectionModel->editSection($sectionID, $formData);
