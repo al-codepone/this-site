@@ -59,7 +59,7 @@ input[type="submit"], input[type="button"] {
 }
 
 #content form div {
-    margin-bottom:1.2em;
+    margin-bottom:1em;
 }
 
 #content #display_mode div {
@@ -70,14 +70,9 @@ input[type="submit"], input[type="button"] {
     display:inline;
 }
 
-#html_description {
-    width:31em;
+#html_description, #html_keywords, #page_content {
+    width:34em;
     height:4em;
-}
-
-#page_content {
-    width:31em;
-    height:8em;
 }
 
 #current_link {
@@ -118,7 +113,7 @@ input[type="submit"], input[type="button"] {
         width:100%;
     }
 
-    #html_description, #page_content {
+    #html_description, #html_keywords, #page_content {
         width:100%;
     }
 }

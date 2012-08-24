@@ -10,6 +10,7 @@ class SectionModel extends DatabaseAdapter {
             link_title VARCHAR(64),
             html_title VARCHAR(128),
             html_description TEXT,
+            html_keywords TEXT,
             page_content TEXT,
             link_order MEDIUMINT SIGNED,
             display_mode ENUM("show_all", "hide_link", "hide_all"),
@@ -27,8 +28,8 @@ class SectionModel extends DatabaseAdapter {
     }
 
     public function getSectionWithSID($sectionID) {
-        $query = sprintf('SELECT section_id, url_id, link_title, html_title,
-            html_description, page_content, link_order, display_mode + 0 AS display_mode
+        $query = sprintf('SELECT section_id, url_id, link_title, html_title, html_description,
+            html_keywords, page_content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE section_id = %d',
             TABLE_SECTIONS,
             $sectionID);
@@ -38,8 +39,8 @@ class SectionModel extends DatabaseAdapter {
     }
 
     public function getSectionWithUID($urlID) {
-        $query = sprintf('SELECT section_id, url_id, link_title, html_title,
-            html_description, page_content, link_order, display_mode + 0 AS display_mode
+        $query = sprintf('SELECT section_id, url_id, link_title, html_title, html_description,
+            html_keywords, page_content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE url_id = "%s"',
             TABLE_SECTIONS,
             $this->esc($urlID));
@@ -57,14 +58,15 @@ class SectionModel extends DatabaseAdapter {
     }
 
     public function addSection(array $data) {
-        $query = sprintf('INSERT INTO %s
-            (section_id, url_id, link_title, html_title, html_description, page_content, link_order, display_mode)
-            VALUES(NULL, "%s", "%s", "%s", "%s", "%s", %d, %d)',
+        $query = sprintf('INSERT INTO %s (section_id, url_id, link_title, html_title,
+            html_description, html_keywords, page_content, link_order, display_mode)
+            VALUES(NULL, "%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
             TABLE_SECTIONS,
             $this->esc($data['url_id']),
             $this->esc($data['link_title']),
             $this->esc($data['html_title']),
             $this->esc($data['html_description']),
+            $this->esc($data['html_keywords']),
             $this->esc($data['page_content']),
             $data['link_order'],
             $data['display_mode']);
@@ -75,12 +77,14 @@ class SectionModel extends DatabaseAdapter {
 
     public function editSection($sectionID, array $data) {
         $query = sprintf('UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
-            html_description = "%s", page_content = "%s", link_order = %d, display_mode = %d WHERE section_id = %d',
+            html_description = "%s", html_keywords = "%s", page_content = "%s",
+            link_order = %d, display_mode = %d WHERE section_id = %d',
             TABLE_SECTIONS,
             $this->esc($data['url_id']),
             $this->esc($data['link_title']),
             $this->esc($data['html_title']),
             $this->esc($data['html_description']),
+            $this->esc($data['html_keywords']),
             $this->esc($data['page_content']),
             $data['link_order'],
             $data['display_mode'],

@@ -33,6 +33,7 @@ function sectionInputs($data) {
         . $input('URL ID', 'url_id')
         . $input('HTML Title', 'html_title')
         . $textarea('HTML Description', 'html_description')
+        . $textarea('HTML Keywords', 'html_keywords')
         . $textarea('Page Content', 'page_content')
         . $input('Link Order', 'link_order')
         . $displayMode();

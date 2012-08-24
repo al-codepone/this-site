@@ -9,6 +9,7 @@ class SectionFormHandler extends FormHandler {
             'link_title' => '',
             'html_title' => '',
             'html_description' => '',
+            'html_keywords' => '',
             'page_content' => '',
             'link_order' => 1,
             'display_mode' => 1));
