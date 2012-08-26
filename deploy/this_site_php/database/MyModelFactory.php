@@ -1,7 +1,7 @@
 <?php
 
-require_once(CITY_PHP . 'database/ModelFactory.php');
-require_once(CITY_PHP . 'database/MySqlDatabaseHandle.php');
+require_once(CITYPHP . 'database/ModelFactory.php');
+require_once(CITYPHP . 'database/MySqlDatabaseHandle.php');
 require_once(THIS_SITE_PHP . 'database/SectionModel.php');
 
 class MyModelFactory extends ModelFactory {

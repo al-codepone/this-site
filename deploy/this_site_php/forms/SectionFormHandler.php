@@ -1,6 +1,6 @@
 <?php
 
-require_once(CITY_PHP . 'forms/FormHandler.php');
+require_once(CITYPHP . 'forms/FormHandler.php');
 
 class SectionFormHandler extends FormHandler {
     public function __construct() {

@@ -1,6 +1,6 @@
 <?php
 
-require_once(CITY_PHP . 'database/DatabaseAdapter.php');
+require_once(CITYPHP . 'database/DatabaseAdapter.php');
 
 class SectionModel extends DatabaseAdapter {
     public function install() {
