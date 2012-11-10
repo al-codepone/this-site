@@ -4,7 +4,7 @@ require_once(CITYPHP . 'database/DatabaseAdapter.php');
 
 class SectionModel extends DatabaseAdapter {
     public function install() {
-        $query = 'CREATE TABLE ' . TABLE_SECTIONS . ' (
+        $this->query('CREATE TABLE ' . TABLE_SECTIONS . ' (
             section_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
             url_id VARCHAR(64),
             link_title VARCHAR(64),
@@ -16,49 +16,45 @@ class SectionModel extends DatabaseAdapter {
             display_mode ENUM("show_all", "hide_link", "hide_all"),
             PRIMARY KEY(section_id),
             KEY(url_id))
-            ENGINE = MYISAM';
-
-        $this->query($query);
+            ENGINE = MYISAM');
     }
 
     public function getMaxLinkOrder() {
-        $query = 'SELECT MAX(link_order) AS max FROM ' . TABLE_SECTIONS;
-        $queryData = $this->fetchQuery($query);
+        $queryData = $this->fetchQuery('SELECT MAX(link_order) AS max FROM ' . TABLE_SECTIONS);
         return intval($queryData[0]['max']);
     }
 
     public function getSectionWithSID($sectionID) {
-        $query = sprintf('SELECT section_id, url_id, link_title, html_title, html_description,
+        $queryData = $this->fetchQuery(sprintf(
+            'SELECT section_id, url_id, link_title, html_title, html_description,
             html_keywords, page_content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE section_id = %d',
             TABLE_SECTIONS,
-            $sectionID);
+            $sectionID));
 
-        $queryData = $this->fetchQuery($query);
         return $queryData[0];
     }
 
     public function getSectionWithUID($urlID) {
-        $query = sprintf('SELECT section_id, url_id, link_title, html_title, html_description,
+        $queryData = $this->fetchQuery(sprintf(
+            'SELECT section_id, url_id, link_title, html_title, html_description,
             html_keywords, page_content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE url_id = "%s"',
             TABLE_SECTIONS,
-            $this->esc($urlID));
+            $this->esc($urlID)));
 
-        $queryData = $this->fetchQuery($query);
         return $queryData[0];
     }
 
     public function getSections() {
-        $query = sprintf('SELECT section_id, url_id, link_title, display_mode + 0 AS display_mode
+        return $this->fetchQuery(sprintf(
+            'SELECT section_id, url_id, link_title, display_mode + 0 AS display_mode
             FROM %s ORDER BY link_order, link_title',
-            TABLE_SECTIONS);
-
-        return $this->fetchQuery($query);
+            TABLE_SECTIONS));
     }
 
     public function addSection(array $data) {
-        $query = sprintf('INSERT INTO %s (section_id, url_id, link_title, html_title,
+        $this->query(sprintf('INSERT INTO %s (section_id, url_id, link_title, html_title,
             html_description, html_keywords, page_content, link_order, display_mode)
             VALUES(NULL, "%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
             TABLE_SECTIONS,
@@ -69,14 +65,14 @@ class SectionModel extends DatabaseAdapter {
             $this->esc($data['html_keywords']),
             $this->esc($data['page_content']),
             $data['link_order'],
-            $data['display_mode']);
+            $data['display_mode']));
 
-        $this->query($query);
         return $this->getConn()->insert_id;
     }
 
     public function editSection($sectionID, array $data) {
-        $query = sprintf('UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
+        $this->query(sprintf(
+            'UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
             html_description = "%s", html_keywords = "%s", page_content = "%s",
             link_order = %d, display_mode = %d WHERE section_id = %d',
             TABLE_SECTIONS,
@@ -88,17 +84,13 @@ class SectionModel extends DatabaseAdapter {
             $this->esc($data['page_content']),
             $data['link_order'],
             $data['display_mode'],
-            $sectionID);
-
-        $this->query($query);
+            $sectionID));
     }
 
     public function deleteSection($sectionID) {
-        $query = sprintf('DELETE FROM %s WHERE section_id = %d',
+        $this->query(sprintf('DELETE FROM %s WHERE section_id = %d',
             TABLE_SECTIONS,
-            $sectionID);
-
-        $this->query($query);
+            $sectionID));
     }
 }
 
