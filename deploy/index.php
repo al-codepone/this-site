@@ -1,8 +1,8 @@
 <?php
 
 require_once('./constants.php');
-require_once(THIS_SITE_PHP . 'database/MyModelFactory.php');
-require_once(THIS_SITE_PHP . 'html/navItems.php');
+require_once(THIS_SITE . 'database/MyModelFactory.php');
+require_once(THIS_SITE . 'html/navItems.php');
 
 $sectionModel = MyModelFactory::getModel('SectionModel');
 $section = $sectionModel->getSectionWithUID($_GET['id']);
@@ -20,6 +20,6 @@ $content = ($section && $section['display_mode'] != 3)
     ? str_replace("\r\n", '<br/>', $section['page_content'])
     : 'This section is invalid.';
 
-include(THIS_SITE_PHP . 'html/template.php');
+include(THIS_SITE . 'html/template.php');
 
 ?>

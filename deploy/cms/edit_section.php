@@ -1,7 +1,7 @@
 <?php
 
-require_once(THIS_SITE_PHP . 'forms/EditSectionValidator.php');
-require_once(THIS_SITE_PHP . 'html/editSection.php');
+require_once(THIS_SITE . 'forms/EditSectionValidator.php');
+require_once(THIS_SITE . 'html/editSection.php');
 
 $sectionID = $_GET['id'];
 $section = $sectionModel->getSectionWithSID($sectionID);

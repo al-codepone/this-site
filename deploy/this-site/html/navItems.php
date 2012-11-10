@@ -1,6 +1,6 @@
 <?php
 
-require_once(THIS_SITE_PHP . 'html/currentLink.php');
+require_once(THIS_SITE . 'html/currentLink.php');
 
 function navItems($sections, $currentSectionID, $baseURL, $key, $forceShow = false) {
     ob_start();    

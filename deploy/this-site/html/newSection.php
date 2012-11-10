@@ -1,7 +1,7 @@
 <?php
 
-require_once(THIS_SITE_PHP . 'html/error.php');
-require_once(THIS_SITE_PHP . 'html/sectionInputs.php');
+require_once(THIS_SITE . 'html/error.php');
+require_once(THIS_SITE . 'html/sectionInputs.php');
 
 function newSection($formData, $error = '') {
     return sprintf('%s<form action="%s" method="post">%s'

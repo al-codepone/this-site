@@ -1,7 +1,7 @@
 <?php
 
 define('CITYPHP', 'C:/wamp/www/framework/cityphp/');
-define('THIS_SITE_PHP', 'C:/wamp/www/this-site/deploy/this_site_php/');
+define('THIS_SITE', 'C:/wamp/www/this-site/deploy/this-site/');
 
 define('ROOT', '/this-site/deploy/');
 define('CSS', ROOT . 'css/');

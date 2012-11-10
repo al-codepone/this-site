@@ -1,7 +1,7 @@
 <?php
 
-require_once(THIS_SITE_PHP . 'forms/SectionValidator.php');
-require_once(THIS_SITE_PHP . 'html/newSection.php');
+require_once(THIS_SITE . 'forms/SectionValidator.php');
+require_once(THIS_SITE . 'html/newSection.php');
 
 $validator = new SectionValidator();
 $isNewSection = true;

@@ -2,7 +2,7 @@
 
 require_once(CITYPHP . 'database/ModelFactory.php');
 require_once(CITYPHP . 'database/MySqlDatabaseHandle.php');
-require_once(THIS_SITE_PHP . 'database/SectionModel.php');
+require_once(THIS_SITE . 'database/SectionModel.php');
 
 class MyModelFactory extends ModelFactory {
     protected static function getDatabaseHandle() {

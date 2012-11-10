@@ -1,7 +1,7 @@
 <?php
 
 require_once('./constants.php');
-require_once(THIS_SITE_PHP . 'database/MyModelFactory.php');
+require_once(THIS_SITE . 'database/MyModelFactory.php');
 
 $sectionModel = MyModelFactory::getModel('SectionModel');
 $sectionModel->install();
