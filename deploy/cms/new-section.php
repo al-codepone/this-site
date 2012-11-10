@@ -17,7 +17,7 @@ if(list($formData, $errors) = $validator->validate()) {
             $content = newSection($formData, urlDupError($formData['url_id']));
         }
         else {
-            $newSectionID = $sectionModel->addSection($formData);
+            $newSectionID = $sectionModel->createSection($formData);
             $content = sprintf('<div class="success">New section created</div>'
                 . '<ul><li><a href="%s%s">View Section</a></li>'
                 . '<li><a href="%s%d">Edit Section</a></li>'

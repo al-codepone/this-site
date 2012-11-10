@@ -19,6 +19,23 @@ class SectionModel extends DatabaseAdapter {
             ENGINE = MYISAM');
     }
 
+    public function createSection(array $data) {
+        $this->query(sprintf('INSERT INTO %s (section_id, url_id, link_title, html_title,
+            html_description, html_keywords, page_content, link_order, display_mode)
+            VALUES(NULL, "%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
+            TABLE_SECTIONS,
+            $this->esc($data['url_id']),
+            $this->esc($data['link_title']),
+            $this->esc($data['html_title']),
+            $this->esc($data['html_description']),
+            $this->esc($data['html_keywords']),
+            $this->esc($data['page_content']),
+            $data['link_order'],
+            $data['display_mode']));
+
+        return $this->getConn()->insert_id;
+    }
+
     public function getMaxLinkOrder() {
         $queryData = $this->fetchQuery('SELECT MAX(link_order) AS max FROM ' . TABLE_SECTIONS);
         return intval($queryData[0]['max']);
@@ -39,24 +56,7 @@ class SectionModel extends DatabaseAdapter {
             TABLE_SECTIONS));
     }
 
-    public function addSection(array $data) {
-        $this->query(sprintf('INSERT INTO %s (section_id, url_id, link_title, html_title,
-            html_description, html_keywords, page_content, link_order, display_mode)
-            VALUES(NULL, "%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
-            TABLE_SECTIONS,
-            $this->esc($data['url_id']),
-            $this->esc($data['link_title']),
-            $this->esc($data['html_title']),
-            $this->esc($data['html_description']),
-            $this->esc($data['html_keywords']),
-            $this->esc($data['page_content']),
-            $data['link_order'],
-            $data['display_mode']));
-
-        return $this->getConn()->insert_id;
-    }
-
-    public function editSection($sectionID, array $data) {
+    public function updateSection($sectionID, array $data) {
         $this->query(sprintf(
             'UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
             html_description = "%s", html_keywords = "%s", page_content = "%s",

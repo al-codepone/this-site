@@ -25,7 +25,7 @@ if($section) {
                 $content = editSection($formData, $section, urlDupError($formData['url_id']));
             }
             else {
-                $sectionModel->editSection($sectionID, $formData);
+                $sectionModel->updateSection($sectionID, $formData);
                 $content = sprintf('<div class="success">Section updated</div>'
                     . '<ul><li><a href="%s%s">View Section</a></li>'
                     . '<li><a href="%s%d">Edit Section</a></li></ul>',
