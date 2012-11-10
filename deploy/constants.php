@@ -5,7 +5,7 @@ define('THIS_SITE', 'C:/wamp/www/this-site/deploy/this-site/');
 
 define('ROOT', '/this-site/deploy/');
 define('CSS', ROOT . 'css/');
-define('JAVASCRIPT', ROOT . 'javascript/');
+define('JS', ROOT . 'js/');
 define('NEW_SECTION', ROOT . 'cms/');
 define('EDIT_SECTION', ROOT . 'cms/edit/');
 
