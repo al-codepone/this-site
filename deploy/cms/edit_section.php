@@ -1,6 +1,6 @@
 <?php
 
-require_once(THIS_SITE_PHP . 'forms/EditSectionFormHandler.php');
+require_once(THIS_SITE_PHP . 'forms/EditSectionValidator.php');
 require_once(THIS_SITE_PHP . 'html/editSection.php');
 
 $sectionID = $_GET['id'];
@@ -8,12 +8,9 @@ $section = $sectionModel->getSectionWithSID($sectionID);
 $head = '<script src="' . JAVASCRIPT . 'edit_section.js"></script>';
 
 if($section) {
-    $formHandler = new EditSectionFormHandler();
+    $validator = new EditSectionValidator();
 
-    if($formHandler->isReady()) {
-        $errors = $formHandler->validate();
-        $formData = $formHandler->getValues();
-
+    if(list($formData, $errors) = $validator->validate()) {
         if($formData['delete_flag']) {
             $sectionModel->deleteSection($sectionID);
             $content = '<div class="success">Section deleted</div>';

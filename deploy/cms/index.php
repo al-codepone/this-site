@@ -1,14 +1,14 @@
 <?php
 
 require_once('../constants.php');
-require_once(CITYPHP . 'getRoute.php');
+require_once(CITYPHP . 'route.php');
 require_once(THIS_SITE_PHP . 'database/MyModelFactory.php');
 require_once(THIS_SITE_PHP . 'html/cmsNavItems.php');
 require_once(THIS_SITE_PHP . 'html/urlDupError.php');
 
 $sectionModel = MyModelFactory::getModel('SectionModel');
 
-include(getRoute(array(
+include(route(array(
     null => 'new_section.php',
     'edit' => 'edit_section.php')));
 

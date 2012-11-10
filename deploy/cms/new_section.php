@@ -1,15 +1,12 @@
 <?php
 
-require_once(THIS_SITE_PHP . 'forms/SectionFormHandler.php');
+require_once(THIS_SITE_PHP . 'forms/SectionValidator.php');
 require_once(THIS_SITE_PHP . 'html/newSection.php');
 
-$formHandler = new SectionFormHandler();
+$validator = new SectionValidator();
 $isNewSection = true;
 
-if($formHandler->isReady()) {
-    $errors = $formHandler->validate();
-    $formData = $formHandler->getValues();
-
+if(list($formData, $errors) = $validator->validate()) {
     if(count($errors) > 0) {
         $content = newSection($formData, current($errors));
     }
@@ -31,7 +28,7 @@ if($formHandler->isReady()) {
     }
 }
 else {
-    $formData = $formHandler->getValues();
+    $formData = $validator->values();
     $formData['link_order'] = $sectionModel->getMaxLinkOrder() + 1;
     $content = newSection($formData);
     $autofocus = '<script>document.getElementById("link_title").focus();</script>';
