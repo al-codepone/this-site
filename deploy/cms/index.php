@@ -9,8 +9,8 @@ require_once(THIS_SITE . 'html/urlDupError.php');
 $sectionModel = MyModelFactory::getModel('SectionModel');
 
 include(route(array(
-    null => 'new_section.php',
-    'edit' => 'edit_section.php')));
+    null => 'new-section.php',
+    'edit' => 'edit-section.php')));
 
 $navItems = cmsNavItems($sectionModel->getSections(),
     $sectionID, $isNewSection);
