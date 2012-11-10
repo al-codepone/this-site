@@ -25,25 +25,11 @@ class SectionModel extends DatabaseAdapter {
     }
 
     public function getSectionWithSID($sectionID) {
-        $queryData = $this->fetchQuery(sprintf(
-            'SELECT section_id, url_id, link_title, html_title, html_description,
-            html_keywords, page_content, link_order, display_mode + 0 AS display_mode
-            FROM %s WHERE section_id = %d',
-            TABLE_SECTIONS,
-            $sectionID));
-
-        return $queryData[0];
+        return $this->getSection(sprintf('section_id = %d', $sectionID));
     }
 
     public function getSectionWithUID($urlID) {
-        $queryData = $this->fetchQuery(sprintf(
-            'SELECT section_id, url_id, link_title, html_title, html_description,
-            html_keywords, page_content, link_order, display_mode + 0 AS display_mode
-            FROM %s WHERE url_id = "%s"',
-            TABLE_SECTIONS,
-            $this->esc($urlID)));
-
-        return $queryData[0];
+        return $this->getSection(sprintf('url_id = "%s"', $this->esc($urlID)));
     }
 
     public function getSections() {
@@ -91,6 +77,17 @@ class SectionModel extends DatabaseAdapter {
         $this->query(sprintf('DELETE FROM %s WHERE section_id = %d',
             TABLE_SECTIONS,
             $sectionID));
+    }
+
+    protected function getSection($condition) {
+        $queryData = $this->fetchQuery(sprintf(
+            'SELECT section_id, url_id, link_title, html_title, html_description,
+            html_keywords, page_content, link_order, display_mode + 0 AS display_mode
+            FROM %s WHERE %s',
+            TABLE_SECTIONS,
+            $condition));
+
+        return $queryData[0];
     }
 }
 
