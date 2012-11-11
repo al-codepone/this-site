@@ -6,7 +6,6 @@ require_once(THIS_SITE . 'html/newSection.php');
 require_once(THIS_SITE . 'html/newSectionCreated.php');
 
 $validator = new SectionValidator();
-$isNewSection = true;
 
 if(list($formData, $errors) = $validator->validate()) {
     if($errors) {
@@ -23,7 +22,8 @@ else {
     $formData['link_order'] = $sectionModel->getMaxLinkOrder() + 1;
     $content = newSection($formData);
     $autofocus = autofocus('link_title');
-    //$autofocus = '<script>document.getElementById("link_title").focus();</script>';
 }
+
+$isNewSection = true;
 
 ?>

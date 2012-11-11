@@ -6,7 +6,6 @@ require_once(THIS_SITE . 'html/sectionUpdated.php');
 
 $sectionID = $_GET['id'];
 $section = $sectionModel->getSectionWithSID($sectionID);
-$head = '<script src="' . JS . 'edit-section.js"></script>';
 
 if($section) {
     $validator = new EditSectionValidator();
@@ -32,5 +31,7 @@ if($section) {
 else {
    $content = 'This section is invalid.';
 }
+
+$head = '<script src="' . JS . 'edit-section.js"></script>';
 
 ?>
