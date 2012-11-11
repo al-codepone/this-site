@@ -16,9 +16,9 @@ class SectionValidator extends FormValidator {
     }
 
     protected function validate_url_id($value) {
-        if(!preg_match('/^[a-z0-9_-]{0,48}$/i', $value)) {
+        if(!preg_match('/^[a-z0-9-]{0,48}$/i', $value)) {
             return 'URL ID must be 0-48 characters and use '
-                . 'numbers, letters, underscores and dashes only';
+                . 'numbers, letters and dashes only';
         }
     }
 
