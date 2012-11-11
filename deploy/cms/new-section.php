@@ -2,29 +2,19 @@
 
 require_once(THIS_SITE . 'forms/SectionValidator.php');
 require_once(THIS_SITE . 'html/newSection.php');
+require_once(THIS_SITE . 'html/newSectionCreated.php');
 
 $validator = new SectionValidator();
 $isNewSection = true;
 
 if(list($formData, $errors) = $validator->validate()) {
-    if(count($errors) > 0) {
+    if($errors) {
         $content = newSection($formData, current($errors));
     }
     else {
-        $duplicateCheck = $sectionModel->getSectionWithUID($formData['url_id']);
-
-        if($duplicateCheck) {
-            $content = newSection($formData, urlDupError($formData['url_id']));
-        }
-        else {
-            $newSectionID = $sectionModel->createSection($formData);
-            $content = sprintf('<div class="success">New section created</div>'
-                . '<ul><li><a href="%s%s">View Section</a></li>'
-                . '<li><a href="%s%d">Edit Section</a></li>'
-                . '<li><a href="%s">%s</a></li></ul>',
-                ROOT, $formData['url_id'], EDIT_SECTION,
-                $newSectionID, NEW_SECTION, NEW_SECTION_TITLE);
-        }
+        $content = is_int($result = $sectionModel->createSection($formData))
+            ? newSectionCreated($result, $formData['url_id'])
+            : newSection($formData, $result);
     }
 }
 else {

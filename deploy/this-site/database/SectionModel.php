@@ -1,6 +1,7 @@
 <?php
 
 require_once(CITYPHP . 'database/DatabaseAdapter.php');
+require_once(THIS_SITE . 'urlTaken.php');
 
 class SectionModel extends DatabaseAdapter {
     public function install() {
@@ -20,6 +21,10 @@ class SectionModel extends DatabaseAdapter {
     }
 
     public function createSection(array $data) {
+        if($this->getSectionWithUID($data['url_id'])) {
+            return urlTaken($data['url_id']);
+        }
+
         $this->query(sprintf('INSERT INTO %s (section_id, url_id, link_title, html_title,
             html_description, html_keywords, page_content, link_order, display_mode)
             VALUES(NULL, "%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
@@ -57,6 +62,12 @@ class SectionModel extends DatabaseAdapter {
     }
 
     public function updateSection($sectionID, array $data) {
+        $duplicateCheck = $this->getSectionWithUID($data['url_id']);
+
+        if($duplicateCheck && $duplicateCheck['section_id'] != $sectionID) {
+            return urlTaken($data['url_id']);
+        }
+
         $this->query(sprintf(
             'UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
             html_description = "%s", html_keywords = "%s", page_content = "%s",

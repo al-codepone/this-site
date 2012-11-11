@@ -4,7 +4,6 @@ require_once('../constants.php');
 require_once(CITYPHP . 'route.php');
 require_once(THIS_SITE . 'database/MyModelFactory.php');
 require_once(THIS_SITE . 'html/cmsNavItems.php');
-require_once(THIS_SITE . 'html/urlDupError.php');
 
 $sectionModel = MyModelFactory::getModel('SectionModel');
 

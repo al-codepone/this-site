@@ -2,6 +2,7 @@
 
 require_once(THIS_SITE . 'forms/EditSectionValidator.php');
 require_once(THIS_SITE . 'html/editSection.php');
+require_once(THIS_SITE . 'html/sectionUpdated.php');
 
 $sectionID = $_GET['id'];
 $section = $sectionModel->getSectionWithSID($sectionID);
@@ -11,26 +12,17 @@ if($section) {
     $validator = new EditSectionValidator();
 
     if(list($formData, $errors) = $validator->validate()) {
-        if($formData['delete_flag']) {
+        if($errors) {
+            $content = editSection($formData, $section, current($errors));
+        }
+        else if($formData['delete_flag']) {
             $sectionModel->deleteSection($sectionID);
             $content = '<div class="success">Section deleted</div>';
         }
-        else if(count($errors) > 0) {
-            $content = editSection($formData, $section, current($errors));
-        }
         else {
-            $duplicateCheck = $sectionModel->getSectionWithUID($formData['url_id']);
-
-            if($duplicateCheck && $duplicateCheck['section_id'] != $section['section_id']) {
-                $content = editSection($formData, $section, urlDupError($formData['url_id']));
-            }
-            else {
-                $sectionModel->updateSection($sectionID, $formData);
-                $content = sprintf('<div class="success">Section updated</div>'
-                    . '<ul><li><a href="%s%s">View Section</a></li>'
-                    . '<li><a href="%s%d">Edit Section</a></li></ul>',
-                    ROOT, $formData['url_id'], EDIT_SECTION, $sectionID);
-            }
+            $content = ($error = $sectionModel->updateSection($sectionID, $formData))
+                ? editSection($formData, $section, $error)
+                : sectionUpdated($sectionID, $formData['url_id']);
         }
     }
     else {
