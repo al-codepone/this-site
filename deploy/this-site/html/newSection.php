@@ -4,7 +4,7 @@ require_once(THIS_SITE . 'html/error.php');
 require_once(THIS_SITE . 'html/sectionInputs.php');
 
 function newSection($formData, $error = '') {
-    return sprintf('%s<form method="post">%s'
+    return sprintf('<form method="post">%s%s'
         . '<input type="submit" value="Create New Section"/></form>',
         error($error), sectionInputs($formData));
 }
