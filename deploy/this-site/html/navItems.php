@@ -7,7 +7,7 @@ function navItems($sections, $currentSectionID, $baseURL, $key, $forceShow = fal
 
     foreach($sections as $section) {
         if($forceShow || $section['display_mode'] == 1) {
-            printf('<li><a %shref="%s%s">%s</a></li>',
+            printf('<a %shref="%s%s">%s</a>',
                 currentLink($section['section_id'] == $currentSectionID),
                 $baseURL, $section[$key], $section['link_title']);
         }

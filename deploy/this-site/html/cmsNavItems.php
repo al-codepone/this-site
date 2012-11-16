@@ -4,7 +4,7 @@ require_once(THIS_SITE . 'html/currentLink.php');
 require_once(THIS_SITE . 'html/navItems.php');
 
 function cmsNavItems($sections, $currentSectionID, $isNewSection) {
-    return sprintf('<li id="new_section"><a %shref="%s">%s</a></li>%s',
+    return sprintf('<a class="new_section" %shref="%s">%s</a>%s',
         currentLink($isNewSection),
         NEW_SECTION,
         NEW_SECTION_TITLE,

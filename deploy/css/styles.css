@@ -1,12 +1,5 @@
 body {
-    font-family:arial;
     margin:3em 1em 4em 0;
-    background:#fcfcfb;
-    color:#161718;
-}
-
-a {
-    color:#0000ee;
 }
 
 img {
@@ -16,11 +9,6 @@ img {
 
 label {
     display:block;
-}
-
-input[type="submit"], input[type="button"] {
-    padding:0.3em;
-    font-size:1em;
 }
 
 .error {
@@ -34,18 +22,17 @@ input[type="submit"], input[type="button"] {
 #nav {
     float:left;
     width:12em;
-    padding:0;
-    margin:0;
-    list-style-type:none;
     text-align:right;
 }
 
-#nav li {
-    margin-bottom:0.5em;
+#nav a {
+    display:block;
+    white-space:nowrap;
+    margin-bottom:0.4em;
 }
 
-#nav #new_section {
-    margin-bottom:1.3em;
+#nav .new_section {
+    margin-bottom:1.2em;
 }
 
 #content {
@@ -54,7 +41,6 @@ input[type="submit"], input[type="button"] {
 
 #content p {
     width:27em;
-    line-height:1.45em;
 }
 
 #content form div {
@@ -79,33 +65,32 @@ input[type="submit"], input[type="button"] {
     color:#000000;
 }
 
-@media (max-width: 560px) {
+@media(max-width:560px) {
     body {
-        margin:1em;
+        margin:0;
     }
 
     #nav {
+        background:#f3f3f3;
+        text-align:center;
         width:100%;
         float:none;
-		text-align:left;
+        padding:0.4em 0;
+        line-height:1.8em;
     }
 
-    #nav li {
-        float:left;
-        margin-right:1em;
+    #nav a {
+        display:inline-block;
+        padding:0 0.5em;
+        margin:0;
     }
 
-    #nav #new_section, #nav li {
-        margin-bottom:0.75em;
-    }
-
-    #nav li:last-child {
-        margin-bottom:1em;
+    #nav .new_section {
+        margin:0;
     }
 
     #content {
-        clear:left;
-        margin:0;
+        margin:1em;
     }
 
     #content p {
