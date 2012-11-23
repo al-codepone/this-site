@@ -1,7 +1,7 @@
 <?php
 
-require_once(STD_LIB . 'html/input.php');
-require_once(STD_LIB . 'html/textarea.php');
+require_once(CITYPHP . 'html/input.php');
+require_once(CITYPHP . 'html/textarea.php');
 require_once(THIS_SITE . 'html/displayMode.php');
 
 function sectionInputs($data) {

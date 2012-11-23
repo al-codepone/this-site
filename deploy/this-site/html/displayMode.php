@@ -1,6 +1,6 @@
 <?php
 
-require_once(STD_LIB . 'html/radio.php');
+require_once(CITYPHP . 'html/radio.php');
 
 function displayMode($value) {
     ob_start();

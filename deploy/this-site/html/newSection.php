@@ -1,6 +1,6 @@
 <?php
 
-require_once(STD_LIB . 'html/error.php');
+require_once(CITYPHP . 'html/error.php');
 require_once(THIS_SITE . 'html/sectionInputs.php');
 
 function newSection($formData, $error = '') {

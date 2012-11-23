@@ -1,6 +1,6 @@
 <?php
 
-require_once(STD_LIB . 'html/autofocus.php');
+require_once(CITYPHP . 'html/autofocus.php');
 require_once(THIS_SITE . 'forms/SectionValidator.php');
 require_once(THIS_SITE . 'html/newSection.php');
 require_once(THIS_SITE . 'html/newSectionCreated.php');
