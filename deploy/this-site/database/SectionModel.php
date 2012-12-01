@@ -25,9 +25,9 @@ class SectionModel extends DatabaseAdapter {
             return urlTaken($data['url_id']);
         }
 
-        $this->query(sprintf('INSERT INTO %s (section_id, url_id, link_title, html_title,
+        $this->query(sprintf('INSERT INTO %s (url_id, link_title, html_title,
             html_description, html_keywords, page_content, link_order, display_mode)
-            VALUES(NULL, "%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
+            VALUES("%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
             TABLE_SECTIONS,
             $this->esc($data['url_id']),
             $this->esc($data['link_title']),
