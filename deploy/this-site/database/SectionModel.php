@@ -20,7 +20,7 @@ class SectionModel extends DatabaseAdapter {
             ENGINE = MYISAM');
     }
 
-    public function createSection(array $data) {
+    public function createSection($data) {
         if($this->getSectionWithUID($data['url_id'])) {
             return urlTaken($data['url_id']);
         }
@@ -61,7 +61,7 @@ class SectionModel extends DatabaseAdapter {
             TABLE_SECTIONS));
     }
 
-    public function updateSection($sectionID, array $data) {
+    public function updateSection($sectionID, $data) {
         $duplicateCheck = $this->getSectionWithUID($data['url_id']);
 
         if($duplicateCheck && $duplicateCheck['section_id'] != $sectionID) {
