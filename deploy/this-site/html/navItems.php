@@ -2,14 +2,14 @@
 
 require_once(THIS_SITE . 'html/currentLink.php');
 
-function navItems($sections, $currentSectionID, $baseURL, $key, $forceShow = false) {
+function navItems($pages, $currentPageID, $baseURL, $key, $forceShow = false) {
     ob_start();    
 
-    foreach($sections as $section) {
-        if($forceShow || $section['display_mode'] == 1) {
+    foreach($pages as $page) {
+        if($forceShow || $page['display_mode'] == 1) {
             printf('<span><a %shref="%s%s">%s</a></span>',
-                currentLink($section['section_id'] == $currentSectionID),
-                $baseURL, $section[$key], $section['link_title']);
+                currentLink($page['page_id'] == $currentPageID),
+                $baseURL, $page[$key], $page['link_title']);
         }
     }
 

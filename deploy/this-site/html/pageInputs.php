@@ -4,7 +4,7 @@ require_once(CITYPHP . 'html/input.php');
 require_once(CITYPHP . 'html/textarea.php');
 require_once(THIS_SITE . 'html/displayMode.php');
 
-function sectionInputs($data) {
+function pageInputs($data) {
     $input = function($label, $id) use($data) {
         return input($label, $id, $data[$id]);
     };

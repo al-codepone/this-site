@@ -3,15 +3,15 @@
 require_once(THIS_SITE . 'html/currentLink.php');
 require_once(THIS_SITE . 'html/navItems.php');
 
-function cmsNavItems($sections, $currentSectionID, $isNewSection) {
-    return sprintf('<span id="new_section"><a %shref="%s">%s</a></span>%s',
-        currentLink($isNewSection),
-        NEW_SECTION,
-        NEW_SECTION_TITLE,
-        navItems($sections,
-            $currentSectionID,
-            EDIT_SECTION,
-            'section_id',
+function cmsNavItems($pages, $currentPageID, $isNewPage) {
+    return sprintf('<span id="new_page"><a %shref="%s">%s</a></span>%s',
+        currentLink($isNewPage),
+        NEW_PAGE,
+        NEW_PAGE_TITLE,
+        navItems($pages,
+            $currentPageID,
+            EDIT_PAGE,
+            'page_id',
             true));
 }
 

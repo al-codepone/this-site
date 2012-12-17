@@ -4,21 +4,21 @@ require_once('./constants.php');
 require_once(THIS_SITE . 'database/MyModelFactory.php');
 require_once(THIS_SITE . 'html/navItems.php');
 
-$sectionModel = MyModelFactory::getModel('SectionModel');
-$section = $sectionModel->getSectionWithUID($_GET['id']);
+$pageModel = MyModelFactory::getModel('PageModel');
+$page = $pageModel->getPageWithUID($_GET['id']);
 $head = sprintf('<title>%s</title>'
     . '<meta name="description" content="%s"/>'
     . '<meta name="keywords" content="%s"/>',
-    htmlspecialchars($section['html_title']),
-    htmlspecialchars($section['html_description']),
-    htmlspecialchars($section['html_keywords']));
+    htmlspecialchars($page['html_title']),
+    htmlspecialchars($page['html_description']),
+    htmlspecialchars($page['html_keywords']));
 
-$navItems = navItems($sectionModel->getSections(),
-    $section['section_id'], ROOT, 'url_id');
+$navItems = navItems($pageModel->getPages(),
+    $page['page_id'], ROOT, 'url_id');
 
-$content = ($section && $section['display_mode'] != 3)
-    ? $section['page_content']
-    : 'This section is invalid.';
+$content = ($page && $page['display_mode'] != 3)
+    ? $page['page_content']
+    : 'This page is invalid.';
 
 include(THIS_SITE . 'html/template.php');
 

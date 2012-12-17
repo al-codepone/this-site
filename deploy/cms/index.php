@@ -5,14 +5,14 @@ require_once(CITYPHP . 'route.php');
 require_once(THIS_SITE . 'database/MyModelFactory.php');
 require_once(THIS_SITE . 'html/cmsNavItems.php');
 
-$sectionModel = MyModelFactory::getModel('SectionModel');
+$pageModel = MyModelFactory::getModel('PageModel');
 
 include(route(array(
-    null => 'new-section.php',
-    'edit' => 'edit-section.php')));
+    null => 'new-page.php',
+    'edit' => 'edit-page.php')));
 
-$navItems = cmsNavItems($sectionModel->getSections(),
-    $sectionID, $isNewSection);
+$navItems = cmsNavItems($pageModel->getPages(),
+    $pageID, $isNewPage);
 
 include(THIS_SITE . 'html/template.php');
 

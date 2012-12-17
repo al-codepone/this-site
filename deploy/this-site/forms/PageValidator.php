@@ -2,7 +2,7 @@
 
 require_once(CITYPHP . 'forms/FormValidator.php');
 
-class SectionValidator extends FormValidator {
+class PageValidator extends FormValidator {
     public function __construct() {
         parent::__construct(array(
             'url_id' => '',
