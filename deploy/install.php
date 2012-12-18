@@ -1,9 +1,9 @@
 <?php
 
 require_once('./constants.php');
-require_once(THIS_SITE . 'database/MyModelFactory.php');
+require_once(THIS_SITE . 'database/ModelFactory.php');
 
-$pageModel = MyModelFactory::getModel('PageModel');
+$pageModel = ModelFactory::get('PageModel');
 $pageModel->install();
 
 printf('Install successful. <a href="%s">Visit CMS</a>.', NEW_PAGE);

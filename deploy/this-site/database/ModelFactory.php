@@ -1,10 +1,10 @@
 <?php
 
-require_once(CITYPHP . 'database/ModelFactory.php');
+require_once(CITYPHP . 'database/AdapterFactory.php');
 require_once(CITYPHP . 'database/MySqlDatabaseHandle.php');
 require_once(THIS_SITE . 'database/PageModel.php');
 
-class MyModelFactory extends ModelFactory {
+class ModelFactory extends AdapterFactory {
     protected static function getDatabaseHandle() {
         return new MySqlDatabaseHandle(
             DATABASE_HOST,

@@ -1,10 +1,10 @@
 <?php
 
 require_once('./constants.php');
-require_once(THIS_SITE . 'database/MyModelFactory.php');
+require_once(THIS_SITE . 'database/ModelFactory.php');
 require_once(THIS_SITE . 'html/navItems.php');
 
-$pageModel = MyModelFactory::getModel('PageModel');
+$pageModel = ModelFactory::get('PageModel');
 $page = $pageModel->getPageWithUID($_GET['id']);
 $head = sprintf('<title>%s</title>'
     . '<meta name="description" content="%s"/>'
