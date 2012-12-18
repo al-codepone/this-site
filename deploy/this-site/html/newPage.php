@@ -9,7 +9,7 @@ function newPage($formData, $error = '') {
 <form method="post">
     <?=error($error)?>
     <?=pageInputs($formData)?>
-    <input type="submit" value="Create New Page"/>
+    <div><input type="submit" value="Create New Page"/></div>
 </form>
 
     <? return ob_get_clean();
