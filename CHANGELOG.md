@@ -1,0 +1,16 @@
+# Changelog
+
+- 2011-09-22, 0.3.0
+    - Upgraded to cityphp framework.
+    - Upgraded HTML/CSS to tableless layout.
+    - Added HTML description field to CMS.
+- 2011-11-08, 0.4.0
+    - Add local git repository.
+    - Upgrade to responsive web design.
+    - Add usage section to manual.
+- 2012-03-20, 0.4.1
+    - Upgrade to cityphp 0.2.0.
+    - New user manual.
+    - Refactor codebase.
+- 2012-05-14, 0.4.2
+    - Update cityphp URL in manual.
