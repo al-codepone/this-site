@@ -14,3 +14,8 @@
     - Refactor codebase.
 - 2012-05-14, 0.4.2
     - Update cityphp URL in manual.
+- 2013-01-03, 0.5.0
+    - Upgrade to cityphp 0.3.0.
+    - Add HTML meta keywords to CMS.
+    - Don't convert page content CRLF to `<br/>`
+    - Improve mobile UI.
