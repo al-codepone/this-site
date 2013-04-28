@@ -19,3 +19,7 @@
     - Add HTML meta keywords to CMS.
     - Don't convert page content CRLF to `<br/>`
     - Improve mobile UI.
+- 2013-04-28, 0.5.1
+    - Use the unlicense license.
+    - Improve tablet support.
+
