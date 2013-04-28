@@ -1,6 +1,6 @@
 <?php
 
-define('CITYPHP', 'C:/wamp/www/framework/cityphp/');
+define('CITYPHP', 'C:/wamp/www/cityphp/cityphp/');
 define('THIS_SITE', 'C:/wamp/www/this-site/deploy/this-site/');
 
 define('ROOT', '/this-site/deploy/');
