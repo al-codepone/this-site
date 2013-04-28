@@ -6,9 +6,9 @@ require_once(THIS_SITE . 'html/navItems.php');
 
 $pageModel = ModelFactory::get('PageModel');
 $page = $pageModel->getPageWithUID($_GET['id']);
-$head = sprintf('<title>%s</title>'
-    . '<meta name="description" content="%s"/>'
-    . '<meta name="keywords" content="%s"/>',
+$head = sprintf('<title>%s</title>
+    <meta name="description" content="%s"/>
+    <meta name="keywords" content="%s"/>',
     htmlspecialchars($page['html_title']),
     htmlspecialchars($page['html_description']),
     htmlspecialchars($page['html_keywords']));
