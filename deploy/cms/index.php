@@ -9,7 +9,8 @@ $pageModel = ModelFactory::get('PageModel');
 
 include(route(array(
     null => 'new-page.php',
-    'edit' => 'edit-page.php')));
+    'edit' => 'edit-page.php'),
+    THIS_SITE . 'routes/'));
 
 $navItems = cmsNavItems($pageModel->getPages(),
     $pageID, $isNewPage);
