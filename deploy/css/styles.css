@@ -65,7 +65,7 @@ label {
     height:4em;
 }
 
-@media(max-width:560px) {
+@media(max-width:700px) {
     body {
         margin:0;
     }
