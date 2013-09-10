@@ -1,8 +1,9 @@
 <?php
 
-require_once(CITYPHP . 'database/AdapterFactory.php');
-require_once(CITYPHP . 'database/MySqlDatabaseHandle.php');
-require_once(THIS_SITE . 'database/PageModel.php');
+namespace thissite\database;
+
+use cityphp\database\AdapterFactory;
+use cityphp\database\MySqlDatabaseHandle;
 
 class ModelFactory extends AdapterFactory {
     protected static function getDatabaseHandle() {

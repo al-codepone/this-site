@@ -1,10 +1,12 @@
 <?php
 
 require_once('./constants.php');
-require_once(THIS_SITE . 'database/ModelFactory.php');
-require_once(THIS_SITE . 'html/navItems.php');
+require_once(CITYPHP . '__autoload.php');
+require_once(THISSITE . 'html/navItems.php');
 
-$pageModel = ModelFactory::get('PageModel');
+use thissite\database\ModelFactory;
+
+$pageModel = ModelFactory::get('thissite\database\PageModel');
 $page = $pageModel->getPageWithUID($_GET['id']);
 $head = sprintf('<title>%s</title>
     <meta name="description" content="%s"/>
@@ -20,6 +22,6 @@ $content = ($page && $page['display_mode'] != 3)
     ? $page['page_content']
     : 'This page is invalid.';
 
-include(THIS_SITE . 'html/template.php');
+include(THISSITE . 'html/template.php');
 
 ?>

@@ -1,8 +1,9 @@
 <?php
 
-require_once(THIS_SITE . 'forms/EditPageValidator.php');
-require_once(THIS_SITE . 'html/editPage.php');
-require_once(THIS_SITE . 'html/pageUpdated.php');
+require_once(THISSITE . 'html/editPage.php');
+require_once(THISSITE . 'html/pageUpdated.php');
+
+use thissite\forms\EditPageValidator;
 
 $pageID = $_GET['id'];
 $page = $pageModel->getPageWithPID($pageID);

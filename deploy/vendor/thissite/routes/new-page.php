@@ -1,9 +1,10 @@
 <?php
 
 require_once(CITYPHP . 'html/autofocus.php');
-require_once(THIS_SITE . 'forms/PageValidator.php');
-require_once(THIS_SITE . 'html/newPage.php');
-require_once(THIS_SITE . 'html/newPageCreated.php');
+require_once(THISSITE . 'html/newPage.php');
+require_once(THISSITE . 'html/newPageCreated.php');
+
+use thissite\forms\PageValidator;
 
 $validator = new PageValidator();
 

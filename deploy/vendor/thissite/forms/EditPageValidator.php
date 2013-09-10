@@ -1,6 +1,6 @@
 <?php
 
-require_once(THIS_SITE . 'forms/PageValidator.php');
+namespace thissite\forms;
 
 class EditPageValidator extends PageValidator {
     public function __construct() {

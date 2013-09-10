@@ -1,7 +1,7 @@
 <?php
 
 require_once(CITYPHP . 'html/error.php');
-require_once(THIS_SITE . 'html/pageInputs.php');
+require_once(THISSITE . 'html/pageInputs.php');
 
 function editPage($formData, $currentPage, $error = '') {
     ob_start(); ?>

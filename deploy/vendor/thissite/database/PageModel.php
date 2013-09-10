@@ -1,7 +1,10 @@
 <?php
 
-require_once(CITYPHP . 'database/DatabaseAdapter.php');
-require_once(THIS_SITE . 'urlTaken.php');
+namespace thissite\database;
+
+require_once(THISSITE . 'urlTaken.php');
+
+use cityphp\database\DatabaseAdapter;
 
 class PageModel extends DatabaseAdapter {
     public function install() {
