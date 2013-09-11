@@ -2,7 +2,7 @@
 
 namespace thissite\database;
 
-require_once(THISSITE . 'urlTaken.php');
+require_once THISSITE . 'urlTaken.php';
 
 use cityphp\database\DatabaseAdapter;
 

@@ -1,7 +1,7 @@
 <?php
 
-require_once(THISSITE . 'html/editPage.php');
-require_once(THISSITE . 'html/pageUpdated.php');
+require_once THISSITE . 'html/editPage.php';
+require_once THISSITE . 'html/pageUpdated.php';
 
 use thissite\forms\EditPageValidator;
 

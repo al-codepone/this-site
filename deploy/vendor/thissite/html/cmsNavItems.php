@@ -1,7 +1,7 @@
 <?php
 
-require_once(THISSITE . 'html/currentLink.php');
-require_once(THISSITE . 'html/navItems.php');
+require_once THISSITE . 'html/currentLink.php';
+require_once THISSITE . 'html/navItems.php';
 
 function cmsNavItems($pages, $currentPageID, $isNewPage) {
     return sprintf('<span id="new_page"><a %shref="%s">%s</a></span>%s',

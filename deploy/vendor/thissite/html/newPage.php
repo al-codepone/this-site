@@ -1,7 +1,7 @@
 <?php
 
-require_once(CITYPHP . 'html/error.php');
-require_once(THISSITE . 'html/pageInputs.php');
+require_once CITYPHP . 'html/error.php';
+require_once THISSITE . 'html/pageInputs.php';
 
 function newPage($formData, $error = '') {
     ob_start(); ?>

@@ -1,6 +1,6 @@
 <?php
 
-require_once(THISSITE . 'html/currentLink.php');
+require_once THISSITE . 'html/currentLink.php';
 
 function navItems($pages, $currentPageID, $baseURL, $key, $forceShow = false) {
     ob_start();    

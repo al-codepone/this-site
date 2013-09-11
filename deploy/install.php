@@ -1,7 +1,7 @@
 <?php
 
-require_once('./constants.php');
-require_once(CITYPHP . '__autoload.php');
+require_once 'constants.php';
+require_once CITYPHP . '__autoload.php';
 
 use thissite\database\ModelFactory;
 

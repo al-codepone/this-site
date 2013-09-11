@@ -1,8 +1,8 @@
 <?php
 
-require_once(CITYPHP . 'html/autofocus.php');
-require_once(THISSITE . 'html/newPage.php');
-require_once(THISSITE . 'html/newPageCreated.php');
+require_once CITYPHP . 'html/autofocus.php';
+require_once THISSITE . 'html/newPage.php';
+require_once THISSITE . 'html/newPageCreated.php';
 
 use thissite\forms\PageValidator;
 

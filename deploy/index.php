@@ -1,8 +1,8 @@
 <?php
 
-require_once('./constants.php');
-require_once(CITYPHP . '__autoload.php');
-require_once(THISSITE . 'html/navItems.php');
+require_once 'constants.php';
+require_once CITYPHP . '__autoload.php';
+require_once THISSITE . 'html/navItems.php';
 
 use thissite\database\ModelFactory;
 
@@ -22,6 +22,6 @@ $content = ($page && $page['display_mode'] != 3)
     ? $page['page_content']
     : 'This page is invalid.';
 
-include(THISSITE . 'html/template.php');
+include THISSITE . 'html/template.php';
 
 ?>
