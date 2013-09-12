@@ -48,16 +48,23 @@ label {
     width:27em;
 }
 
-#content form div {
+#content form > div {
     margin-bottom:1em;
 }
 
-#content #display_mode div {
-    margin-bottom:0;
+#content #c_display_mode label {
+    display:inline;
 }
 
-#content #display_mode div label {
-    display:inline;
+#content #c_display_mode > div {
+    unicode-bidi:embed;
+    direction:rtl;
+    text-align:left;
+}
+
+#content #c_display_mode > div * {
+    unicode-bidi:embed;
+    direction:ltr;
 }
 
 #html_description, #html_keywords, #page_content {

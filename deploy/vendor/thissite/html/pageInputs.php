@@ -28,7 +28,7 @@ function pageInputs($data) {
             'Link Order')
 
         . radioButtons(array(1 => 'Show All', 'Hide Link', 'Hide All'),
-            'display_mode', $data['display_mode']);
+            'display_mode', $data['display_mode'], 'Display Mode');
 }
 
 ?>
