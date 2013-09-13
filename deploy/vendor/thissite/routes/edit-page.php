@@ -12,12 +12,12 @@ if($page) {
     $validator = new EditPageValidator();
 
     if(list($formData, $errors) = $validator->validate()) {
-        if($errors) {
-            $content = editPage($formData, $page, current($errors));
-        }
-        else if($formData['delete_flag']) {
+        if($formData['delete_flag']) {
             $pageModel->deletePage($pageID);
             $content = '<div class="success">Page deleted</div>';
+        }
+        else if($errors) {
+            $content = editPage($formData, $page, current($errors));
         }
         else {
             $content = ($error = $pageModel->updatePage($pageID, $formData))
