@@ -28,11 +28,12 @@ if($page) {
     else {
         $content = editPage($page, $page);
     }
+
+    $head = '<script src="' . JS . 'edit-page.js"></script>';
 }
 else {
-   $content = 'This page is invalid.';
+    header('HTTP/1.0 404 Not Found', true, 404);
+    exit();
 }
-
-$head = '<script src="' . JS . 'edit-page.js"></script>';
 
 ?>
