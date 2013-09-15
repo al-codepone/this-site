@@ -10,7 +10,7 @@ $validator = new PageValidator();
 
 if(list($formData, $errors) = $validator->validate()) {
     if($errors) {
-        $content = newPage($formData, current($errors));
+        $content = newPage($formData, $errors);
     }
     else {
         $content = is_int($result = $pageModel->createPage($formData))

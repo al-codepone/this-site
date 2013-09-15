@@ -17,7 +17,7 @@ if($page) {
             $content = '<div class="success">Page deleted</div>';
         }
         else if($errors) {
-            $content = editPage($formData, $page, current($errors));
+            $content = editPage($formData, $page, $errors);
         }
         else {
             $content = ($error = $pageModel->updatePage($pageID, $formData))
