@@ -7,7 +7,7 @@
         <?=$head?>
     </head>
     <body>
-        <div id="nav"><?=$navItems?></div>
+        <div id="nav"><ul><?=$navItems?></ul></div>
         <div id="content"><?=$content?></div>
         <?=$autofocus?>
     </body>

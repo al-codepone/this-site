@@ -25,10 +25,10 @@ label {
     text-align:right;
 }
 
-#nav span {
-    display:block;
-    white-space:nowrap;
-    margin-bottom:0.4em;
+#nav ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
 }
 
 #nav #new_page {
@@ -79,17 +79,15 @@ label {
 
     #nav {
         background:#f3f3f3;
-        text-align:center;
         width:100%;
         float:none;
-        padding:0.4em 0;
-        line-height:1.8em;
+        padding:.4em 0;
+        text-align:center;
     }
 
-    #nav span {
+    #nav ul li {
         display:inline-block;
-        padding:0 0.5em;
-        margin:0;
+        padding:.4em .4em;
     }
 
     #nav #new_page {
