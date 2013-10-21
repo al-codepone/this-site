@@ -7,3 +7,7 @@ function deletePage() {
       form.submit();
    }
 }
+
+function pageSelected(e) {
+    window.location = e.options[e.selectedIndex].value;
+}

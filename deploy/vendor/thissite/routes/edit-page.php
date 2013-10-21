@@ -28,8 +28,6 @@ if($page) {
     else {
         $content = editPage($page, $page);
     }
-
-    $head = '<script src="' . JS . 'edit-page.js"></script>';
 }
 else {
     header('HTTP/1.0 404 Not Found', true, 404);

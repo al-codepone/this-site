@@ -2,7 +2,7 @@
 
 require_once 'constants.php';
 require_once CITYPHP . '__autoload.php';
-require_once THISSITE . 'html/navItems.php';
+require_once THISSITE . 'html/navs.php';
 
 use thissite\database\ModelFactory;
 
@@ -17,8 +17,8 @@ if($page && $page['display_mode'] != 3) {
         htmlspecialchars($page['html_description']),
         htmlspecialchars($page['html_keywords']));
 
-    $navItems = navItems($pageModel->getPages(),
-        $page['page_id'], ROOT, 'url_id');
+    list($listNav, $selectNav)
+        = navs($pageModel->getPages(), $page['page_id']);
 
     $content = $page['page_content'];
     include THISSITE . 'html/template.php';

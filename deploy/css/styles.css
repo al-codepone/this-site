@@ -31,13 +31,19 @@ label {
     list-style-type:none;
 }
 
-#nav #new_page {
-    margin-bottom:1.2em;
-}
-
 #nav #current_link {
     text-decoration:none;
     color:#000000;
+}
+
+#alt-nav {
+    display:none;
+    padding:.5em 1em;
+    background:#f3f3f3;
+}
+
+#alt-nav select {
+    width:100%;
 }
 
 #content {
@@ -72,7 +78,7 @@ label {
     height:4em;
 }
 
-@media(max-width:700px) {
+@media(max-width:801px) {
     body {
         margin:0;
     }
@@ -90,10 +96,6 @@ label {
         padding:.4em .4em;
     }
 
-    #nav #new_page {
-        margin:0;
-    }
-
     #content {
         margin:1em;
     }
@@ -104,5 +106,15 @@ label {
 
     #html_description, #html_keywords, #page_content {
         width:100%;
+    }
+}
+
+@media(max-width:401px) {
+    #nav {
+        display:none;
+    }
+
+    #alt-nav {
+        display:block;
     }
 }
