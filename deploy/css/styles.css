@@ -36,6 +36,10 @@ label {
     color:#000000;
 }
 
+#nav #new_page {
+   margin-bottom:1em;
+}
+
 #alt-nav {
     display:none;
     padding:.5em 1em;
@@ -98,6 +102,10 @@ label {
     #nav ul li {
         display:inline-block;
         padding:.4em .4em;
+    }
+
+    #nav #new_page {
+        margin:0;
     }
 
     #content {
