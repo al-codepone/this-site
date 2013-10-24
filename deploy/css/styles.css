@@ -104,6 +104,7 @@ label {
         width:100%;
     }
 
+    #link_title, #url_id, #html_title, #link_order,
     #html_description, #html_keywords, #page_content {
         width:100%;
     }
