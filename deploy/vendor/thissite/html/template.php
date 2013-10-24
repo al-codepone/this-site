@@ -11,6 +11,7 @@
         <div id="alt-nav"><?=$selectNav?></div>
         <div id="nav"><?=$listNav?></div>
         <div id="content"><?=$content?></div>
+        <div id="floor"></div>
         <?=$autofocus?>
     </body>
 </html>

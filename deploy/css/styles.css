@@ -78,6 +78,10 @@ label {
     height:4em;
 }
 
+#floor {
+    clear:left;
+}
+
 @media(max-width:801px) {
     body {
         margin:0;
