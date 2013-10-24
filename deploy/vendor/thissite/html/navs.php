@@ -1,7 +1,7 @@
 <?php
 
+require_once CITYPHP . 'html/blist.php';
 require_once CITYPHP . 'html/select.php';
-require_once CITYPHP . 'html/ulist.php';
 require_once THISSITE . 'html/navElements.php';
 
 function navs($pages, $currentPageID) {
@@ -9,7 +9,7 @@ function navs($pages, $currentPageID) {
         = navElements($pages, $currentPageID, ROOT, 'url_id');
 
     return array(
-        ulist($listItems),
+        blist($listItems),
         select($selectOptions, array('onchange' => 'pageSelected(this);'),
             '', $selectedValue, false));
 }

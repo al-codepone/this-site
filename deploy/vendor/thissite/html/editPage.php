@@ -1,6 +1,6 @@
 <?php
 
-require_once CITYPHP . 'html/ulist.php';
+require_once CITYPHP . 'html/blist.php';
 require_once THISSITE . 'html/pageInputs.php';
 
 function editPage($formData, $currentPage, $errors = array()) {
@@ -8,7 +8,7 @@ function editPage($formData, $currentPage, $errors = array()) {
 
 <form method="post" id="page_form">
     <input type="hidden" name="delete_flag" value="0"/>
-    <?=ulist($errors, array('class' => 'error'))?>
+    <?=blist($errors, array('class' => 'error'))?>
     <div><a href="<?=ROOT . $currentPage['url_id']?>">View Page</a></div>
     <?=pageInputs($formData)?>
     <div>

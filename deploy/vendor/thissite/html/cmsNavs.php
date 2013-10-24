@@ -1,7 +1,7 @@
 <?php
 
+require_once CITYPHP . 'html/blist.php';
 require_once CITYPHP . 'html/select.php';
-require_once CITYPHP . 'html/ulist.php';
 require_once THISSITE . 'html/currentLink.php';
 require_once THISSITE . 'html/navElements.php';
 
@@ -24,7 +24,7 @@ function cmsNavs($pages, $currentPageID, $isNewPage) {
     }
 
     return array(
-        ulist($listItems),
+        blist($listItems),
         select($selectOptions, array('onchange' => 'pageSelected(this);'),
             '', $selectedValue, false));
 }
