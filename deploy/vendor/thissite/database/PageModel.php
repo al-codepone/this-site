@@ -4,7 +4,7 @@ namespace thissite\database;
 
 require_once THISSITE . 'urlTaken.php';
 
-use cityphp\database\DatabaseAdapter;
+use cityphp\db\DatabaseAdapter;
 
 class PageModel extends DatabaseAdapter {
     public function install() {

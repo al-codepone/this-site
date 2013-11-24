@@ -2,12 +2,12 @@
 
 namespace thissite\database;
 
-use cityphp\database\AdapterFactory;
-use cityphp\database\MySqlDatabaseHandle;
+use cityphp\db\AdapterFactory;
+use cityphp\db\Mysql;
 
 class ModelFactory extends AdapterFactory {
     protected static function getDatabaseHandle() {
-        return new MySqlDatabaseHandle(
+        return new Mysql(
             DATABASE_HOST,
             DATABASE_USERNAME,
             DATABASE_PASSWORD,
