@@ -1,6 +1,6 @@
 <?php
 
-namespace thissite\database;
+namespace thissite\db;
 
 use cityphp\db\AdapterFactory;
 use cityphp\db\Mysql;

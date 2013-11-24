@@ -3,9 +3,9 @@
 require_once 'const.php';
 require_once CITYPHP . '__autoload.php';
 
-use thissite\database\ModelFactory;
+use thissite\db\ModelFactory;
 
-$pageModel = ModelFactory::get('thissite\database\PageModel');
+$pageModel = ModelFactory::get('thissite\db\PageModel');
 $pageModel->install();
 
 printf('Install successful. <a href="%s">Visit CMS</a>.', NEW_PAGE);

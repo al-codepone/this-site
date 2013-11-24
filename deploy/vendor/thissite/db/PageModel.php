@@ -1,6 +1,6 @@
 <?php
 
-namespace thissite\database;
+namespace thissite\db;
 
 require_once THISSITE . 'urlTaken.php';
 
