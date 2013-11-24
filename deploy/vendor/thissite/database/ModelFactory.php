@@ -8,10 +8,10 @@ use cityphp\db\Mysql;
 class ModelFactory extends AdapterFactory {
     protected static function getDatabaseHandle() {
         return new Mysql(
-            DATABASE_HOST,
-            DATABASE_USERNAME,
-            DATABASE_PASSWORD,
-            DATABASE_NAME);
+            DB_HOST,
+            DB_USERNAME,
+            DB_PASSWORD,
+            DB_NAME);
     }
 }
 
