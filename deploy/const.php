@@ -1,8 +1,8 @@
 <?php
 
-define('VENDOR', 'C:/wamp/www/this-site/deploy/vendor/');
-define('CITYPHP', VENDOR . 'cityphp/');
-define('THISSITE', VENDOR . 'thissite/');
+define('VENDOR', 'C:/wamp/www/cityphp/ C:/wamp/www/this-site/deploy/vendor/');
+define('CITYPHP', 'C:/wamp/www/cityphp/cityphp/');
+define('THISSITE', 'C:/wamp/www/this-site/deploy/vendor/thissite/');
 
 define('ROOT', '/this-site/deploy/');
 define('CSS', ROOT . 'css/');
