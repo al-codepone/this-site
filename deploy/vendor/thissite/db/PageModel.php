@@ -8,7 +8,7 @@ use cityphp\db\DatabaseAdapter;
 
 class PageModel extends DatabaseAdapter {
     public function install() {
-        $this->query('CREATE TABLE ' . TABLE_PAGES . ' (
+        $this->exec('CREATE TABLE ' . TABLE_PAGES . ' (
             page_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
             url_id VARCHAR(64),
             link_title VARCHAR(64),
@@ -28,7 +28,7 @@ class PageModel extends DatabaseAdapter {
             return urlTaken($data['url_id']);
         }
 
-        $this->query(sprintf('INSERT INTO %s (url_id, link_title, html_title,
+        $this->exec(sprintf('INSERT INTO %s (url_id, link_title, html_title,
             html_description, html_keywords, page_content, link_order, display_mode)
             VALUES("%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
             TABLE_PAGES,
@@ -41,11 +41,11 @@ class PageModel extends DatabaseAdapter {
             $data['link_order'],
             $data['display_mode']));
 
-        return $this->getConn()->insert_id;
+        return $this->conn()->insert_id;
     }
 
     public function getMaxLinkOrder() {
-        $queryData = $this->fetchQuery('SELECT MAX(link_order) AS max FROM ' . TABLE_PAGES);
+        $queryData = $this->query('SELECT MAX(link_order) AS max FROM ' . TABLE_PAGES);
         return intval($queryData[0]['max']);
     }
 
@@ -58,7 +58,7 @@ class PageModel extends DatabaseAdapter {
     }
 
     public function getPages() {
-        return $this->fetchQuery(sprintf(
+        return $this->query(sprintf(
             'SELECT page_id, url_id, link_title, display_mode + 0 AS display_mode
             FROM %s ORDER BY link_order, link_title',
             TABLE_PAGES));
@@ -71,7 +71,7 @@ class PageModel extends DatabaseAdapter {
             return urlTaken($data['url_id']);
         }
 
-        $this->query(sprintf(
+        $this->exec(sprintf(
             'UPDATE %s SET url_id = "%s", link_title = "%s", html_title = "%s",
             html_description = "%s", html_keywords = "%s", page_content = "%s",
             link_order = %d, display_mode = %d WHERE page_id = %d',
@@ -88,13 +88,13 @@ class PageModel extends DatabaseAdapter {
     }
 
     public function deletePage($pageID) {
-        $this->query(sprintf('DELETE FROM %s WHERE page_id = %d',
+        $this->exec(sprintf('DELETE FROM %s WHERE page_id = %d',
             TABLE_PAGES,
             $pageID));
     }
 
     protected function getPage($condition) {
-        $queryData = $this->fetchQuery(sprintf(
+        $queryData = $this->query(sprintf(
             'SELECT page_id, url_id, link_title, html_title, html_description,
             html_keywords, page_content, link_order, display_mode + 0 AS display_mode
             FROM %s WHERE %s',
