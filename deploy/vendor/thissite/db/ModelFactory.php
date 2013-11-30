@@ -6,7 +6,7 @@ use cityphp\db\AdapterFactory;
 use cityphp\db\Mysql;
 
 class ModelFactory extends AdapterFactory {
-    protected static function getDatabaseHandle() {
+    protected static function databaseHandle() {
         return new Mysql(
             DB_HOST,
             DB_USERNAME,
