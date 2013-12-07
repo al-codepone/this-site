@@ -9,10 +9,9 @@ use thissite\db\ModelFactory;
 
 $pageModel = ModelFactory::get('thissite\db\PageModel');
 
-include route(array(
+include THISSITE . 'routes/' . route(array(
     null => 'new-page.php',
-    'edit' => 'edit-page.php'),
-    THISSITE . 'routes/');
+    'edit' => 'edit-page.php'));
 
 list($listNav, $selectNav)
     = cmsNavs($pageModel->getPages(), $pageID, $isNewPage);
