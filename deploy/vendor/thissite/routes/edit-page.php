@@ -28,6 +28,8 @@ if($page) {
     else {
         $content = editPage($page, $page);
     }
+
+    $head = sprintf('<title>Edit Page #%d</title>', $page['page_id']);
 }
 else {
     header('HTTP/1.0 404 Not Found', true, 404);

@@ -26,5 +26,6 @@ else {
 }
 
 $isNewPage = true;
+$head = sprintf('<title>%s</title>', htmlspecialchars(NEW_PAGE_TITLE));
 
 ?>
