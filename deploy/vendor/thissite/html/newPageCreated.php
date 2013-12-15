@@ -1,11 +1,13 @@
 <?php
 
+require_once CITYPHP . 'html/blist.php';
+
 function newPageCreated($pageID, $urlID) {
-    return sprintf('<div class="success">New page created</div>'
-        . '<ul><li><a href="%s%s">View Page</a></li>'
-        . '<li><a href="%s%d">Edit Page</a></li>'
-        . '<li><a href="%s">%s</a></li></ul>',
-        ROOT, $urlID, EDIT_PAGE, $pageID, NEW_PAGE, NEW_PAGE_TITLE);
+    return '<div class="success">New page created</div>'
+        . blist(array(
+            sprintf('<a href="%s%s">View Pagess</a>', ROOT, $urlID),
+            sprintf('<a href="%s%d">Edit Page</a>', EDIT_PAGE, $pageID),
+            sprintf('<a href="%s">%s</a>', NEW_PAGE, NEW_PAGE_TITLE)));
 }
 
 ?>
