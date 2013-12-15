@@ -43,7 +43,7 @@ label {
 #alt-nav {
     display:none;
     padding:.5em 1em;
-    background:#f3f3f3;
+    background:#e5e5e5;
 }
 
 #alt-nav select {
@@ -92,7 +92,7 @@ label {
     }
 
     #nav {
-        background:#f3f3f3;
+        background:#e5e5e5;
         width:100%;
         float:none;
         padding:.4em 0;
