@@ -4,7 +4,7 @@ require_once CITYPHP . 'html/input.php';
 require_once CITYPHP . 'html/radioButtons.php';
 require_once CITYPHP . 'html/textarea.php';
 
-function pageInputs($data) {
+function pageInputs(array $data) {
     return
         input(array(
             'id' => 'link_title',

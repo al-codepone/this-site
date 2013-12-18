@@ -3,7 +3,7 @@
 require_once CITYPHP . 'html/blist.php';
 require_once THISSITE . 'html/pageInputs.php';
 
-function editPage($formData, $currentPage, $errors = array()) {
+function editPage(array $formData, $currentPage, $errors = array()) {
     ob_start(); ?>
 
 <form method="post" id="page_form">
