@@ -14,6 +14,7 @@ define('MYSQL_HOST', 'localhost');
 define('MYSQL_USERNAME', 'juanita');
 define('MYSQL_PASSWORD', 'pasta');
 define('MYSQL_NAME', 'ts_test');
+define('MYSQL_DEBUG', false);
 
 define('TABLE_PAGES', 'pages');
 

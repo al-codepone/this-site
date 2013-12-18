@@ -11,7 +11,11 @@ class ModelFactory extends AdapterFactory {
             MYSQL_HOST,
             MYSQL_USERNAME,
             MYSQL_PASSWORD,
-            MYSQL_NAME);
+            MYSQL_NAME,
+            null,
+            null,
+            'database error',
+            MYSQL_DEBUG);
     }
 }
 
