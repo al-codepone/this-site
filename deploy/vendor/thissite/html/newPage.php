@@ -1,18 +1,19 @@
 <?php
 
 require_once CITYPHP . 'html/blist.php';
+require_once CITYPHP . 'html/input.php';
 require_once THISSITE . 'html/pageInputs.php';
 
 function newPage(array $formData, $errors = array()) {
-    ob_start(); ?>
+    return
+        '<form method="post">'
+        . blist($errors, array('class' => 'error'))
+        . pageInputs($formData)
+        . input(array(
+            'type' => 'submit',
+            'value' => 'Create New Page'))
 
-<form method="post">
-    <?=blist($errors, array('class' => 'error'))?>
-    <?=pageInputs($formData)?>
-    <div><input type="submit" value="Create New Page"/></div>
-</form>
-
-    <? return ob_get_clean();
+        . '</form>';
 }
 
 ?>
