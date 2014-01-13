@@ -1,8 +1,5 @@
 <?php
 
-require_once CITYPHP . 'html/blist.php';
-require_once THISSITE . 'html/pageInputs.php';
-
 function editPage(array $formData, $currentPage, $errors = array()) {
     return
         '<form method="post" id="page_form">

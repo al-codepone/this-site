@@ -1,15 +1,10 @@
 <?php
 
-require_once THISSITE . 'html/editPage.php';
-require_once THISSITE . 'html/pageUpdated.php';
-
-use thissite\forms\EditPageValidator;
-
 $pageID = $_GET['id'];
 $page = $pageModel->getPageWithPID($pageID);
 
 if($page) {
-    $validator = new EditPageValidator();
+    $validator = new thissite\forms\EditPageValidator();
 
     if(list($formData, $errors) = $validator->validate()) {
         if($formData['delete_flag']) {

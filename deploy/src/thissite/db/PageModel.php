@@ -2,8 +2,6 @@
 
 namespace thissite\db;
 
-require_once THISSITE . 'urlTaken.php';
-
 use cityphp\db\DatabaseAdapter;
 
 class PageModel extends DatabaseAdapter {

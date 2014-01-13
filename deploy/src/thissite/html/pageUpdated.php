@@ -1,7 +1,5 @@
 <?php
 
-require_once CITYPHP . 'html/blist.php';
-
 function pageUpdated($pageID, $urlID) {
     return '<div class="success">Page updated</div>'
         . blist(array(

@@ -5,7 +5,7 @@ namespace thissite\forms;
 class EditPageValidator extends PageValidator {
     public function __construct() {
         parent::__construct();
-        $this->addValues(array('delete_flag' => 0));
+        $this->addInputs(array('delete_flag' => 0));
     }
 }
 

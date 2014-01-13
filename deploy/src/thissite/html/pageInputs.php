@@ -1,9 +1,5 @@
 <?php
 
-require_once CITYPHP . 'html/input.php';
-require_once CITYPHP . 'html/radioButtons.php';
-require_once CITYPHP . 'html/textarea.php';
-
 function pageInputs(array $data) {
     return
         input(array(

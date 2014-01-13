@@ -1,10 +1,5 @@
 <?php
 
-require_once CITYPHP . 'html/blist.php';
-require_once CITYPHP . 'html/select.php';
-require_once THISSITE . 'html/currentLink.php';
-require_once THISSITE . 'html/navElements.php';
-
 function cmsNavs($pages, $currentPageID, $isNewPage) {
     list($listItems, $selectOptions, $selectedValue)
         = navElements($pages, $currentPageID, EDIT_PAGE, 'page_id', true);

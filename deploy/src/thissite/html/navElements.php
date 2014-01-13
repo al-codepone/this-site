@@ -1,7 +1,5 @@
 <?php
 
-require_once THISSITE . 'html/currentLink.php';
-
 function navElements($pages, $currentPageID, $baseURL, $key, $forceShow = false) {
     $listItems = array();
     $selectOptions = array();

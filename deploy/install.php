@@ -1,7 +1,7 @@
 <?php
 
-require_once 'const.php';
-require_once CITYPHP . '__autoload.php';
+require 'const.php';
+require 'vendor/autoload.php';
 
 use thissite\db\ModelFactory;
 

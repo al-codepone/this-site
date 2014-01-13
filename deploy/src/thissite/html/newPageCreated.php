@@ -1,7 +1,5 @@
 <?php
 
-require_once CITYPHP . 'html/blist.php';
-
 function newPageCreated($pageID, $urlID) {
     return '<div class="success">New page created</div>'
         . blist(array(
