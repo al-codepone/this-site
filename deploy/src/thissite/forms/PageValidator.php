@@ -7,12 +7,12 @@ use cityphp\forms\FormValidator;
 class PageValidator extends FormValidator {
     public function __construct() {
         parent::__construct(array(
-            'link_title' => '',
-            'url_id' => '',
-            'html_title' => '',
-            'html_description' => '',
-            'html_keywords' => '',
-            'page_content' => '',
+            'link_title',
+            'url_id',
+            'html_title',
+            'html_description',
+            'html_keywords',
+            'page_content',
             'link_order' => 1,
             'display_mode' => 1));
     }
