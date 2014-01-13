@@ -1,0 +1,20 @@
+{
+    "require": {
+        "cityphp/cityphp": "0.4.0"
+    },
+    "autoload": {
+        "psr-0": {"thissite\\": "src/"},
+        "files": [
+            "src/thissite/urlTaken.php",
+            "src/thissite/html/cmsNavs.php",
+            "src/thissite/html/currentLink.php",
+            "src/thissite/html/editPage.php",
+            "src/thissite/html/navElements.php",
+            "src/thissite/html/navs.php",
+            "src/thissite/html/newPage.php",
+            "src/thissite/html/newPageCreated.php",
+            "src/thissite/html/pageInputs.php",
+            "src/thissite/html/pageUpdated.php"
+        ]
+    }
+}
