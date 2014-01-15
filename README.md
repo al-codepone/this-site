@@ -1,14 +1,11 @@
 # this site
 
-this site is a simple webpage CMS. It's built with PHP, MySQL and [cityphp](https://github.com/al-codepone/cityphp).
+`this site` is a simple webpage CMS. It's built with PHP, MySQL and [cityphp](https://github.com/al-codepone/cityphp). It has three different webpage layouts depending on the browser width: a two column layout, a single column layout with a navigation list and a single column layout with a navigation drop down.
 
 ## Installation
 
-Put the [cityphp directory](https://github.com/al-codepone/cityphp/tree/master/cityphp) on your web server. Create a MySQL database for your application. Set these variables in `deploy/const.php`:
+`this site` uses [composer](http://getcomposer.org) for installation. Run `composer install` in the `deploy` directory - this will download `cityphp` and create the autoloader. Next create a MySQL database for your application. Then set these variables in `deploy/const.php`:
 
-- `VENDOR` - absolute paths pointing to the directories that contain the `cityphp` directory and the `thissite` directory. Separate paths with whitespace. This is for autoloading.
-- `CITYPHP` - an absolute path pointing to the `cityphp` directory. This is for manually loading files.
-- `THISSITE` - an absolute path pointing to the `thissite` directory. This is for manually loading files.
 - `ROOT` - an absolute path pointing to your web application root. For example, if the application is at `http://mysite.com/` then `ROOT` is `/`. As another example, if the application is at `http://mysite.com/myapp/` then `ROOT` is `/myapp/`.
 - `MYSQL_HOST` - the MySQL database host
 - `MYSQL_USERNAME` - the MySQL database username
