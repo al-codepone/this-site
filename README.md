@@ -4,7 +4,7 @@
 
 ## Installation
 
-`this site` uses [composer](http://getcomposer.org) for installation. Run `composer install` in the `deploy` directory - this will download `cityphp` and create the autoloader. Next create a MySQL database for your application. Then set these variables in `deploy/const.php`:
+`this site` uses [composer](http://getcomposer.org) for installation. Run `composer install` in the `deploy` directory. Create a MySQL database for your application. Set these constants in `deploy/const.php`:
 
 - `ROOT` - an absolute path pointing to your web application root. For example, if the application is at `http://mysite.com/` then `ROOT` is `/`. As another example, if the application is at `http://mysite.com/myapp/` then `ROOT` is `/myapp/`.
 - `MYSQL_HOST` - the MySQL database host
