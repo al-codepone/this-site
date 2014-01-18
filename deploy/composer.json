@@ -5,6 +5,7 @@
     "autoload": {
         "psr-0": {"thissite\\": "src/"},
         "files": [
+            "src/thissite/safeMode.php",
             "src/thissite/urlTaken.php",
             "src/thissite/html/cmsNavs.php",
             "src/thissite/html/currentLink.php",

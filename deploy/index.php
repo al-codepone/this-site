@@ -19,7 +19,10 @@ if($page && $page['display_mode'] != 3) {
     list($listNav, $selectNav)
         = navs($pageModel->getPages(), $page['page_id']);
 
-    $content = $page['page_content'];
+    $content = IS_SAFE_MODE
+        ? safeMode($page['page_content'])
+        : $page['page_content'];
+        
     include 'src/thissite/html/template.php';
 }
 else {

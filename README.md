@@ -11,6 +11,7 @@
 - `MYSQL_USERNAME` - the MySQL database username
 - `MYSQL_PASSWORD` - the MySQL database password
 - `MYSQL_DBNAME` - the MySQL database name
+- `IS_SAFE_MODE` - if `true` then all the page content is escaped except `<p>` tags. If `false` then the page content is not escaped.
 
 Disable magic quotes in the `cms` directory. Upload all the files in the `deploy` directory to the web application root on your web server. Using a web browser visit `install.php`. If the installation is successful, then you'll see a link to the CMS. Delete `install.php` from your web server and password protect the `cms` directory.
 
