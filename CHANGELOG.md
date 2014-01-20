@@ -22,4 +22,11 @@
 - 2013-04-28, 0.5.1
     - Use the unlicense license.
     - Improve tablet support.
-
+- 2014-01-20, 0.6.0
+    - Use namespaces for classes.
+    - Autoload classes.
+    - Use correct HTTP status codes.
+    - Show all form errors instead of only one at a time.
+    - Add responsive design drop down.
+    - Add composer support.
+    - Add safe mode.
