@@ -1,10 +1,10 @@
 # this site
 
-`this site` is a simple webpage CMS. It's built with PHP, MySQL and [cityphp](https://github.com/al-codepone/cityphp). It has three different webpage layouts depending on the browser width: a two column layout, a single column layout with a navigation list and a single column layout with a navigation drop down.
+this site is a simple webpage CMS. It's built with PHP, MySQL and [cityphp](https://github.com/al-codepone/cityphp). It has three different webpage layouts depending on the browser width: a two column layout, a single column layout with a navigation list and a single column layout with a navigation drop down. There's a demo running in safe mode [here](http://ikitovagn.com/t/this-site/cms/).
 
 ## Installation
 
-`this site` uses [composer](http://getcomposer.org) for installation. Run `composer install` in the `deploy` directory. Create a MySQL database for your application. Set these constants in `deploy/const.php`:
+this site uses [composer](http://getcomposer.org) for installation. Run `composer install` in the `deploy` directory. Create a MySQL database for your application. Set these constants in `deploy/const.php`:
 
 - `ROOT` - an absolute path pointing to your web application root. For example, if the application is at `http://mysite.com/` then `ROOT` is `/`. As another example, if the application is at `http://mysite.com/myapp/` then `ROOT` is `/myapp/`.
 - `MYSQL_HOST` - the MySQL database host
