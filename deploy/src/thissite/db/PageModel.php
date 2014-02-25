@@ -26,8 +26,9 @@ class PageModel extends DatabaseAdapter {
             return urlTaken($data['url_id']);
         }
 
-        $this->exec(sprintf('INSERT INTO tpage (url_id, link_title, html_title,
-            html_description, html_keywords, page_content, link_order, display_mode)
+        $this->exec(sprintf(
+            'INSERT INTO tpage (url_id, link_title, html_title,
+                html_description, html_keywords, page_content, link_order, display_mode)
             VALUES("%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
             $this->esc($data['url_id']),
             $this->esc($data['link_title']),
@@ -57,7 +58,8 @@ class PageModel extends DatabaseAdapter {
     public function getPages() {
         return $this->query(
             'SELECT page_id, url_id, link_title, display_mode + 0 AS display_mode
-            FROM tpage ORDER BY link_order, link_title');
+            FROM tpage
+            ORDER BY link_order, link_title');
     }
 
     public function updatePage($pageID, $data) {
@@ -69,8 +71,9 @@ class PageModel extends DatabaseAdapter {
 
         $this->exec(sprintf(
             'UPDATE tpage SET url_id = "%s", link_title = "%s", html_title = "%s",
-            html_description = "%s", html_keywords = "%s", page_content = "%s",
-            link_order = %d, display_mode = %d WHERE page_id = %d',
+                html_description = "%s", html_keywords = "%s", page_content = "%s",
+                link_order = %d, display_mode = %d
+            WHERE page_id = %d',
             $this->esc($data['url_id']),
             $this->esc($data['link_title']),
             $this->esc($data['html_title']),
@@ -90,8 +93,9 @@ class PageModel extends DatabaseAdapter {
     protected function getPage($condition) {
         $queryData = $this->query(sprintf(
             'SELECT page_id, url_id, link_title, html_title, html_description,
-            html_keywords, page_content, link_order, display_mode + 0 AS display_mode
-            FROM tpage WHERE %s',
+                html_keywords, page_content, link_order, display_mode + 0 AS display_mode
+            FROM tpage
+            WHERE %s',
             $condition));
 
         return $queryData[0];
