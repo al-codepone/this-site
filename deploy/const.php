@@ -12,8 +12,6 @@ define('MYSQL_PASSWORD', 'pasta');
 define('MYSQL_DBNAME', 'ts_test');
 define('MYSQL_DEBUG', false);
 
-define('TABLE_PAGES', 'pages');
-
 define('IS_SAFE_MODE', false);
 define('NEW_PAGE_TITLE', 'New Page');
 
