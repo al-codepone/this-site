@@ -2,40 +2,50 @@
 
 function pageInputs(array $data) {
     return
-        input(array(
+    c\dlinput(
+        'Link Title',
+        array(
             'id' => 'link_title',
-            'value' => $data['link_title']),
-            'Link Title')
+            'value' => $data['link_title'])) .
 
-        . input(array(
+    c\dlinput(
+        'URL ID',
+        array(
             'id' => 'url_id',
-            'value' => $data['url_id']),
-            'URL ID')
+            'value' => $data['url_id'])) .
 
-        . input(array(
+    c\dlinput(
+        'HTML Head Title',
+        array(
             'id' => 'html_title',
-            'value' => $data['html_title']),
-            'HTML Head Title')
+            'value' => $data['html_title'])) .
 
-        . textarea(array('id' => 'html_description'),
-            $data['html_description'],
-            'HTML Meta Description')
+    c\dltextarea(
+        'HTML Meta Description',
+        array('id' => 'html_description'),
+        $data['html_description']) .
 
-        . textarea(array('id' => 'html_keywords'),
-            $data['html_keywords'],
-            'HTML Meta Keywords')
+    c\dltextarea(
+        'HTML Meta Keywords',
+        array('id' => 'html_keywords'),
+        $data['html_keywords']) .
 
-        . textarea(array('id' => 'page_content'),
-            $data['page_content'],
-            'Page Content')
+    c\dltextarea(
+        'Page Content',
+        array('id' => 'page_content'),
+        $data['page_content']) .
 
-        . input(array(
+    c\dlinput(
+        'Link Order',
+        array(
             'id' => 'link_order',
-            'value' => $data['link_order']),
-            'Link Order')
+            'value' => $data['link_order'])) .
 
-        . radioButtons(array(1 => 'Show All', 'Hide Link', 'Hide All'),
-            'display_mode', $data['display_mode'], 'Display Mode');
+    c\dsradio_buttons(
+        'Display Mode',
+        'display_mode',
+        array(1 => 'Show All', 'Hide Link', 'Hide All'),
+        $data['display_mode']);
 }
 
 ?>
