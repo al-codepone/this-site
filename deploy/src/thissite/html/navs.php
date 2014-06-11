@@ -5,9 +5,11 @@ function navs($pages, $currentPageID) {
         = navElements($pages, $currentPageID, ROOT, 'url_id');
 
     return array(
-        blist($listItems),
-        select($selectOptions, array('onchange' => 'pageSelected(this);'),
-            '', $selectedValue, false));
+        c\ulist($listItems),
+        c\drop_down(
+            $selectOptions,
+            array('onchange' => 'pageSelected(this);'),
+            $selectedValue));
 }
 
 ?>

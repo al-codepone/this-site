@@ -22,9 +22,11 @@ function cmsNavs($pages, $currentPageID, $isNewPage) {
     }
 
     return array(
-        blist($listItems),
-        select($selectOptions, array('onchange' => 'pageSelected(this);'),
-            '', $selectedValue, false));
+        c\ulist($listItems),
+        c\drop_down(
+            $selectOptions,
+            array('onchange' => 'pageSelected(this);'),
+            $selectedValue));
 }
 
 ?>
