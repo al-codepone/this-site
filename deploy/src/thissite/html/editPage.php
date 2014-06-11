@@ -2,19 +2,18 @@
 
 function editPage(array $formData, $currentPage, $errors = array()) {
     return
-        '<form method="post" id="page_form">
-        <input type="hidden" name="delete_flag" value="0"/>'
-        . blist($errors, array('class' => 'error'))
-        . sprintf('<div><a href="%s%s">View Page</a></div>',
-            ROOT,
-            $currentPage['url_id'])
+    c\form(
+        array('method' => 'post', 'id' => 'page_form'),
+        '<input type="hidden" name="delete_flag" value="0"/>',
+        c\ulist($errors, array('class' => 'error')),
+        c\div(c\hlink(
+            ROOT . $currentPage['url_id'],
+            'View Page')),
 
-        . pageInputs($formData)
-        . sprintf('<div>%s%s</div>',
+        pageInputs($formData),
+        c\div(
             '<input type="submit" value="Save"/>',
-            '<input type="button" value="Delete" onclick="deletePage();"/>')
-
-        . '</form>';
+            '<input type="button" value="Delete" onclick="deletePage();"/>'));
 }
 
 ?>
