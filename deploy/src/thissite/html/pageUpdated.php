@@ -6,5 +6,3 @@ function pageUpdated($pageID, $urlID) {
             sprintf('<a href="%s%s">View Page</a>', ROOT, $urlID),
             sprintf('<a href="%s%d">Edit Page</a>', EDIT_PAGE, $pageID)));
 }
-
-?>

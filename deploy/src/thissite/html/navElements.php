@@ -22,5 +22,3 @@ function navElements($pages, $currentPageID, $baseURL, $key, $forceShow = false)
 
     return array($listItems, $selectOptions, $selectedValue);
 }
-
-?>

@@ -15,5 +15,3 @@ function editPage(array $formData, $currentPage, $errors = array()) {
             '<input type="submit" value="Save"/>',
             '<input type="button" value="Delete" onclick="deletePage();"/>'));
 }
-
-?>

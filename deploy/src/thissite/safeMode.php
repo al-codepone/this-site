@@ -6,5 +6,3 @@ function safeMode($string) {
         array('<p>', '</p>'),
         htmlspecialchars($string));
 }
-
-?>

@@ -7,5 +7,3 @@ function newPageCreated($pageID, $urlID) {
             sprintf('<a href="%s%d">Edit Page</a>', EDIT_PAGE, $pageID),
             sprintf('<a href="%s">%s</a>', NEW_PAGE, NEW_PAGE_TITLE)));
 }
-
-?>

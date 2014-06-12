@@ -101,5 +101,3 @@ class PageModel extends DatabaseAdapter {
         return $queryData[0];
     }
 }
-
-?>

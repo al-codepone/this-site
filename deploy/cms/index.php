@@ -15,5 +15,3 @@ list($listNav, $selectNav)
     = cmsNavs($pageModel->getPages(), $pageID, $isNewPage);
 
 include '../src/thissite/html/template.php';
-
-?>

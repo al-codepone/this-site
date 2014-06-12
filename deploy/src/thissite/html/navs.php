@@ -11,5 +11,3 @@ function navs($pages, $currentPageID) {
             array('onchange' => 'pageSelected(this);'),
             $selectedValue));
 }
-
-?>

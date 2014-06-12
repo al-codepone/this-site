@@ -28,5 +28,3 @@ function cmsNavs($pages, $currentPageID, $isNewPage) {
             array('onchange' => 'pageSelected(this);'),
             $selectedValue));
 }
-
-?>

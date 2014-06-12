@@ -42,5 +42,3 @@ class PageValidator extends FormValidator {
         }
     }
 }
-
-?>

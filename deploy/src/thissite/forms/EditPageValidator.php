@@ -8,5 +8,3 @@ class EditPageValidator extends PageValidator {
         $this->addInputs(array('delete_flag' => 0));
     }
 }
-
-?>

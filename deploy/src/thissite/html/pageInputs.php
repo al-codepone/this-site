@@ -47,5 +47,3 @@ function pageInputs(array $data) {
         array(1 => 'Show All', 'Hide Link', 'Hide All'),
         $data['display_mode']);
 }
-
-?>
