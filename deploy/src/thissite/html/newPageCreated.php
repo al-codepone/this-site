@@ -1,9 +1,10 @@
 <?php
 
 function newPageCreated($pageID, $urlID) {
-    return '<div class="success">New page created</div>'
-        . blist(array(
-            sprintf('<a href="%s%s">View Page</a>', ROOT, $urlID),
-            sprintf('<a href="%s%d">Edit Page</a>', EDIT_PAGE, $pageID),
-            sprintf('<a href="%s">%s</a>', NEW_PAGE, NEW_PAGE_TITLE)));
+    return
+        '<div class="success">New page created</div>' .
+        c\ulist(
+            c\hlink(ROOT . $urlID, 'View Page'),
+            c\hlink(EDIT_PAGE . $pageID, 'Edit Page'),
+            c\hlink(NEW_PAGE, NEW_PAGE_TITLE));
 }
