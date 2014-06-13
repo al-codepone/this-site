@@ -4,9 +4,10 @@ function cmsNavs($pages, $currentPageID, $isNewPage) {
     list($listItems, $selectOptions, $selectedValue)
         = navElements($pages, $currentPageID, EDIT_PAGE, 'page_id', true);
 
-    $newPageLink = sprintf('<a %shref="%s">%s</a>',
-        currentLink($isNewPage),
-        NEW_PAGE,
+    $newPageLink = c\a(
+        array_merge(
+            currentLink($isNewPage),
+            array('href' => NEW_PAGE)),
         NEW_PAGE_TITLE);
 
     $listItems = array_merge(

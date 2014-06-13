@@ -9,8 +9,11 @@ function navElements($pages, $currentPageID, $baseURL, $key, $forceShow = false)
         if($forceShow || $page['display_mode'] == 1) {
             $isCurrent = ($page['page_id'] == $currentPageID);
             $url = $baseURL . $page[$key];
-            $listItems[] = sprintf('<a %shref="%s">%s</a>',
-                currentLink($isCurrent), $url, $page['link_title']);
+            $listItems[] = c\a(
+                array_merge(
+                    currentLink($isCurrent),
+                    array('href' => $url)),
+                $page['link_title']);
 
             $selectOptions[$url] = $page['link_title'];
 
