@@ -1,7 +1,6 @@
 <?php
 
-require 'const.php';
-require 'vendor/autoload.php';
+require 'boot.php';
 
 use thissite\db\ModelFactory;
 
@@ -23,7 +22,7 @@ if($page && $page['display_mode'] != 3) {
         ? safeMode($page['page_content'])
         : $page['page_content'];
         
-    include 'src/thissite/html/template.php';
+    include SRC . 'thissite/html/template.php';
 }
 else {
     header('HTTP/1.0 404 Not Found', true, 404);

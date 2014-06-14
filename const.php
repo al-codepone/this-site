@@ -1,6 +1,8 @@
 <?php
 
-define('ROOT', '/this-site/deploy/');
+define('SRC', 'C:/wamp/www/this-site/src/');
+
+define('ROOT', '/this-site/public/');
 define('CSS', ROOT . 'css/');
 define('JS', ROOT . 'js/');
 define('NEW_PAGE', ROOT . 'cms/');

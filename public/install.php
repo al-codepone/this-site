@@ -1,7 +1,6 @@
 <?php
 
-require 'const.php';
-require 'vendor/autoload.php';
+require 'boot.php';
 
 use thissite\db\ModelFactory;
 
