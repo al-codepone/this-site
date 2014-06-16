@@ -20,4 +20,4 @@ else {
 }
 
 $isNewPage = true;
-$head = sprintf('<title>%s</title>', htmlspecialchars(NEW_PAGE_TITLE));
+$head = c\title(c\esc(NEW_PAGE_TITLE));
