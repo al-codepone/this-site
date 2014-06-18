@@ -7,7 +7,7 @@ if(list($formData, $errors) = $validator->validate()) {
         $content = newPage($formData, $errors);
     }
     else {
-        $content = is_int($result = $pageModel->createPage($formData))
+        $content = is_int($result = $pageModel->create($formData))
             ? newPageCreated($result, $formData['url_id'])
             : newPage($formData, $result);
     }

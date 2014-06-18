@@ -5,7 +5,7 @@ require 'boot.php';
 use thissite\db\ModelFactory;
 
 $pageModel = ModelFactory::get('thissite\db\PageModel');
-$page = $pageModel->getPageWithUID($_GET['id']);
+$page = $pageModel->getWithUID($_GET['id']);
 
 if($page && $page['display_mode'] != 3) {
     $head = sprintf('<title>%s</title>

@@ -21,8 +21,8 @@ class PageModel extends DatabaseAdapter {
             ENGINE = MYISAM');
     }
 
-    public function createPage($data) {
-        if($this->getPageWithUID($data['url_id'])) {
+    public function create($data) {
+        if($this->getWithUID($data['url_id'])) {
             return urlTaken($data['url_id']);
         }
 
@@ -47,12 +47,12 @@ class PageModel extends DatabaseAdapter {
         return intval($queryData[0]['max']);
     }
 
-    public function getPageWithPID($pageID) {
-        return $this->getPage(sprintf('page_id = %d', $pageID));
+    public function getWithPID($pageID) {
+        return $this->get(sprintf('page_id = %d', $pageID));
     }
 
-    public function getPageWithUID($urlID) {
-        return $this->getPage(sprintf('url_id = "%s"', $this->esc($urlID)));
+    public function getWithUID($urlID) {
+        return $this->get(sprintf('url_id = "%s"', $this->esc($urlID)));
     }
 
     public function getPages() {
@@ -62,8 +62,8 @@ class PageModel extends DatabaseAdapter {
             ORDER BY link_order, link_title');
     }
 
-    public function updatePage($pageID, $data) {
-        $duplicateCheck = $this->getPageWithUID($data['url_id']);
+    public function update($pageID, $data) {
+        $duplicateCheck = $this->getWithUID($data['url_id']);
 
         if($duplicateCheck && $duplicateCheck['page_id'] != $pageID) {
             return urlTaken($data['url_id']);
@@ -85,12 +85,12 @@ class PageModel extends DatabaseAdapter {
             $pageID));
     }
 
-    public function deletePage($pageID) {
+    public function delete($pageID) {
         $this->exec(sprintf('DELETE FROM tpage WHERE page_id = %d',
             $pageID));
     }
 
-    protected function getPage($condition) {
+    protected function get($condition) {
         $queryData = $this->query(sprintf(
             'SELECT page_id, url_id, link_title, html_title, html_description,
                 html_keywords, page_content, link_order, display_mode + 0 AS display_mode
