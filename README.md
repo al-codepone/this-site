@@ -42,3 +42,7 @@ Another example:
 
     <h1>Title</h1>
     <p>some text..</p>
+
+## LICENSE
+
+MIT <http://ryf.mit-license.org/>
