@@ -2,9 +2,7 @@
 
 namespace thissite\db;
 
-use cityphp\db\DatabaseAdapter;
-
-class PageModel extends DatabaseAdapter {
+class PageModel extends \pjsql\DatabaseAdapter {
     public function install() {
         $this->exec('CREATE TABLE tpage (
             page_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f3ffef5031b03440e1753b0a7a16fedf",
+    "hash": "34954f07a34223771083f2e0efbd8ea0",
     "packages": [
         {
             "name": "cityphp/cityphp",
@@ -113,6 +113,50 @@
                 "html"
             ],
             "time": "2014-06-09 00:00:48"
+        },
+        {
+            "name": "pajamasql/pajamasql",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/al-codepone/pajamaSQL.git",
+                "reference": "399756d83249cd9acb2b6788fe951eee6fc52346"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/al-codepone/pajamaSQL/zipball/399756d83249cd9acb2b6788fe951eee6fc52346",
+                "reference": "399756d83249cd9acb2b6788fe951eee6fc52346",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "pjsql\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ry Ferguson",
+                    "email": "rytf12@gmail.com",
+                    "homepage": "http://ikitovagn.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP SQL database layer",
+            "homepage": "https://github.com/al-codepone/pajamaSQL",
+            "keywords": [
+                "model",
+                "models",
+                "sql"
+            ],
+            "time": "2014-07-12 23:26:11"
         }
     ],
     "packages-dev": [
