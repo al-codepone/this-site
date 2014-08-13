@@ -4,7 +4,7 @@ $pageID = $_GET['id'];
 $page = $pageModel->getWithPID($pageID);
 
 if($page) {
-    $validator = new thissite\forms\EditPageValidator();
+    $validator = new thissite\validator\EditPageValidator();
 
     if(list($formData, $errors) = $validator->validate()) {
         if($formData['delete_flag']) {

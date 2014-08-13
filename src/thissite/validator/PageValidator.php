@@ -1,10 +1,8 @@
 <?php
 
-namespace thissite\forms;
+namespace thissite\validator;
 
-use cityphp\forms\FormValidator;
-
-class PageValidator extends FormValidator {
+class PageValidator extends \bbook\FormValidator {
     public function __construct() {
         parent::__construct(array(
             'link_title',

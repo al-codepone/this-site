@@ -1,6 +1,6 @@
 <?php
 
-$validator = new thissite\forms\PageValidator();
+$validator = new thissite\validator\PageValidator();
 
 if(list($formData, $errors) = $validator->validate()) {
     if($errors) {
