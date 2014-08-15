@@ -18,9 +18,14 @@ if($page && $page['display_mode'] != 3) {
     list($listNav, $selectNav)
         = navs($pageModel->getPages(), $page['page_id']);
 
-    $content = IS_SAFE_MODE
-        ? safeMode($page['page_content'])
-        : $page['page_content'];
+    if(preg_match('/\.php$/', $page['page_content'])) {
+        include PAGE_ROUTES . $page['page_content'];
+    }
+    else {
+        $content = IS_SAFE_MODE
+            ? safeMode($page['page_content'])
+            : $page['page_content'];
+    }
         
     include SRC . 'thissite/html/template.php';
 }

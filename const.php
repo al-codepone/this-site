@@ -1,6 +1,7 @@
 <?php
 
 define('SRC', 'C:/wamp/www/this-site/src/');
+define('PAGE_ROUTES', 'C:/wamp/www/this-site/public/');
 
 define('ROOT', '/this-site/public/');
 define('CSS', ROOT . 'css/');
