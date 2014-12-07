@@ -54,10 +54,17 @@ class PageModel extends \pjsql\DatabaseAdapter {
     }
 
     public function getPages() {
-        return $this->query(
-            'SELECT page_id, url_id, link_title, display_mode + 0 AS display_mode
-            FROM tpage
-            ORDER BY link_order, link_title');
+        return $this->query('
+            SELECT
+                page_id,
+                url_id,
+                link_title,
+                display_mode + 0 AS display_mode
+            FROM
+                tpage
+            ORDER BY
+                link_order,
+                link_title');
     }
 
     public function update($pageID, $data) {
