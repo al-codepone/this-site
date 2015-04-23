@@ -1,5 +1,6 @@
 body {
-    margin:3em 1em 4em 0;
+    margin:1em 0 1em 0;
+    padding:0;
 }
 
 img {
@@ -11,6 +12,14 @@ label {
     display:block;
 }
 
+a:link, a:visited {
+    color:#0000ff;
+}
+
+a:hover {
+    color:#6A1710;
+}
+
 .error {
     color:#ee0000;
 }
@@ -19,10 +28,16 @@ label {
     color:#00af00;
 }
 
+#main > a img {
+    display:block;
+    margin:0 auto 1em auto;
+}
+
 #nav {
-    float:left;
-    width:12em;
-    text-align:right;
+    width:100%;
+    background:#EAE1BD;
+    padding:.3em 0;
+    text-align:center;
 }
 
 #nav ul {
@@ -31,19 +46,23 @@ label {
     list-style-type:none;
 }
 
-#nav #current_link {
-    text-decoration:none;
-    color:#000000;
+#nav ul li {
+    display:inline-block;
+    padding:.3em .5em;
 }
 
-#nav #new_page {
-   margin-bottom:1em;
+#nav a {
+    text-decoration:none;
+}
+
+#nav #current_link {
+    color:#DA0B01;
 }
 
 #alt-nav {
     display:none;
     padding:.5em 1em;
-    background:#e5e5e5;
+    background:#EAE1BD;
 }
 
 #alt-nav select {
@@ -51,11 +70,8 @@ label {
 }
 
 #content {
-    margin-left:15em;
-}
-
-#content p {
-    width:27em;
+    max-width:500px;
+    margin:1em auto 0 auto;
 }
 
 #content form > div {
@@ -78,42 +94,27 @@ label {
 }
 
 #html_description, #html_keywords, #page_content {
-    width:34em;
+    width:100%;
     height:4em;
-}
-
-#floor {
-    clear:left;
 }
 
 @media(max-width:801px) {
     body {
+        font-size:1.5em;
         margin:0;
     }
 
     #nav {
-        background:#e5e5e5;
-        width:100%;
-        float:none;
-        padding:.4em 0;
-        text-align:center;
+        max-width:100%;
     }
 
-    #nav ul li {
-        display:inline-block;
-        padding:.4em .4em;
-    }
-
-    #nav #new_page {
-        margin:0;
+    #main > a img {
+        display:none;
     }
 
     #content {
+        max-width:100%;
         margin:1em;
-    }
-
-    #content p {
-        width:100%;
     }
 
     #link_title, #url_id, #html_title, #link_order,
@@ -123,6 +124,10 @@ label {
 }
 
 @media(max-width:401px) {
+    body {
+        font-size:1em;
+    }
+
     #nav {
         display:none;
     }
