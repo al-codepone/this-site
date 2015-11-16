@@ -16,7 +16,7 @@ else {
     $formData = $validator->values();
     $formData['link_order'] = $pageModel->getMaxLinkOrder() + 1;
     $content = newPage($formData);
-    $autofocus = autofocus('link_title');
+    $autofocus = c\focus('link_title');
 }
 
 $isNewPage = true;

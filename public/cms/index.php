@@ -6,7 +6,7 @@ use thissite\db\ModelFactory;
 
 $pageModel = ModelFactory::get('thissite\db\PageModel');
 
-include SRC . 'thissite/routes/' . route(array(
+include SRC . 'thissite/routes/' . pc\route(array(
     null => 'new-page.php',
     'edit' => 'edit-page.php'));
 
