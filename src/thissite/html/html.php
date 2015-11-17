@@ -171,3 +171,12 @@ function newPageCreated($pageID, $urlID) {
             c\hlink(EDIT_PAGE . $pageID, 'Edit Page'),
             c\hlink(NEW_PAGE, NEW_PAGE_TITLE));
 }
+
+function head(array &$data) {
+    return sprintf('<title>%s</title>
+        <meta name="description" content="%s"/>
+        <meta name="keywords" content="%s"/>',
+        c\esc($data['html_title']),
+        c\esc($data['html_description']),
+        c\esc($data['html_keywords']));
+}
