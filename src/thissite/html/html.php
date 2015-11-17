@@ -173,10 +173,17 @@ function newPageCreated($pageID, $urlID) {
 }
 
 function head(array &$data) {
-    return sprintf('<title>%s</title>
-        <meta name="description" content="%s"/>
-        <meta name="keywords" content="%s"/>',
-        c\esc($data['html_title']),
-        c\esc($data['html_description']),
-        c\esc($data['html_keywords']));
+    $title = $data['html_title'] !== ''
+        ? c\title(c\esc($data['html_title']))
+        : '';
+
+    $desc = $data['html_description'] !== ''
+        ? '<meta name="description" content="' . c\esc($data['html_description']) . '"/>'
+        : '';
+
+    $keywords = $data['html_keywords'] !== ''
+        ? '<meta name="keywords" content="' . c\esc($data['html_keywords']) . '"/>'
+        : '';
+
+    return $title . $desc . $keywords;
 }
