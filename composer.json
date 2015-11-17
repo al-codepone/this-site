@@ -24,15 +24,7 @@
             "src/thissite/databaseError.php",
             "src/thissite/safeMode.php",
             "src/thissite/urlTaken.php",
-            "src/thissite/html/cmsNavs.php",
-            "src/thissite/html/currentLink.php",
-            "src/thissite/html/editPage.php",
-            "src/thissite/html/navElements.php",
-            "src/thissite/html/navs.php",
-            "src/thissite/html/newPage.php",
-            "src/thissite/html/newPageCreated.php",
-            "src/thissite/html/pageInputs.php",
-            "src/thissite/html/pageUpdated.php"
+            "src/thissite/html/html.php"
         ]
     }
 }
