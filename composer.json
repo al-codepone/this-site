@@ -21,9 +21,7 @@
     "autoload": {
         "psr-0": {"thissite\\": "src/"},
         "files": [
-            "src/thissite/databaseError.php",
-            "src/thissite/safeMode.php",
-            "src/thissite/urlTaken.php",
+            "src/thissite/misc.php",
             "src/thissite/html/html.php"
         ]
     }
