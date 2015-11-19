@@ -1,6 +1,6 @@
 <?php
 
-function databaseError($e) {
+function database_error($e) {
     if($e instanceof \pjsql\DatabaseException) {
         die('database error');
     }
@@ -9,14 +9,14 @@ function databaseError($e) {
     }
 }
 
-function safeMode($string) {
+function safe_mode($string) {
     return str_ireplace(
         array('&lt;p&gt;', '&lt;/p&gt;'),
         array('<p>', '</p>'),
         htmlspecialchars($string));
 }
 
-function urlTaken($urlID) {
+function url_taken($urlID) {
     return $urlID == ''
         ? 'empty URL ID already in use'
         : "URL ID \"$urlID\" already in use";

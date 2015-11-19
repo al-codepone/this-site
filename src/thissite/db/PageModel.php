@@ -22,7 +22,7 @@ class PageModel extends \pjsql\DatabaseAdapter {
 
     public function create($data) {
         if($this->getWithUID($data['url_id'])) {
-            return urlTaken($data['url_id']);
+            return url_taken($data['url_id']);
         }
 
         $this->exec(sprintf('
@@ -80,7 +80,7 @@ class PageModel extends \pjsql\DatabaseAdapter {
         $duplicateCheck = $this->getWithUID($data['url_id']);
 
         if($duplicateCheck && $duplicateCheck['page_id'] != $pageID) {
-            return urlTaken($data['url_id']);
+            return url_taken($data['url_id']);
         }
 
         $this->exec(sprintf('

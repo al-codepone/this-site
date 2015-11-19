@@ -18,7 +18,7 @@ if($page && $page['display_mode'] != 3) {
     }
     else {
         $content = IS_SAFE_MODE
-            ? safeMode($page['page_content'])
+            ? safe_mode($page['page_content'])
             : $page['page_content'];
     }
         
