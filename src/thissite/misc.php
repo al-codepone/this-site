@@ -13,11 +13,11 @@ function safe_mode($string) {
     return str_ireplace(
         array('&lt;p&gt;', '&lt;/p&gt;'),
         array('<p>', '</p>'),
-        htmlspecialchars($string));
+        c\esc($string));
 }
 
-function url_taken($urlID) {
-    return $urlID == ''
+function url_taken($url_id) {
+    return $url_id == ''
         ? 'empty URL ID already in use'
-        : "URL ID \"$urlID\" already in use";
+        : "URL ID \"$url_id\" already in use";
 }
