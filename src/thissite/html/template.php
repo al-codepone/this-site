@@ -9,7 +9,8 @@
     </head>
     <body>
         <div id="main">
-            <a href="<?=ROOT?>"><img src="<?=IMG?>logo.png" alt="man tips hat"/></a>
+            <div id="logo"><a href="<?=ROOT?>"><img src="<?=IMG?>logo.png" width="94" height="90"/></a></div>
+            <div id="alt-logo"><a href="<?=ROOT?>"><img src="<?=IMG?>alt-logo.png" width="78" height="78"/></a></div>
             <div id="alt-nav"><?=$selectNav?></div>
             <div id="nav"><?=$listNav?></div>
             <div id="content"><?=$content?></div>

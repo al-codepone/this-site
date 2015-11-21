@@ -1,6 +1,8 @@
 body {
-    margin:1em 0 1em 0;
+    margin:.25em 0 2em 0;
     padding:0;
+    font-size:1.25em;
+    background:#f8f1e5;
 }
 
 img {
@@ -12,14 +14,6 @@ label {
     display:block;
 }
 
-a:link, a:visited {
-    color:#0000ff;
-}
-
-a:hover {
-    color:#6A1710;
-}
-
 .error {
     color:#ee0000;
 }
@@ -28,14 +22,23 @@ a:hover {
     color:#00af00;
 }
 
-#main > a img {
+#logo img {
     display:block;
-    margin:0 auto 1em auto;
+    margin:0 auto .25em auto;
+}
+
+#alt-logo {
+    background:#426e86;
+}
+
+#alt-logo img {
+    display:none;
+    margin:0 auto 0 auto;
 }
 
 #nav {
     width:100%;
-    background:#EAE1BD;
+    background:#426e86;
     padding:.3em 0;
     text-align:center;
 }
@@ -48,30 +51,37 @@ a:hover {
 
 #nav ul li {
     display:inline-block;
-    padding:.3em .5em;
+    padding:.3em .6em;
 }
 
 #nav a {
+    color:white;
     text-decoration:none;
 }
 
 #nav #current_link {
-    color:#DA0B01;
+    color:#f9ba32;
 }
 
 #alt-nav {
     display:none;
     padding:.5em 1em;
-    background:#EAE1BD;
+    background:#426e86;
+    text-align:center;
 }
 
 #alt-nav select {
-    width:100%;
+    width:38%;
 }
 
 #content {
+    color:#2f3131;
     max-width:500px;
     margin:1em auto 0 auto;
+}
+
+#content a {
+    color:#426e86;
 }
 
 #content form > div {
@@ -98,7 +108,7 @@ a:hover {
     height:4em;
 }
 
-@media(max-width:801px) {
+@media(max-width:840px) {
     body {
         font-size:1.5em;
         margin:0;
@@ -108,7 +118,7 @@ a:hover {
         max-width:100%;
     }
 
-    #main > a img {
+    #logo img {
         display:none;
     }
 
@@ -123,9 +133,17 @@ a:hover {
     }
 }
 
-@media(max-width:401px) {
+@media(max-width:540px) {
     body {
         font-size:1em;
+    }
+
+    #alt-logo {
+        padding-top:.5em;
+    }
+
+    #alt-logo img {
+        display:block;
     }
 
     #nav {
