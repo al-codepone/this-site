@@ -1,5 +1,5 @@
 body {
-    margin:.25em 0 2em 0;
+    margin:0 0 2em 0;
     padding:0;
     font-size:1.25em;
     background:#f8f1e5;
@@ -22,9 +22,14 @@ label {
     color:#00af00;
 }
 
+#logo {
+    padding:.6em 0;
+    background:#f9ba32;
+}
+
 #logo img {
     display:block;
-    margin:0 auto .25em auto;
+    margin:0 auto 0 auto;
 }
 
 #alt-logo {
@@ -51,7 +56,7 @@ label {
 
 #nav ul li {
     display:inline-block;
-    padding:.3em .6em;
+    padding:.3em .7em;
 }
 
 #nav a {
@@ -118,7 +123,7 @@ label {
         max-width:100%;
     }
 
-    #logo img {
+    #logo {
         display:none;
     }
 
