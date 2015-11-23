@@ -34,12 +34,12 @@ Create a new MySQL database for the application.
 
 Set the following constants in `const.php`:
 
-`SRC` - absolute path to the `src` directory
-`ROOT` - absolute web path to the directory that the `public` files are in
-`MYSQL_HOST` - the MySQL host
-`MYSQL_USERNAME` - your MySQL username
-`MYSQL_PASSWORD` - your MySQL password
-`MYSQL_DBNAME` - your MySQL database name
+- `SRC` - absolute path to the `src` directory
+- `ROOT` - absolute web path to the directory that the `public` files are in
+- `MYSQL_HOST` - the MySQL host
+- `MYSQL_USERNAME` - your MySQL username
+- `MYSQL_PASSWORD` - your MySQL password
+- `MYSQL_DBNAME` - your MySQL database name
 
 In `public/boot.php` change the two paths so that they correctly point to `const.php` and `autoload.php`. Use absolute paths.
 
