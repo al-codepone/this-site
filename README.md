@@ -45,6 +45,26 @@ In `public/boot.php` change the two paths so that they correctly point to `const
 
 Browse to `install.php`. You should see a success message and a link to the CMS.
 
+##Using the CMS
+
+You can use the CMS to create new web pages and edit existing
+web pages. Here are all the fields available for each page and
+a description of each:
+
+- `Link Title` - The text used for the page's navigation link.
+- `URL ID` - The identifier used in the page's URL. This can be blank for one page(usually your first page).
+- `HTML Head Title` - The page title. This will show in the browser tab and search engine results.
+- `HTML Meta Description` - The page description. This will show in search engine results.
+- `HTML Meta Keywords` - The page's keywords. This should be words and phrases separated by commas. Search engines use these keywords.
+- `Page Content` - The content that is displayed on the page.
+- `Link Order` - An integer for the navigation link order. Pages with a lower value will be first in the navigation.
+- `Display Mode` - The display mode of the page. `Show All` displays the navigation link and the page. `Hide Link` hides the navigation link but the page still displays. `Hide All` hides both the navigation link and the page.
+
+When you finish creating a page, finish editing a page or are
+editing a page there will be a link to the public page. So it
+is always easy to go from the CMS to the public site in order
+to see what your pages look like.
+
 ## LICENSE
 
 MIT <http://ryf.mit-license.org/>
