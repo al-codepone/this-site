@@ -16,6 +16,6 @@
             <div id="content"><?=$t_content?></div>
             <div id="floor"></div>
         </div>
-        <?=$t_autofocus?>
+        <?=$t_last?>
     </body>
 </html>
