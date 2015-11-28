@@ -10,7 +10,7 @@ include SRC . 'thissite/routes/' . pc\route(array(
     null => 'new-page.php',
     'edit' => 'edit-page.php'));
 
-list($listNav, $selectNav)
+list($t_list_nav, $t_select_nav)
     = cmsNavs($pageModel->getPages(), $pageID, $isNewPage);
 
 include SRC . 'thissite/html/template.php';
