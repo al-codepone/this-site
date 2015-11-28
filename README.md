@@ -45,7 +45,7 @@ In `public/boot.php` change the two paths so that they correctly point to `const
 
 Browse to `install.php`. You should see a success message and a link to the CMS.
 
-##Using the CMS
+##Using The CMS
 
 You can use the CMS to create new web pages and edit existing
 web pages. Here are all the fields available for each page and
@@ -64,6 +64,28 @@ When you finish creating a page, finish editing a page or are
 editing a page there will be a link to the public page. So it
 is always easy to go from the CMS to the public site in order
 to see what your pages look like.
+
+##Using PHP To Set The Page Content
+
+You can call a PHP script instead of simply displaying your page content.
+This is useful if you want to programmatically generate your page or handle
+form submissions.
+
+In the CMS in the `Page Content` box enter only a PHP script, for example
+enter something like "my-script.php". Then when the public page displays
+this script will be called from the directory indicated by the `PAGE_ROUTES`
+constant that is in `const.php`.
+
+In your PHP script you will want to set the `$t_content` variable. You can also
+set `$t_head` and `$t_last`. Here's an example script that sets `$t_content`:
+
+```php
+$tenk = implode(', ', range(1, 10000));
+$t_content = "<p>$tenk</p>";
+```
+
+You can see where `$t_content`, `$t_head` and `$t_last` are placed in the HTML
+by looking at `src/thissite/html/template.php`.
 
 ## LICENSE
 
