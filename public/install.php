@@ -4,7 +4,7 @@ require 'boot.php';
 
 use thissite\db\ModelFactory;
 
-$pageModel = ModelFactory::get('thissite\db\PageModel');
-$pageModel->install();
+$page_model = ModelFactory::get('thissite\db\PageModel');
+$page_model->install();
 
 printf('Install successful. <a href="%s">Visit CMS</a>.', NEW_PAGE);

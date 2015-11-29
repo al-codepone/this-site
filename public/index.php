@@ -4,14 +4,14 @@ require 'boot.php';
 
 use thissite\db\ModelFactory;
 
-$pageModel = ModelFactory::get('thissite\db\PageModel');
-$page = $pageModel->getWithUID($_GET['id']);
+$page_model = ModelFactory::get('thissite\db\PageModel');
+$page = $page_model->getWithUID($_GET['id']);
 
 if($page && $page['display_mode'] != 3) {
     $t_head = head($page);
 
     list($t_list_nav, $t_select_nav)
-        = navs($pageModel->getPages(), $page['page_id']);
+        = navs($page_model->getPages(), $page['page_id']);
 
     if(preg_match('/\.php$/', $page['page_content'])) {
         include PAGE_ROUTES . $page['page_content'];
