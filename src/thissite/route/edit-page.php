@@ -12,16 +12,16 @@ if($page) {
             $t_content = '<div class="success">Page deleted</div>';
         }
         else if($errors) {
-            $t_content = editPage($formData, $page, $errors);
+            $t_content = edit_page($formData, $page, $errors);
         }
         else {
             $t_content = ($error = $page_model->update($pageID, $formData))
-                ? editPage($formData, $page, $error)
-                : pageUpdated($pageID, $formData['url_id']);
+                ? edit_page($formData, $page, $error)
+                : page_updated($pageID, $formData['url_id']);
         }
     }
     else {
-        $t_content = editPage($page, $page);
+        $t_content = edit_page($page, $page);
     }
 
     $t_head = c\title('Edit Page #' . $page['page_id']);

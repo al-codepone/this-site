@@ -1,6 +1,6 @@
 <?php
 
-function pageInputs(array $data) {
+function page_inputs(array $data) {
     return
     c\dlinput(
         'Link Title',
@@ -48,7 +48,7 @@ function pageInputs(array $data) {
         $data['display_mode']);
 }
 
-function pageUpdated($pageID, $urlID) {
+function page_updated($pageID, $urlID) {
     return
         '<div class="success">Page updated</div>' .
         c\ulist(
@@ -56,13 +56,13 @@ function pageUpdated($pageID, $urlID) {
             c\hlink(EDIT_PAGE . $pageID, 'Edit Page'));
 }
 
-function cmsNavs($pages, $currentPageID, $isNewPage) {
+function cms_navs($pages, $currentPageID, $isNewPage) {
     list($listItems, $selectOptions, $selectedValue)
-        = navElements($pages, $currentPageID, EDIT_PAGE, 'page_id', true);
+        = nav_elements($pages, $currentPageID, EDIT_PAGE, 'page_id', true);
 
     $newPageLink = c\a(
         array_merge(
-            currentLink($isNewPage),
+            current_link($isNewPage),
             array('href' => NEW_PAGE)),
         NEW_PAGE_TITLE);
 
@@ -86,11 +86,11 @@ function cmsNavs($pages, $currentPageID, $isNewPage) {
             $selectedValue));
 }
 
-function currentLink($isCurrent) {
+function current_link($isCurrent) {
     return $isCurrent ?  array('id' => 'current_link') : array();
 }
 
-function editPage(array $formData, $currentPage, $errors = array()) {
+function edit_page(array $formData, $currentPage, $errors = array()) {
     return
     c\form(
         array('method' => 'post', 'id' => 'page_form'),
@@ -100,13 +100,13 @@ function editPage(array $formData, $currentPage, $errors = array()) {
             ROOT . $currentPage['url_id'],
             'View Page')),
 
-        pageInputs($formData),
+        page_inputs($formData),
         c\div(
             '<input type="submit" value="Save"/>',
             '<input type="button" value="Delete" onclick="deletePage();"/>'));
 }
 
-function navElements($pages, $currentPageID, $baseURL, $key, $forceShow = false) {
+function nav_elements($pages, $currentPageID, $baseURL, $key, $forceShow = false) {
     $listItems = array();
     $selectOptions = array();
     $selectedValue = null;
@@ -118,7 +118,7 @@ function navElements($pages, $currentPageID, $baseURL, $key, $forceShow = false)
         if($forceShow || $page['display_mode'] == 1) {
             $listItems[] = c\a(
                 array_merge(
-                    currentLink($isCurrent),
+                    current_link($isCurrent),
                     array('href' => $url)),
                 $page['link_title']);
 
@@ -145,7 +145,7 @@ function navElements($pages, $currentPageID, $baseURL, $key, $forceShow = false)
 
 function navs($pages, $currentPageID) {
     list($listItems, $selectOptions, $selectedValue)
-        = navElements($pages, $currentPageID, ROOT, 'url_id');
+        = nav_elements($pages, $currentPageID, ROOT, 'url_id');
 
     return array(
         c\ulist($listItems),
@@ -155,15 +155,15 @@ function navs($pages, $currentPageID) {
             $selectedValue));
 }
 
-function newPage(array $formData, $errors = array()) {
+function new_page(array $formData, $errors = array()) {
     return c\form(
         array('method' => 'post'),
         c\ulist($errors, array('class' => 'error')),
-        pageInputs($formData),
+        page_inputs($formData),
         c\div('<input type="submit" value="Create New Page"/>'));
 }
 
-function newPageCreated($pageID, $urlID) {
+function new_page_created($pageID, $urlID) {
     return
         '<div class="success">New page created</div>' .
         c\ulist(
