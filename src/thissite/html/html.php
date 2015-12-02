@@ -172,7 +172,7 @@ function new_page_created($pageID, $urlID) {
             c\hlink(NEW_PAGE, NEW_PAGE_TITLE));
 }
 
-function head(array &$data) {
+function head(array $data) {
     $title = $data['html_title'] !== ''
         ? c\title(c\esc($data['html_title']))
         : '';
