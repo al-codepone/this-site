@@ -48,127 +48,127 @@ function page_inputs(array $data) {
         $data['display_mode']);
 }
 
-function page_updated($pageID, $urlID) {
+function page_updated($page_id, $url_id) {
     return
         '<div class="success">Page updated</div>' .
         c\ulist(
-            c\hlink(ROOT . $urlID, 'View Page'),
-            c\hlink(EDIT_PAGE . $pageID, 'Edit Page'));
+            c\hlink(ROOT . $url_id, 'View Page'),
+            c\hlink(EDIT_PAGE . $page_id, 'Edit Page'));
 }
 
-function cms_navs($pages, $currentPageID, $isNewPage) {
-    list($listItems, $selectOptions, $selectedValue)
-        = nav_elements($pages, $currentPageID, EDIT_PAGE, 'page_id', true);
+function cms_navs($pages, $current_page_id, $is_new_page) {
+    list($list_items, $select_options, $selected_value)
+        = nav_elements($pages, $current_page_id, EDIT_PAGE, 'page_id', true);
 
-    $newPageLink = c\a(
+    $new_page_link = c\a(
         array_merge(
-            current_link($isNewPage),
+            current_link($is_new_page),
             array('href' => NEW_PAGE)),
         NEW_PAGE_TITLE);
 
-    $listItems = array_merge(
-        array($newPageLink => array('id' => 'new_page')),
-        $listItems);
+    $list_items = array_merge(
+        array($new_page_link => array('id' => 'new_page')),
+        $list_items);
 
-    $selectOptions = array_merge(
+    $select_options = array_merge(
         array(NEW_PAGE => NEW_PAGE_TITLE),
-        $selectOptions);
+        $select_options);
 
-    if($isNewPage) {
-        $selectedValue = NEW_PAGE;
+    if($is_new_page) {
+        $selected_value = NEW_PAGE;
     }
 
     return array(
-        c\ulist($listItems),
+        c\ulist($list_items),
         c\drop_down(
-            $selectOptions,
+            $select_options,
             array('onchange' => 'pageSelected(this);'),
-            $selectedValue));
+            $selected_value));
 }
 
-function current_link($isCurrent) {
-    return $isCurrent ?  array('id' => 'current_link') : array();
+function current_link($is_current) {
+    return $is_current ?  array('id' => 'current_link') : array();
 }
 
-function edit_page(array $formData, $currentPage, $errors = array()) {
+function edit_page(array $form_data, $current_page, $errors = array()) {
     return
     c\form(
         array('method' => 'post', 'id' => 'page_form'),
         '<input type="hidden" name="delete_flag" value="0"/>',
         c\ulist($errors, array('class' => 'error')),
         c\div(c\hlink(
-            ROOT . $currentPage['url_id'],
+            ROOT . $current_page['url_id'],
             'View Page')),
 
-        page_inputs($formData),
+        page_inputs($form_data),
         c\div(
             '<input type="submit" value="Save"/>',
             '<input type="button" value="Delete" onclick="deletePage();"/>'));
 }
 
-function nav_elements($pages, $currentPageID, $baseURL, $key, $forceShow = false) {
-    $listItems = array();
-    $selectOptions = array();
-    $selectedValue = null;
+function nav_elements($pages, $current_page_id, $base_url, $key, $force_show = false) {
+    $list_items = array();
+    $select_options = array();
+    $selected_value = null;
 
     foreach($pages as $page) {
-        $isCurrent = ($page['page_id'] == $currentPageID);
-        $url = $baseURL . $page[$key];
+        $is_current = ($page['page_id'] == $current_page_id);
+        $url = $base_url . $page[$key];
 
-        if($forceShow || $page['display_mode'] == 1) {
-            $listItems[] = c\a(
+        if($force_show || $page['display_mode'] == 1) {
+            $list_items[] = c\a(
                 array_merge(
-                    current_link($isCurrent),
+                    current_link($is_current),
                     array('href' => $url)),
                 $page['link_title']);
 
-            $selectOptions[$url] = $page['link_title'];
+            $select_options[$url] = $page['link_title'];
 
-            if($isCurrent) {
-                $selectedValue = $url;
+            if($is_current) {
+                $selected_value = $url;
             }
         }
 
-        if($isCurrent) {
-            $currentTitle = $page['link_title'];
-            $currentURL = $url;
+        if($is_current) {
+            $current_title = $page['link_title'];
+            $current_url = $url;
         }
     }
 
-    if(is_null($selectedValue) && !is_null($currentTitle)) {
-        $selectOptions[$currentURL] = $currentTitle;
-        $selectedValue = $currentURL;
+    if(is_null($selected_value) && !is_null($current_title)) {
+        $select_options[$current_url] = $current_title;
+        $selected_value = $current_url;
     }
 
-    return array($listItems, $selectOptions, $selectedValue);
+    return array($list_items, $select_options, $selected_value);
 }
 
-function navs($pages, $currentPageID) {
-    list($listItems, $selectOptions, $selectedValue)
-        = nav_elements($pages, $currentPageID, ROOT, 'url_id');
+function navs($pages, $current_page_id) {
+    list($list_items, $select_options, $selected_value)
+        = nav_elements($pages, $current_page_id, ROOT, 'url_id');
 
     return array(
-        c\ulist($listItems),
+        c\ulist($list_items),
         c\drop_down(
-            $selectOptions,
+            $select_options,
             array('onchange' => 'pageSelected(this);'),
-            $selectedValue));
+            $selected_value));
 }
 
-function new_page(array $formData, $errors = array()) {
+function new_page(array $form_data, $errors = array()) {
     return c\form(
         array('method' => 'post'),
         c\ulist($errors, array('class' => 'error')),
-        page_inputs($formData),
+        page_inputs($form_data),
         c\div('<input type="submit" value="Create New Page"/>'));
 }
 
-function new_page_created($pageID, $urlID) {
+function new_page_created($page_id, $url_id) {
     return
         '<div class="success">New page created</div>' .
         c\ulist(
-            c\hlink(ROOT . $urlID, 'View Page'),
-            c\hlink(EDIT_PAGE . $pageID, 'Edit Page'),
+            c\hlink(ROOT . $url_id, 'View Page'),
+            c\hlink(EDIT_PAGE . $page_id, 'Edit Page'),
             c\hlink(NEW_PAGE, NEW_PAGE_TITLE));
 }
 
