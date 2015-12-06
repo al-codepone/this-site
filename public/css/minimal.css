@@ -1,0 +1,25 @@
+#alt-logo {
+    display: none;
+}
+
+#alt-nav {
+    display: none;
+}
+
+@media(max-width: 540px) {
+    #logo {
+        display: none;
+    }
+
+    #nav {
+        display: none;
+    }
+
+    #alt-logo {
+        display: block;
+    }
+
+    #alt-nav {
+        display: block;
+    }
+}
