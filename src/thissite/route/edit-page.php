@@ -1,23 +1,23 @@
 <?php
 
-$pageID = $_GET['id'];
-$page = $page_model->getWithPID($pageID);
+$page_id = $_GET['id'];
+$page = $page_model->getWithPID($page_id);
 
 if($page) {
     $validator = new thissite\validator\EditPageValidator();
 
-    if(list($formData, $errors) = $validator->validate()) {
-        if($formData['delete_flag']) {
-            $page_model->delete($pageID);
+    if(list($form_data, $errors) = $validator->validate()) {
+        if($form_data['delete_flag']) {
+            $page_model->delete($page_id);
             $t_content = '<div class="success">Page deleted</div>';
         }
         else if($errors) {
-            $t_content = edit_page($formData, $page, $errors);
+            $t_content = edit_page($form_data, $page, $errors);
         }
         else {
-            $t_content = ($error = $page_model->update($pageID, $formData))
-                ? edit_page($formData, $page, $error)
-                : page_updated($pageID, $formData['url_id']);
+            $t_content = ($error = $page_model->update($page_id, $form_data))
+                ? edit_page($form_data, $page, $error)
+                : page_updated($page_id, $form_data['url_id']);
         }
     }
     else {

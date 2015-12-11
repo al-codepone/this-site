@@ -11,6 +11,6 @@ include SRC . 'thissite/route/' . pc\route(array(
     'edit' => 'edit-page.php'));
 
 list($t_list_nav, $t_select_nav)
-    = cms_navs($page_model->getPages(), $pageID, $isNewPage);
+    = cms_navs($page_model->getPages(), $page_id, $is_new_page);
 
 include SRC . 'thissite/html/template.php';
