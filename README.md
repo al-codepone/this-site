@@ -87,6 +87,14 @@ $t_content = "<p>$tenk</p>";
 You can see where `$t_content`, `$t_head` and `$t_last` are placed in the HTML
 by looking at `src/thissite/html/template.php`.
 
+##Themes
+
+The easiest way to change the theme is to change the colors and the logos. All
+the colors are in `public/css/default.css`; you can find them all by searching
+for ": #". The logo images that you want to replace are in `public/img/`. When
+you replace the logo images be sure to update their dimensions in
+`src/thissite/html/template.php` on lines 12 and 13.
+
 ## LICENSE
 
 MIT <http://ryf.mit-license.org/>
