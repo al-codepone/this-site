@@ -95,6 +95,27 @@ for ": #". The logo images that you want to replace are in `public/img/`. When
 you replace the logo images be sure to update their dimensions in
 `src/thissite/html/template.php` on lines 12 and 13.
 
+The more advanced way to change the UI is to write your own CSS file. The key
+to writing your own CSS file is understanding the HTML. The HTML is fairly
+simple; there's a top level `div` and inside this `div` there are six `div`s:
+
+- a `div` with a linked logo
+- a `div` with a linked mobile logo
+- a `div` with a drop down navigation
+- a `div` with an unordered list navigation
+- a `div` for the page content
+- and lastly an empty `div`
+
+You can see all this by looking at `src/thissite/html/template.php`.
+
+One thing to notice here is that there are two logos and two navigations; one
+of each for the normal site and one for the mobile site. So in your CSS you
+always want to hide at least one logo and one navigation. An example of all
+the things that your CSS should do at the very minimum can be found in `public/css/minimal.css`.
+
+Besides `default.css`, there is another sample layout in
+`public/css/two-column.css`.
+
 ## LICENSE
 
 MIT <http://ryf.mit-license.org/>
