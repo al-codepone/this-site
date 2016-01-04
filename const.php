@@ -5,6 +5,7 @@ define('PAGE_ROUTES', 'C:/wamp/www/this-site/public/');
 
 define('ROOT', '/this-site/public/');
 define('CSS', ROOT . 'css/');
+define('CSS_FILE', CSS . 'default.css');
 define('JS', ROOT . 'js/');
 define('IMG', ROOT . 'img/');
 define('NEW_PAGE', ROOT . 'cms/');

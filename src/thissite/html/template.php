@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="<?=CSS?>default.css"/>
+        <link rel="stylesheet" href="<?=CSS_FILE?>"/>
         <script src="<?=JS?>all.js"></script>
         <?=$t_head?>
     </head>
