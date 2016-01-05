@@ -11,6 +11,11 @@ define('IMG', ROOT . 'img/');
 define('NEW_PAGE', ROOT . 'cms/');
 define('EDIT_PAGE', ROOT . 'cms/edit/');
 
+define('LOGO_WIDTH', 94);
+define('LOGO_HEIGHT', 90);
+define('ALT_LOGO_WIDTH', 78);
+define('ALT_LOGO_HEIGHT', 78);
+
 define('MYSQL_HOST', 'localhost');
 define('MYSQL_USERNAME', 'juanita');
 define('MYSQL_PASSWORD', 'pasta');
