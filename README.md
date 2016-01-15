@@ -93,7 +93,8 @@ The easiest way to change the theme is to change the colors and the logos. All
 the colors are in `public/css/default.css`; you can find them all by searching
 for ": #". The logo images that you want to replace are in `public/img/`. When
 you replace the logo images be sure to update their dimensions in
-`src/thissite/html/template.php` on lines 12 and 13.
+`const.php` via `LOGO_WIDTH`, `LOGO_HEIGHT`, `ALT_LOGO_WIDTH` and
+`ALT_LOGO_HEIGHT`.
 
 The more advanced way to change the UI is to write your own CSS file. The key
 to writing your own CSS file is understanding the HTML. The HTML is fairly
