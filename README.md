@@ -6,9 +6,6 @@ content, meta-data, page order and public/private. You
 can also set the page content using PHP instead of typing
 text into the CMS.
 
-The current release is still in development.
-This README is unfinished.
-
 ## Documentation
 
 This [README](https://github.com/al-codepone/this-site/blob/master/README.md)
@@ -28,7 +25,7 @@ The source code for this project is [available on GitHub]
 
 Grab all the files using the `composer create-project` command:
 
-    composer create-project this-site/this-site my-dir dev-master
+    composer create-project this-site/this-site my-dir 0.7.0
 
 Create a new MySQL database for the application.
 

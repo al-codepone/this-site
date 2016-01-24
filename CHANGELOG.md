@@ -30,11 +30,11 @@
     - Add responsive design drop down.
     - Add composer support.
     - Add safe mode.
-- 2016-1-22, 0.7.0
+- 2016-1-24, 0.7.0
     - Refactor codebase.
-    - Fix hidden links in the drop down navigation.
+    - Fix hidden links in drop down navigation.
     - Use MIT license instead of unlicense.
-    - Use pajamaSQL for the database layer instead of cityphp.
+    - Use pajamaSQL for database layer instead of cityphp.
     - Use Bouncer's Book for form validation.
     - Add ability to use PHP code to set the page content.
     - Add logos to UI.
