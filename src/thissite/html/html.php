@@ -151,7 +151,9 @@ function navs($pages, $current_page_id) {
         c\ulist($list_items),
         c\drop_down(
             $select_options,
-            array('onchange' => 'pageSelected(this);'),
+            array(
+                'onchange' => 'pageSelected(this);',
+                'id' => 'select-nav'),
             $selected_value));
 }
 
@@ -186,4 +188,10 @@ function head(array $data) {
         : '';
 
     return $title . $desc . $keywords;
+}
+
+function avoid_select_nav_cache($url_id) {
+    return c\script('
+        var selectNav = document.getElementById("select-nav");
+        selectNav.value = ' . json_encode(ROOT . $url_id) . ';');
 }

@@ -21,7 +21,8 @@ if($page && $page['display_mode'] != 3) {
             ? safe_mode($page['page_content'])
             : $page['page_content'];
     }
-        
+
+    $t_last .= avoid_select_nav_cache($_GET['id']);
     include SRC . 'thissite/html/template.php';
 }
 else {
