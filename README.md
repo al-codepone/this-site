@@ -42,7 +42,7 @@ In `public/boot.php` change the two paths so that they correctly point to `const
 
 Browse to `install.php`. You should see a success message and a link to the CMS.
 
-##Using The CMS
+## Using The CMS
 
 You can use the CMS to create new web pages and edit existing
 web pages. Here are all the fields available for each page and
@@ -62,7 +62,7 @@ editing a page there will be a link to the public page. So it
 is always easy to go from the CMS to the public site in order
 to see what your pages look like.
 
-##Using PHP To Set The Page Content
+## Using PHP To Set The Page Content
 
 You can call a PHP script instead of simply displaying your page content.
 This is useful if you want to programmatically generate your page or handle
@@ -84,7 +84,7 @@ $t_content = "<p>$tenk</p>";
 You can see where `$t_content`, `$t_head` and `$t_last` are placed in the HTML
 by looking at `src/thissite/html/template.php`.
 
-##Themes
+## Themes
 
 The easiest way to change the theme is to change the colors and the logos. All
 the colors are in `public/css/default.css`; you can find them all by searching
