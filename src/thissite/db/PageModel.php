@@ -25,21 +25,21 @@ class PageModel extends \pjsql\DatabaseAdapter {
             return url_taken($data['url_id']);
         }
 
-        $this->exec(sprintf('
+        $this->exec('
             INSERT INTO
                 tpage(url_id, link_title, html_title,
                 html_description, html_keywords,
                 page_content, link_order, display_mode)
             VALUES
-                ("%s", "%s", "%s", "%s", "%s", "%s", %d, %d)',
-            $this->esc($data['url_id']),
-            $this->esc($data['link_title']),
-            $this->esc($data['html_title']),
-            $this->esc($data['html_description']),
-            $this->esc($data['html_keywords']),
-            $this->esc($data['page_content']),
+                (?, ?, ?, ?, ?, ?, ?, ?)',
+            $data['url_id'],
+            $data['link_title'],
+            $data['html_title'],
+            $data['html_description'],
+            $data['html_keywords'],
+            $data['page_content'],
             $data['link_order'],
-            $data['display_mode']));
+            $data['display_mode']);
 
         return $this->conn()->insert_id;
     }
@@ -83,38 +83,38 @@ class PageModel extends \pjsql\DatabaseAdapter {
             return url_taken($data['url_id']);
         }
 
-        $this->exec(sprintf('
+        $this->exec('
             UPDATE
                 tpage
             SET
-                url_id = "%s",
-                link_title = "%s",
-                html_title = "%s",
-                html_description = "%s",
-                html_keywords = "%s",
-                page_content = "%s",
-                link_order = %d,
-                display_mode = %d
+                url_id = ?,
+                link_title = ?,
+                html_title = ?,
+                html_description = ?,
+                html_keywords = ?,
+                page_content = ?,
+                link_order = ?,
+                display_mode = ?
             WHERE
-                page_id = %d',
-            $this->esc($data['url_id']),
-            $this->esc($data['link_title']),
-            $this->esc($data['html_title']),
-            $this->esc($data['html_description']),
-            $this->esc($data['html_keywords']),
-            $this->esc($data['page_content']),
+                page_id = ?',
+            $data['url_id'],
+            $data['link_title'],
+            $data['html_title'],
+            $data['html_description'],
+            $data['html_keywords'],
+            $data['page_content'],
             $data['link_order'],
             $data['display_mode'],
-            $pageID));
+            $pageID);
     }
 
     public function delete($pageID) {
-        $this->exec(sprintf('
+        $this->exec('
             DELETE FROM
                 tpage
             WHERE
-                page_id = %d',
-            $pageID));
+                page_id = ?',
+            $pageID);
     }
 
     protected function get($condition) {
