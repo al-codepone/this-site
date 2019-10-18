@@ -55,11 +55,33 @@ class PageModel extends \pjsql\DatabaseAdapter {
     }
 
     public function getWithPID($pageID) {
-        return $this->get(sprintf('page_id = %d', $pageID));
+        $data = $this->query("
+            SELECT
+                page_id, url_id, link_title, html_title,
+                html_description, html_keywords, page_content,
+                link_order, display_mode + 0 AS display_mode
+            FROM
+                tpage
+            WHERE
+                page_id = ?",
+            $pageID);
+
+        return $data[0];
     }
 
     public function getWithUID($urlID) {
-        return $this->get(sprintf('url_id = "%s"', $this->esc($urlID)));
+        $data = $this->query("
+            SELECT
+                page_id, url_id, link_title, html_title,
+                html_description, html_keywords, page_content,
+                link_order, display_mode + 0 AS display_mode
+            FROM
+                tpage
+            WHERE
+                url_id = ?",
+            $urlID);
+
+        return $data[0];
     }
 
     public function getPages() {
@@ -115,19 +137,5 @@ class PageModel extends \pjsql\DatabaseAdapter {
             WHERE
                 page_id = ?',
             $pageID);
-    }
-
-    protected function get($condition) {
-        $data = $this->query("
-            SELECT
-                page_id, url_id, link_title, html_title,
-                html_description, html_keywords, page_content,
-                link_order, display_mode + 0 AS display_mode
-            FROM
-                tpage
-            WHERE
-                $condition");
-
-        return $data[0];
     }
 }
