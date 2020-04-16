@@ -2,16 +2,8 @@
     "name": "this-site/this-site",
     "description": "Webpage CMS",
     "keywords": ["webpage", "cms", "app"],
-    "homepage": "https://github.com/al-codepone/this-site",
+    "homepage": "https://github.com/ferg1e/this-site",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Ry Ferguson",
-            "role": "Developer",
-            "email": "rytf12@gmail.com",
-            "homepage": "http://ikitovagn.com"
-        }
-    ],
     "require": {
         "corn-wand/corn-wand": "0.5.0",
         "pajamasql/pajamasql": "1.0.0",
