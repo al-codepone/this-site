@@ -8,7 +8,7 @@ text into the CMS.
 
 ## Documentation
 
-This [README](https://github.com/al-codepone/this-site/blob/master/README.md)
+This [README](https://github.com/ferg1e/this-site/blob/master/README.md)
 is currently the only documentation.
 
 ## Requirements
@@ -18,8 +18,8 @@ and [Mysqli](http://www.php.net/manual/en/book.mysqli.php).
 
 ## Source Code
 
-The source code for this project is [available on GitHub]
-(https://github.com/al-codepone/this-site).
+The source code for this project is
+[available on GitHub](https://github.com/ferg1e/this-site).
 
 ## Installation
 
