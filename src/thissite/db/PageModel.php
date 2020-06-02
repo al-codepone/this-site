@@ -21,6 +21,11 @@ class PageModel extends \pjsql\DatabaseAdapter {
     }
 
     public function create($data) {
+
+        //
+        $data = normalize_page_form_data($data);
+
+        //
         if($this->getWithUID($data['url_id'])) {
             return url_taken($data['url_id']);
         }
@@ -78,8 +83,8 @@ class PageModel extends \pjsql\DatabaseAdapter {
             FROM
                 tpage
             WHERE
-                url_id = ?",
-            $urlID);
+                if(isnull(?), isnull(url_id), url_id = ?)",
+            $urlID, $urlID);
 
         return $data[0];
     }
@@ -99,6 +104,11 @@ class PageModel extends \pjsql\DatabaseAdapter {
     }
 
     public function update($pageID, $data) {
+
+        //
+        $data = normalize_page_form_data($data);
+
+        //
         $duplicateCheck = $this->getWithUID($data['url_id']);
 
         if($duplicateCheck && $duplicateCheck['page_id'] != $pageID) {
