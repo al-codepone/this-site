@@ -29,6 +29,9 @@ if($page && $page['display_mode'] != 3) {
     }
 
     //
+    $t_logos = logos();
+
+    //
     include SRC . 'thissite/html/template.php';
 }
 else {

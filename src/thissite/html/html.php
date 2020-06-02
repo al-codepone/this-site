@@ -220,3 +220,21 @@ function avoid_select_nav_cache($url_id) {
         var selectNav = document.getElementById("select-nav");
         selectNav.value = ' . json_encode(ROOT . $url_id) . ';');
 }
+
+function logos() {
+    ob_start();
+    
+    if(IS_LOGO) { ?>
+
+<div id="logo"><a href="<?=ROOT?>"><img src="<?=IMG?>logo.png" width="<?=LOGO_WIDTH?>" height="<?=LOGO_HEIGHT?>"/></a></div>
+
+    <?php }
+
+    if(IS_ALT_LOGO) { ?>
+
+<div id="alt-logo"><a href="<?=ROOT?>"><img src="<?=IMG?>alt-logo.png" width="<?=ALT_LOGO_WIDTH?>" height="<?=ALT_LOGO_HEIGHT?>"/></a></div>
+
+    <?php }
+
+    return ob_get_clean();
+}

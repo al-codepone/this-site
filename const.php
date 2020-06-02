@@ -22,4 +22,6 @@ define('MYSQL_PASSWORD', '');
 define('MYSQL_DBNAME', 'ts_test');
 
 define('IS_SAFE_MODE', false);
+define('IS_LOGO', false);
+define('IS_ALT_LOGO', true);
 define('NEW_PAGE_TITLE', 'New Page');
