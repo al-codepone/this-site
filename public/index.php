@@ -22,7 +22,13 @@ if($page && $page['display_mode'] != 3) {
             : $page['page_content'];
     }
 
-    $t_last .= avoid_select_nav_cache($_GET['id']);
+    //
+    if($t_select_nav !== '') {
+        $t_head .= c\js(JS . 'all.js');
+        $t_last .= avoid_select_nav_cache($_GET['id']);
+    }
+
+    //
     include SRC . 'thissite/html/template.php';
 }
 else {
