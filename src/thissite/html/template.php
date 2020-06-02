@@ -11,8 +11,8 @@
         <div id="main">
             <div id="logo"><a href="<?=ROOT?>"><img src="<?=IMG?>logo.png" width="<?=LOGO_WIDTH?>" height="<?=LOGO_HEIGHT?>"/></a></div>
             <div id="alt-logo"><a href="<?=ROOT?>"><img src="<?=IMG?>alt-logo.png" width="<?=ALT_LOGO_WIDTH?>" height="<?=ALT_LOGO_HEIGHT?>"/></a></div>
-            <div id="alt-nav"><?=$t_select_nav?></div>
-            <div id="nav"><?=$t_list_nav?></div>
+            <?=$t_select_nav?>
+            <?=$t_list_nav?>
             <div id="content"><?=$t_content?></div>
             <div id="floor"></div>
         </div>

@@ -78,12 +78,23 @@ function cms_navs($pages, $current_page_id, $is_new_page) {
         $selected_value = NEW_PAGE;
     }
 
-    return array(
-        c\ulist($list_items),
+    //
+    $list_nav = c\div(
+        ['id' => 'nav'],
+        c\ulist($list_items));
+
+    //
+    $select_nav = c\div(
+        ['id' => 'alt-nav'],
         c\drop_down(
             $select_options,
             array('onchange' => 'pageSelected(this);'),
             $selected_value));
+
+    //
+    return array(
+        $list_nav,
+        $select_nav);
 }
 
 function current_link($is_current) {
@@ -147,14 +158,28 @@ function navs($pages, $current_page_id) {
     list($list_items, $select_options, $selected_value)
         = nav_elements($pages, $current_page_id, ROOT, 'url_id');
 
+    //
+    $list_nav = count($list_items) > 1
+        ? c\div(['id' => 'nav'], c\ulist($list_items))
+        : '';
+
+    //
+    $select_nav = count($select_options) > 1
+        ? c\div(
+            ['id' => 'alt-nav'],
+            c\drop_down(
+                $select_options,
+                array(
+                    'onchange' => 'pageSelected(this);',
+                    'id' => 'select-nav'),
+                $selected_value))
+
+        : '';
+
+    //
     return array(
-        c\ulist($list_items),
-        c\drop_down(
-            $select_options,
-            array(
-                'onchange' => 'pageSelected(this);',
-                'id' => 'select-nav'),
-            $selected_value));
+        $list_nav,
+        $select_nav);
 }
 
 function new_page(array $form_data, $errors = array()) {
