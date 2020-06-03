@@ -84,12 +84,15 @@ function cms_navs($pages, $current_page_id, $is_new_page) {
         c\ulist($list_items));
 
     //
-    $select_nav = c\div(
-        ['id' => 'alt-nav'],
-        c\drop_down(
-            $select_options,
-            array('onchange' => 'pageSelected(this);'),
-            $selected_value));
+    $select_nav = IS_ALT_NAV
+        ? c\div(
+            ['id' => 'alt-nav'],
+            c\drop_down(
+                $select_options,
+                array('onchange' => 'pageSelected(this);'),
+                $selected_value))
+
+        : '';
 
     //
     return array(
@@ -164,7 +167,7 @@ function navs($pages, $current_page_id) {
         : '';
 
     //
-    $select_nav = count($select_options) > 1
+    $select_nav = (count($select_options) > 1) && IS_ALT_NAV
         ? c\div(
             ['id' => 'alt-nav'],
             c\drop_down(
