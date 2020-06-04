@@ -162,12 +162,12 @@ function navs($pages, $current_page_id) {
         = nav_elements($pages, $current_page_id, ROOT, 'url_id');
 
     //
-    $list_nav = count($list_items) > 0
+    $list_nav = IS_NAV
         ? c\nav(['id' => 'nav'], c\ulist($list_items))
         : '';
 
     //
-    $select_nav = (count($select_options) > 0) && IS_ALT_NAV
+    $select_nav = IS_ALT_NAV
         ? c\nav(
             ['id' => 'alt-nav'],
             c\drop_down(
