@@ -7,13 +7,9 @@
         <?=$t_head?>
     </head>
     <body>
-        <div id="main">
-            <?=$t_logos?>
-            <?=$t_select_nav?>
-            <?=$t_list_nav?>
-            <div id="content"><?=$t_content?></div>
-            <div id="floor"></div>
-        </div>
+        <?=$t_header?>
+        <main><?=$t_content?></main>
+        <footer></footer>
         <?=$t_last?>
     </body>
 </html>

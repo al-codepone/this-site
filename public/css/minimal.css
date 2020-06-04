@@ -17,28 +17,28 @@
 }
 
 /* vertical space for CMS inputs */
-#content form > div {
+main form > div {
     margin-bottom: 1em;
 }
 
 /* put CMS inputs under their label */
-#content form label {
+main form label {
     display:block;
 }
 
 /* these 3 selectors put the radio
 button to the left of their label */
-#content #c_display_mode label {
+main #c_display_mode label {
     display: inline;
 }
 
-#content #c_display_mode > div {
+main #c_display_mode > div {
     unicode-bidi: embed;
     direction: rtl;
     text-align: left;
 }
 
-#content #c_display_mode > div * {
+main #c_display_mode > div * {
     unicode-bidi: embed;
     direction: ltr;
 }

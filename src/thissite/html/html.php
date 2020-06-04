@@ -241,3 +241,9 @@ function logos() {
 
     return ob_get_clean();
 }
+
+function body_header($logos, $list_nav, $select_nav) {
+    return $logos !== '' || $list_nav !== '' || $select_nav !== ''
+        ? c\header("$logos$list_nav$select_nav")
+        : '';
+}

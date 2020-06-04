@@ -80,31 +80,31 @@ label {
     width: 38%;
 }
 
-#content {
+main {
     color: #2f3131;
     max-width: 550px;
     margin: 1em auto 0 auto;
 }
 
-#content a {
+main a {
     color: #426e86;
 }
 
-#content form > div {
+main form > div {
     margin-bottom: 1em;
 }
 
-#content #c_display_mode label {
+main #c_display_mode label {
     display: inline;
 }
 
-#content #c_display_mode > div {
+main #c_display_mode > div {
     unicode-bidi: embed;
     direction: rtl;
     text-align: left;
 }
 
-#content #c_display_mode > div * {
+main #c_display_mode > div * {
     unicode-bidi: embed;
     direction: ltr;
 }
@@ -128,7 +128,7 @@ label {
         display: none;
     }
 
-    #content {
+    main {
         max-width: 100%;
         margin: 1em;
     }
