@@ -79,13 +79,13 @@ function cms_navs($pages, $current_page_id, $is_new_page) {
     }
 
     //
-    $list_nav = c\div(
+    $list_nav = c\nav(
         ['id' => 'nav'],
         c\ulist($list_items));
 
     //
     $select_nav = IS_ALT_NAV
-        ? c\div(
+        ? c\nav(
             ['id' => 'alt-nav'],
             c\drop_down(
                 $select_options,
@@ -163,12 +163,12 @@ function navs($pages, $current_page_id) {
 
     //
     $list_nav = count($list_items) > 0
-        ? c\div(['id' => 'nav'], c\ulist($list_items))
+        ? c\nav(['id' => 'nav'], c\ulist($list_items))
         : '';
 
     //
     $select_nav = (count($select_options) > 0) && IS_ALT_NAV
-        ? c\div(
+        ? c\nav(
             ['id' => 'alt-nav'],
             c\drop_down(
                 $select_options,
