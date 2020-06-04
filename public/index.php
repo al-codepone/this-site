@@ -14,9 +14,7 @@ if($page && $page['display_mode'] != 3) {
         = navs($page_model->getPages(), $page['page_id']);
 
     if(preg_match('/\.php$/', $page['page_content'])) {
-        ob_start();
         include PAGE_ROUTES . $page['page_content'];
-        $t_content = ob_get_clean();
     }
     else {
         $t_content = IS_SAFE_MODE
