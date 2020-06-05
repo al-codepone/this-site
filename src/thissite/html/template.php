@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="<?=CSS_FILE?>"/>
         <?=$t_head?>
     </head>
-    <body>
+    <?=$t_body_open_tag?>
         <?=$t_header?>
         <main><?=$t_content?></main>
         <footer></footer>

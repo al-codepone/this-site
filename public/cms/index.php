@@ -17,6 +17,8 @@ $t_logos = logos();
 
 $t_header = body_header($t_logos, $t_list_nav, $t_select_nav);
 
+$t_body_open_tag = '<body>';
+
 $t_head .= c\js(JS . 'all.js');
 
 include SRC . 'thissite/html/template.php';

@@ -33,6 +33,8 @@ if($page && $page['display_mode'] != 3) {
 
     $t_header = body_header($t_logos, $t_list_nav, $t_select_nav);
 
+    $t_body_open_tag = body_open_tag($page);
+
     //
     include SRC . 'thissite/html/template.php';
 }

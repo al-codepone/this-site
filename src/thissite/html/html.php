@@ -247,3 +247,9 @@ function body_header($logos, $list_nav, $select_nav) {
         ? c\header("$logos$list_nav$select_nav")
         : '';
 }
+
+function body_open_tag(array $page) {
+    return is_null($page['url_id'])
+        ? '<body class="homepage">'
+        : '<body class="x-homepage">';
+}
