@@ -27,3 +27,4 @@ define('IS_ALT_LOGO', true);
 define('IS_NAV', false);
 define('IS_ALT_NAV', true);
 define('NEW_PAGE_TITLE', 'New Page');
+define('FOOTER', '<footer>footer</footer>');

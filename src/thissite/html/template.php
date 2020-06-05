@@ -9,7 +9,7 @@
     <?=$t_body_open_tag?>
         <?=$t_header?>
         <main><?=$t_content?></main>
-        <footer></footer>
+        <?=FOOTER?>
         <?=$t_last?>
     </body>
 </html>
